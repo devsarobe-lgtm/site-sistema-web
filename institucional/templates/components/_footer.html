@@ -1,0 +1,84 @@
+{% load static %}
+<footer class="main-footer py-5">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 g-lg-5 mb-4">
+            <!-- Brand -->
+            <div class="col">
+                <div
+                    class="d-flex align-items-center justify-content-center justify-content-md-start mb-3 footer-brand">
+                    <picture>
+                        <source srcset="{% static 'img/logos/Logo_branca_icon_sem_fundo.webp' %}" type="image/webp">
+                        <img src="{% static 'img/logos/Logo_branca_icon_sem_fundo.png' %}" alt="Sarobe Contabilidade"
+                            class="logo-img" height="40" decoding="async" loading="lazy">
+                    </picture>
+                    <div class="d-flex flex-column lh-sm brand-text text-white ms-2">
+                        <span class="fw-bold text-uppercase">Sarobe</span>
+                        <span class="sub-brand">Contabilidade</span>
+                    </div>
+                </div>
+                <p class="footer-text small mb-0 text-center text-md-start">
+                    Contabilidade consultiva para simplificar sua gestão e impulsionar resultados.
+                </p>
+            </div>
+
+            <!-- Quick links -->
+            <div class="col">
+                <h6 class="footer-heading text-center text-md-start">Links Rápidos</h6>
+                <ul class="list-unstyled mb-0 text-center text-md-start">
+                    <li><a class="footer-link" href="">Home</a></li>
+                    <li><a class="footer-link" href="">Sobre</a></li>
+                    <li><a class="footer-link" href="#services" data-scroll-target="services">Serviços</a></li>
+                    <li><a class="footer-link" href="">Planos</a></li>
+                    <li><a class="footer-link" href="">Blog</a></li>
+                    <li><a class="footer-link" href="">Contato</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="col">
+                <h6 class="footer-heading text-center text-md-start">Contato</h6>
+                <ul class="list-unstyled small mb-0">
+                    <li class="d-flex justify-content-center justify-content-md-start align-items-start mb-2">
+                        <i class="bi bi-geo-alt me-2"></i>
+                        <span>Av. Paulista, 1000 — São Paulo, SP</span>
+                    </li>
+                    <li class="d-flex justify-content-center justify-content-md-start align-items-start mb-2">
+                        <i class="bi bi-telephone me-2"></i>
+                        <span>(11) 99999-9999</span>
+                    </li>
+                    <li class="d-flex justify-content-center justify-content-md-start align-items-start mb-2">
+                        <i class="bi bi-envelope me-2"></i>
+                        <span>contato@sarobe.com.br</span>
+                    </li>
+                    <li class="d-flex justify-content-center justify-content-md-start align-items-start">
+                        <i class="bi bi-clock me-2"></i>
+                        <span>Seg - Sex: 9h às 18h</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Map -->
+            <div class="col">
+                <h6 class="footer-heading text-center text-md-start">Localização</h6>
+                <div class="ratio ratio-16x9 rounded-3 overflow-hidden mx-auto footer-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.0977891988886!2d-46.656229!3d-23.5631169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa Sarobe"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="border-top border-opacity-25 pt-3">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 gap-md-3">
+                <p class="footer-text small mb-0 text-center text-md-start">
+                    © 2025 Sarobe Contabilidade. Todos os direitos reservados.
+                </p>
+                <div class="d-flex flex-column flex-sm-row align-items-center gap-2">
+                    <a class="footer-link small" href="">Política de Privacidade</a>
+                    <a class="footer-link small" href="">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

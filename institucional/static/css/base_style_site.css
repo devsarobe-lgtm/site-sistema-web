@@ -160,11 +160,79 @@ header,
     FOOTER (GLOBAL)
 =========================== */
 
-footer,
 .main-footer {
     background-color: var(--primary-color-dark);
-    color: #ffffff;
+    color: #fff;
 }
+
+.footer-heading {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.footer-text {
+    color: rgba(255, 255, 255, .80);
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, .75);
+    display: inline-block;
+    padding: .125rem 0;
+}
+
+.footer-link:hover,
+.footer-link:focus {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+/* === Brand no footer (mesmo padrão do header) === */
+.footer-brand .logo-img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+.footer-brand .brand-text .fw-bold {
+    letter-spacing: 0.06rem;
+    font-family: var(--heading-font);
+}
+
+.footer-brand .brand-text .sub-brand {
+    font-size: 0.9rem;
+    line-height: 1.1;
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+/* Ícones no footer */
+.main-footer .bi {
+    color: rgba(255, 255, 255, .75);
+}
+
+.main-footer a:hover .bi {
+    color: #fff;
+}
+
+/* Mapa responsivo com largura máxima */
+.footer-map {
+    max-width: 420px;
+    min-height: 220px;
+}
+
+/* Mais respiro no mobile */
+@media (max-width: 575.98px) {
+    .main-footer ul {
+        margin-bottom: .5rem;
+    }
+
+    .main-footer li+li {
+        margin-top: .25rem;
+    }
+}
+
+
 
 /* ===========================
     LINKS & ICONS
