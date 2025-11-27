@@ -1,0 +1,262 @@
+/* ===========================
+    GLOBAL VARIABLES
+=========================== */
+:root {
+    /* Main palette (accounting office) */
+    --primary-color: #1E4F8C;
+    /* Trust blue */
+    --primary-color-dark: #0B2647;
+    /* Serious navy */
+    --accent-color: #C9A25F;
+    /* Soft gold - exclusivity */
+
+    --background-color: #F4F5F7;
+    /* Neutral light background */
+    --text-color: #111827;
+    /* Almost black - readability */
+    --muted-text-color: #6B7280;
+    /* Secondary text */
+
+    /* Global fonts */
+    --heading-font: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --body-font: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ===========================
+    BASE
+=========================== */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--body-font);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ===========================
+    TYPOGRAPHY
+=========================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.main-title {
+    font-family: var(--heading-font);
+    letter-spacing: 0.03em;
+    color: var(--primary-color-dark);
+}
+
+h1,
+.main-title {
+    font-weight: 700;
+}
+
+h2,
+h3 {
+    font-weight: 600;
+}
+
+h4,
+h5,
+h6 {
+    font-weight: 500;
+}
+
+.muted-text {
+    color: var(--muted-text-color);
+}
+
+/* ===========================
+    HEADER (GLOBAL)
+=========================== */
+
+header,
+.main-header {
+    background-color: var(--primary-color-dark);
+    color: #ffffff;
+}
+
+.main-header {
+    background-color: var(--primary-color-dark);
+    color: #ffffff;
+}
+
+.main-header .navbar {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    background-color: transparent;
+}
+
+/* Logo image */
+.logo-img {
+    height: 50px;
+    /* ajuste fino do tamanho do logo */
+    width: auto;
+    display: block;
+}
+
+/* Brand text block */
+.brand-text .fw-bold {
+    letter-spacing: 0.06rem;
+    font-family: var(--heading-font);
+}
+
+.brand-text .sub-brand {
+    font-size: 0.9rem;
+    line-height: 1.1;
+    color: var(--accent-color);
+    /* contraste no header escuro */
+    font-weight: 500;
+}
+
+/* Remover padding extra do brand no navbar */
+.navbar-brand {
+    padding: 0;
+}
+
+/* Links do menu */
+.nav-link-header {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.nav-link-header:hover,
+.nav-link-header:focus,
+.nav-link-header.active {
+    color: var(--accent-color);
+}
+
+/* Corrigir cor dos ícones dentro do botão WhatsApp */
+.btn-whatsapp i,
+.btn-whatsapp .bi,
+.btn-whatsapp .fa {
+    color: inherit;
+}
+
+/* Menu mobile: fundo igual ao header */
+@media (max-width: 767.98px) {
+    #mainNavbar {
+        padding-top: 0.75rem;
+    }
+
+    .navbar-nav .nav-link-header {
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+    }
+}
+
+/* ===========================
+    FOOTER (GLOBAL)
+=========================== */
+
+footer,
+.main-footer {
+    background-color: var(--primary-color-dark);
+    color: #ffffff;
+}
+
+/* ===========================
+    LINKS & ICONS
+=========================== */
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+i,
+.bi,
+.fa {
+    color: var(--primary-color);
+}
+
+a:hover i,
+a:hover .bi,
+a:hover .fa {
+    color: var(--accent-color);
+}
+
+/* ===========================
+    BUTTONS (Bootstrap light override)
+=========================== */
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--primary-color-dark);
+    border-color: var(--primary-color-dark);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.btn-outline-warning {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+
+/* ===========================
+    HIGHLIGHT ELEMENTS
+=========================== */
+
+.highlight-call,
+.premium-badge {
+    color: var(--primary-color-dark);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.25rem;
+}
+
+/* Service / feature cards */
+.service-card {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.service-card .card-title {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    color: var(--primary-color-dark);
+}
+
+.service-card .card-text {
+    color: var(--muted-text-color);
+}
+
+/* ===========================
+    AOS (Animate On Scroll)
+=========================== */
+
+[data-aos] {
+    will-change: transform, opacity;
+}
