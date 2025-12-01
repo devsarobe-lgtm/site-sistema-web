@@ -10,56 +10,8 @@
 
 {% block content %}
 
-<section class="hero-section position-relative overflow-hidden text-white">
-
-    <div class="container position-relative py-5 py-md-6">
-        <div class="row align-items-center gy-4 gy-lg-0">
-            <!-- Coluna texto -->
-            <div class="col-lg-6" data-aos="fade-up">
-                <h1 class="hero-title">
-                    Contabilidade consultiva para sua empresa crescer com segurança
-                </h1>
-                <p class="hero-subtitle">
-                    Cuidamos do fiscal, trabalhista e financeiro, enquanto você foca no seu negócio.
-                </p>
-
-                <div class="d-flex flex-column flex-sm-row gap-3 hero-cta-group">
-                    <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer"
-                        class="btn btn-hero-primary">
-                        <i class="bi bi-whatsapp me-2"></i>
-                        Falar no WhatsApp
-                    </a>
-
-                    <a href="#plans" class="btn btn-hero-secondary">
-                        Ver planos
-                        <i class="bi bi-arrow-right ms-2"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Coluna imagem equipe -->
-            <div class="col-lg-6 d-none d-lg-block" data-aos="fade-left">
-                <div class="hero-image-wrapper">
-                    <img src="{% static 'img/team-hero.jpg' %}"
-                        alt="Equipe contábil atendendo clientes com proximidade e confiança"
-                        class="img-fluid hero-image">
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Onda inferior -->
-    <div class="hero-wave">
-        <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-            <path
-                d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
-                fill="#ffffff" />
-        </svg>
-    </div>
-</section>
-
-
+<!-- Seção Hero -->
+{% include 'home/components/_hero_home.html' %}
 
 {% endblock %}
 
