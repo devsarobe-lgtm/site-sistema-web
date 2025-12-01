@@ -248,17 +248,6 @@ a:hover {
     text-decoration: none;
 }
 
-i,
-.bi,
-.fa {
-    color: var(--primary-color);
-}
-
-a:hover i,
-a:hover .bi,
-a:hover .fa {
-    color: var(--accent-color);
-}
 
 /* ===========================
     BUTTONS (Bootstrap light override)

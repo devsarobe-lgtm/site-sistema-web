@@ -1,0 +1,166 @@
+/* ===========================
+    HERO (HOME)
+=========================== */
+
+body main .hero-section,
+.hero-section {
+    background: linear-gradient(
+        180deg,
+        var(--primary-color-dark) 30%,
+        var(--primary-color) 100%,
+        #1ca2c9 1000%
+    );
+    color: #ffffff;
+    position: relative;
+}
+
+.hero-section .container {
+    padding-top: 4rem;
+    padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+    .hero-section .container {
+        padding-top: 6rem;
+        padding-bottom: 7rem;
+    }
+}
+
+/* Conteúdo */
+
+.hero-section .hero-title {
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+    font-size: 2.25rem;
+    color: #ffffff;
+}
+
+@media (min-width: 768px) {
+    .hero-section .hero-title {
+        font-size: 3rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .hero-section .hero-title {
+        font-size: 3.5rem;
+    }
+}
+
+.hero-section .hero-subtitle {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .hero-section .hero-subtitle {
+        font-size: 1.25rem;
+    }
+}
+
+/* CTAs */
+
+.hero-cta-group {
+    gap: 0.75rem;
+}
+
+/* Botão principal - WhatsApp */
+.btn-hero-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--primary-color-dark);
+    font-weight: 600;
+    padding: 0.75rem 2.5rem;
+    border-radius: 0.75rem;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.btn-hero-primary:hover,
+.btn-hero-primary:focus {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--primary-color-dark);
+
+    /* só o efeito de zoom + sombra */
+    transform: scale(1.05, 1.08);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.32);
+}
+
+
+
+
+/* Botão secundário */
+
+.btn-hero-secondary {
+    background-color: transparent;
+    border: 1.5px solid rgba(255, 255, 255, 0.7);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.75rem 2.4rem;
+    border-radius: 0.75rem;
+}
+
+.btn-hero-secondary:hover,
+.btn-hero-secondary:focus {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+/* Ícones dentro dos botões */
+
+.btn-hero-primary i,
+.btn-hero-secondary i {
+    color: inherit;
+}
+
+/* Onda inferior */
+
+.hero-wave {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -60px;
+    line-height: 0;
+    z-index: 0;
+}
+
+.hero-wave svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Garantir conteúdo acima da onda */
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* ===========================
+    HERO IMAGE
+=========================== */
+
+.hero-image-wrapper {
+    text-align: center;
+}
+
+.hero-image {
+    max-width: 480px;
+    width: 100%;
+    border-radius: 1.25rem;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+    object-fit: cover;
+}
+
+/* Mais respiro no mobile: imagem abaixo com margem */
+@media (max-width: 991.98px) {
+    .hero-image-wrapper {
+        margin-top: 1rem;
+    }
+}
+
