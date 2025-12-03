@@ -12,7 +12,11 @@ body main .hero-section,
     );
     color: #ffffff;
     position: relative;
+    overflow: visible;
+    margin-top: -1px;
+    z-index: 0;
 }
+
 
 .hero-section .container {
     padding-top: 4rem;
@@ -64,6 +68,8 @@ body main .hero-section,
 
 .hero-cta-group {
     gap: 0.75rem;
+    position: relative;
+    z-index: 10;
 }
 
 /* Botão principal - WhatsApp */
@@ -86,29 +92,29 @@ body main .hero-section,
 
     /* só o efeito de zoom + sombra */
     transform: scale(1.05, 1.08);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.32);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.32);
 }
-
-
-
 
 /* Botão secundário */
 
 .btn-hero-secondary {
-    background-color: transparent;
-    border: 1.5px solid rgba(255, 255, 255, 0.7);
-    color: #ffffff;
+    background-color: #ffffff;
+    border: 1.5px solid var(--accent-color);
+    color: var(--primary-color-dark);
     font-weight: 600;
     padding: 0.75rem 2.4rem;
     border-radius: 0.75rem;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
 }
+
 
 .btn-hero-secondary:hover,
 .btn-hero-secondary:focus {
-    background-color: rgba(255, 255, 255, 0.08);
-    border-color: #ffffff;
-    color: #ffffff;
+    background-color: rgba(201, 162, 95, 0.08); /* leve fundo dourado translúcido */
+    border-color: var(--accent-color);
+    color: var(--accent-color);
 }
+
 
 /* Ícones dentro dos botões */
 
@@ -123,9 +129,10 @@ body main .hero-section,
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -60px;
+    bottom: -1px;
     line-height: 0;
-    z-index: 0;
+    z-index: -1;
+    pointer-events: none;
 }
 
 .hero-wave svg {
@@ -135,11 +142,12 @@ body main .hero-section,
 }
 
 /* Garantir conteúdo acima da onda */
-
 .hero-section .container {
     position: relative;
     z-index: 2;
+    margin-bottom: -1px;
 }
+
 
 /* ===========================
     HERO IMAGE
@@ -163,4 +171,78 @@ body main .hero-section,
         margin-top: 1rem;
     }
 }
+/* ===========================
+    ABOUT SECTION
+=========================== */
 
+.about-section {
+    background-color: #ffffff;
+}
+
+/* Título e textos */
+.section-eyebrow {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.section-title {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    font-size: 2.1rem;
+    color: var(--primary-color-dark);
+}
+
+@media (min-width: 992px) {
+    .section-title {
+        font-size: 2.4rem;
+    }
+}
+
+.section-text {
+    color: var(--muted-text-color);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+}
+
+/* Imagem */
+.about-image-wrapper {
+    text-align: center;
+}
+
+.about-image {
+    max-width: 480px;
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.18);
+    object-fit: cover;
+}
+
+/* Métricas */
+.about-metric-number {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    font-size: 2.1rem;
+    color: var(--primary-color-dark);
+}
+
+.about-metric-label {
+    font-size: 0.95rem;
+    color: var(--muted-text-color);
+}
+
+/* Divisórias verticais no desktop, empilhado no mobile */
+@media (min-width: 768px) {
+    .about-metrics .col-md-4 + .col-md-4 {
+        border-left: 1px solid #e5e7eb;
+        padding-left: 2rem;
+    }
+}
+@media (max-width: 767.98px) {
+    .about-metrics .col-md-4 + .col-md-4 {
+        border-top: 1px solid #e5e7eb;
+        padding-top: 1rem;
+    }
+}
