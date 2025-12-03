@@ -311,6 +311,38 @@ a:hover {
 }
 
 /* ===========================
+   CUSTOM SCROLLBAR (GLOBAL)
+=========================== */
+
+/* Navegadores WebKit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(11, 38, 71, 0.04); /* var(--primary-color-dark) bem suave */
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 999px;
+    border: 2px solid var(--background-color); /* cria efeito de “pill” */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color-dark);
+}
+
+/* Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) rgba(11, 38, 71, 0.04);
+}
+
+
+
+/* ===========================
     AOS (Animate On Scroll)
 =========================== */
 
