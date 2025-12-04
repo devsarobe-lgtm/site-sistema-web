@@ -432,6 +432,63 @@ html {
 }
 
 
+/* ===== Modals theming (usa sua paleta) ===== */
+.modal-themed .modal-header {
+    background: var(--primary-color-dark);
+    color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
+}
+
+.modal-themed .modal-title {
+    font-family: var(--heading-font);
+    color: #fff;
+}
+
+.modal-themed .modal-body {
+    background: #fff;
+    color: var(--text-color);
+}
+
+.modal-themed .modal-body .section-heading {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-top: .25rem;
+    margin-bottom: .5rem;
+}
+
+.modal-themed .modal-body a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.modal-themed .modal-body a:hover {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.modal-themed .modal-footer {
+    background: #fff;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* Botão de ação com sua cor destaque */
+.btn-accent {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--primary-color-dark);
+    font-weight: 600;
+}
+
+.btn-accent:hover,
+.btn-accent:focus {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--primary-color-dark);
+    filter: brightness(0.96);
+}
+
+
 /* ===========================
     AOS (Animate On Scroll)
 =========================== */
