@@ -4,12 +4,10 @@
 
 body main .hero-section,
 .hero-section {
-    background: linear-gradient(
-        180deg,
-        var(--primary-color-dark) 30%,
-        var(--primary-color) 100%,
-        #1ca2c9 1000%
-    );
+    background: linear-gradient(180deg,
+            var(--primary-color-dark) 30%,
+            var(--primary-color) 100%,
+            #1ca2c9 1000%);
     color: #ffffff;
     position: relative;
     overflow: visible;
@@ -110,7 +108,8 @@ body main .hero-section,
 
 .btn-hero-secondary:hover,
 .btn-hero-secondary:focus {
-    background-color: rgba(201, 162, 95, 0.08); /* leve fundo dourado translúcido */
+    background-color: rgba(201, 162, 95, 0.08);
+    /* leve fundo dourado translúcido */
     border-color: var(--accent-color);
     color: var(--accent-color);
 }
@@ -171,6 +170,7 @@ body main .hero-section,
         margin-top: 1rem;
     }
 }
+
 /* ===========================
     ABOUT SECTION
 =========================== */
@@ -235,13 +235,14 @@ body main .hero-section,
 
 /* Divisórias verticais no desktop, empilhado no mobile */
 @media (min-width: 768px) {
-    .about-metrics .col-md-4 + .col-md-4 {
+    .about-metrics .col-md-4+.col-md-4 {
         border-left: 1px solid #e5e7eb;
         padding-left: 2rem;
     }
 }
+
 @media (max-width: 767.98px) {
-    .about-metrics .col-md-4 + .col-md-4 {
+    .about-metrics .col-md-4+.col-md-4 {
         border-top: 1px solid #e5e7eb;
         padding-top: 1rem;
     }
@@ -420,7 +421,8 @@ body main .hero-section,
     color: var(--muted-text-color);
     line-height: 1.6;
     margin-bottom: 1.1rem;
-    min-height: 2.8rem; /* ajuda alinhar os preços entre os cards */
+    min-height: 2.8rem;
+    /* ajuda alinhar os preços entre os cards */
 }
 
 /* Preço */
@@ -442,7 +444,8 @@ body main .hero-section,
 
 .plan-features {
     margin-bottom: 1.4rem;
-    min-height: 9.5rem;          /* garante altura parecida entre as listas */
+    min-height: 9.5rem;
+    /* garante altura parecida entre as listas */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -458,7 +461,8 @@ body main .hero-section,
 }
 
 .plan-feature i {
-    color: #10b981; /* verde check */
+    color: #10b981;
+    /* verde check */
     font-size: 1rem;
     margin-top: 0.1rem;
 }
@@ -530,7 +534,8 @@ body main .hero-section,
 =========================== */
 
 .partners-section {
-    background-color: var(--primary-color-dark); /* faixa azul cima/baixo */
+    background-color: var(--primary-color-dark);
+    /* faixa azul cima/baixo */
 }
 
 .partners-strip {
@@ -583,6 +588,7 @@ body main .hero-section,
     0% {
         transform: translateX(0);
     }
+
     100% {
         transform: translateX(-50%);
     }
@@ -630,7 +636,8 @@ body main .hero-section,
 }
 
 .review-stars {
-    color: #f59e0b; /* amarelo das estrelas */
+    color: #f59e0b;
+    /* amarelo das estrelas */
     font-size: 1rem;
 }
 
@@ -730,6 +737,7 @@ body main .hero-section,
     0% {
         transform: translateX(0);
     }
+
     100% {
         transform: translateX(-50%);
     }
@@ -780,7 +788,7 @@ body main .hero-section,
     }
 }
 
-.faq-item + .faq-item {
+.faq-item+.faq-item {
     border-top: 1px solid #e5e7eb;
     margin-top: 0.75rem;
     padding-top: 0.75rem;
@@ -834,3 +842,36 @@ body main .hero-section,
     line-height: 1.7;
 }
 
+/* ===========================
+    FINAL CTA SECTION
+=========================== */
+
+.final-cta-section {
+    background: var(--primary-color-dark);
+    color: #ffffff;
+}
+
+.final-cta-inner {
+    background: rgba(11, 38, 71, 0.55);
+    border-radius: 1.5rem;
+    padding: 2.2rem 1.7rem;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.35);
+}
+
+@media (min-width: 768px) {
+    .final-cta-inner {
+        padding: 2.6rem 2.4rem;
+    }
+}
+
+/* Títulos e texto dentro do CTA */
+
+.final-cta-section .section-title,
+.final-cta-title {
+    color: #ffffff;
+}
+
+.final-cta-text {
+    color: rgba(241, 245, 249, 0.9);
+    max-width: 36rem;
+}
