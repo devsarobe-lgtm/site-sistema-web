@@ -321,13 +321,15 @@ a:hover {
 }
 
 ::-webkit-scrollbar-track {
-    background-color: rgba(11, 38, 71, 0.04); /* var(--primary-color-dark) bem suave */
+    background-color: rgba(11, 38, 71, 0.04);
+    /* var(--primary-color-dark) bem suave */
 }
 
 ::-webkit-scrollbar-thumb {
     background: var(--primary-color);
     border-radius: 999px;
-    border: 2px solid var(--background-color); /* cria efeito de “pill” */
+    border: 2px solid var(--background-color);
+    /* cria efeito de “pill” */
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -340,6 +342,94 @@ html {
     scrollbar-color: var(--primary-color) rgba(11, 38, 71, 0.04);
 }
 
+
+
+/* ===========================
+   WHATSAPP FLOAT (from scratch)
+=========================== */
+.fab-whatsapp {
+    position: fixed;
+    inset-block-end: 18px;
+    /* bottom */
+    inset-inline-end: 16px;
+    /* right */
+    width: 3rem;
+    height: 3rem;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 999px;
+    background-color: #25D366;
+    /* WhatsApp green */
+    color: #fff;
+    font-size: 1.4rem;
+    z-index: 1100;
+
+    /* estável e sem causar scroll lateral */
+    isolation: isolate;
+    contain: layout paint;
+    will-change: opacity;
+    transition: transform .18s ease-out, box-shadow .18s ease-out;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .25);
+
+    /* “piscar” intermitente (só opacidade → zero overflow) */
+    animation: wa-soft-blink 1.6s ease-in-out infinite;
+}
+
+.fab-whatsapp .bi {
+    color: inherit;
+    line-height: 1;
+}
+
+/* hover/focus: destaque leve */
+.fab-whatsapp:hover,
+.fab-whatsapp:focus-visible {
+    animation-play-state: paused;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, .32);
+    text-decoration: none;
+    outline: none;
+}
+
+/* safe-area (iOS/Android com notch) */
+@supports (bottom: env(safe-area-inset-bottom)) {
+    .fab-whatsapp {
+        inset-block-end: calc(18px + env(safe-area-inset-bottom));
+        inset-inline-end: calc(16px + env(safe-area-inset-right));
+    }
+}
+
+/* mobile fine-tune */
+@media (max-width: 575.98px) {
+    .fab-whatsapp {
+        width: 2.8rem;
+        height: 2.8rem;
+        font-size: 1.3rem;
+        inset-block-end: 16px;
+        inset-inline-end: 14px;
+    }
+}
+
+/* acessibilidade: respeita redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+    .fab-whatsapp {
+        animation: none;
+    }
+}
+
+/* keyframes: pisca suave sem translate/box-shadow animado */
+@keyframes wa-soft-blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .65;
+    }
+}
 
 
 /* ===========================
