@@ -758,3 +758,79 @@ body main .hero-section,
         flex: 0 0 100%;
     }
 }
+
+/* ===========================
+    FAQ SECTION
+=========================== */
+
+.faq-section {
+    background-color: #ffffff;
+}
+
+.faq-accordion {
+    border-radius: 1.25rem;
+    border: 1px solid #e5e7eb;
+    background-color: #f9fafb;
+    padding: 1.25rem 1.3rem;
+}
+
+@media (min-width: 768px) {
+    .faq-accordion {
+        padding: 1.6rem 1.8rem;
+    }
+}
+
+.faq-item + .faq-item {
+    border-top: 1px solid #e5e7eb;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+}
+
+.faq-header {
+    margin-bottom: 0;
+}
+
+/* Botão da pergunta */
+
+.faq-question-btn {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    padding: 0.65rem 0;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.98rem;
+    font-weight: 600;
+    font-family: var(--heading-font);
+    color: var(--primary-color-dark);
+}
+
+.faq-question-btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Ícone seta */
+
+.faq-icon .bi {
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+    color: var(--primary-color);
+}
+
+.faq-question-btn:not(.collapsed) .faq-icon .bi {
+    transform: rotate(180deg);
+}
+
+/* Corpo da resposta */
+
+.faq-body {
+    padding: 0 0 0.6rem;
+    font-size: 0.95rem;
+    color: var(--muted-text-color);
+    line-height: 1.7;
+}
+
