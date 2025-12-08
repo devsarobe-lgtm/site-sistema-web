@@ -1,0 +1,232 @@
+/* ===========================
+   ABOUT PAGE
+=========================== */
+
+.about-page {
+    background-color: var(--background-color);
+}
+
+/* HERO */
+.about-hero {
+    background: linear-gradient(180deg,
+            var(--primary-color-dark) 30%,
+            var(--primary-color) 100%,
+            #1ca2c9 1000%);
+    color: #fff;
+    padding: 4.5rem 0 4rem;
+}
+
+.about-hero-title {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    color: #fff;
+}
+
+.about-hero-subtitle {
+    max-width: 40rem;
+    color: rgba(241, 245, 249, 0.9);
+    font-size: 1.05rem;
+}
+
+/* HISTÓRIA + MÉTRICAS */
+.about-text p + p {
+    margin-top: .75rem;
+}
+
+.about-metrics {
+    background: #f1f5f9;
+    border-radius: 1.5rem;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+}
+
+.about-metric-number {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary-color-dark);
+    line-height: 1.1;
+}
+
+.about-metric-label {
+    font-size: .95rem;
+    color: var(--muted-text-color);
+}
+
+/* VALORES */
+.about-values-section {
+    background-color: #f8fafc;
+}
+
+.about-value-card {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.about-value-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 999px;
+    margin: 0 auto 1rem;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(circle at 30% 0, #facc15, #c0841a);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.2);
+}
+
+.about-value-icon i {
+    font-size: 1.8rem;
+    color: var(--primary-color-dark);
+}
+
+.about-value-title {
+    font-family: var(--heading-font);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--primary-color-dark);
+    margin-bottom: .5rem;
+}
+
+.about-value-text {
+    font-size: .95rem;
+    color: var(--muted-text-color);
+}
+
+/* TIMELINE */
+.about-timeline {
+    position: relative;
+    padding-left: 1.5rem;
+    border-left: 2px solid #bfdbfe;
+}
+
+.about-timeline-item {
+    position: relative;
+    padding-bottom: 1.75rem;
+}
+
+.about-timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.about-timeline-dot {
+    position: absolute;
+    left: -0.95rem;
+    top: .2rem;
+    width: .9rem;
+    height: .9rem;
+    border-radius: 999px;
+    background: var(--primary-color-dark);
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 3px #bfdbfe;
+}
+
+.about-timeline-content {
+    background: #f9fafb;
+    border-radius: .9rem;
+    padding: 1rem 1.1rem;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.about-timeline-year {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #facc15;
+    margin-bottom: .15rem;
+}
+
+.about-timeline-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--primary-color-dark);
+    margin-bottom: .25rem;
+}
+
+.about-timeline-text {
+    font-size: .95rem;
+    color: var(--muted-text-color);
+}
+
+/* EQUIPE */
+.about-team-section {
+    background-color: #f8fafc;
+}
+
+.about-team-card {
+    background: #fff;
+    border-radius: 1.1rem;
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-team-avatar {
+    height: 150px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, var(--primary-color-dark), var(--primary-color));
+}
+
+.about-team-avatar i {
+    font-size: 3rem;
+    color: #fff;
+    opacity: .8;
+}
+
+.about-team-body {
+    padding: 1.1rem 1.2rem 1.25rem;
+}
+
+.about-team-name {
+    font-family: var(--heading-font);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--primary-color-dark);
+    margin-bottom: .1rem;
+}
+
+.about-team-role {
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: .5rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+
+.about-team-text {
+    font-size: .9rem;
+    color: var(--muted-text-color);
+}
+
+/* CTA FINAL */
+.about-final-cta {
+    background: linear-gradient(135deg, var(--primary-color-dark), var(--primary-color));
+    color: #fff;
+    padding: 3rem 0 3.5rem;
+}
+
+.about-final-cta-title {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    color: #fff;
+}
+
+.about-final-cta-text {
+    max-width: 32rem;
+    margin: 0 auto;
+    color: rgba(241, 245, 249, 0.9);
+    font-size: 1.02rem;
+}
+
+/* Ajuste mobile hero/spacing */
+@media (max-width: 575.98px) {
+    .about-hero {
+        padding: 3.5rem 0 3rem;
+    }
+
+    .about-metrics {
+        padding: 1.6rem 1.3rem;
+    }
+}

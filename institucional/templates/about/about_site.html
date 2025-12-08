@@ -9,6 +9,262 @@
 {% endblock %}
 
 {% block content %}
+<!-- HERO SOBRE -->
+{% include 'about/components/_hero_about.html' %}
+
+<!-- HISTÓRIA + MÉTRICAS -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row gy-4 align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <h2 class="section-heading mb-3">Nossa história</h2>
+                <div class="about-text">
+                    <p>
+                        A Sarobe Contabilidade nasceu em 2009 com o propósito de
+                        oferecer serviços contábeis de excelência para pequenas e
+                        médias empresas. Desde o início, buscamos ir além da
+                        contabilidade tradicional, atuando como parceiros estratégicos
+                        de nossos clientes.
+                    </p>
+                    <p>
+                        Com uma equipe experiente e em constante atualização,
+                        acompanhamos as mudanças do mercado e da legislação para
+                        oferecer as melhores soluções. Nossa abordagem consultiva nos
+                        diferencia: não apenas cumprimos obrigações, mas ajudamos
+                        nossos clientes a tomar decisões mais inteligentes.
+                    </p>
+                    <p>
+                        Hoje, atendemos mais de 500 empresas de diversos segmentos,
+                        sempre com o mesmo compromisso de transparência, agilidade e
+                        resultados concretos.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="about-metrics">
+                    <div class="row g-3">
+                        <div class="col-6 text-center">
+                            <div class="about-metric-number">15+</div>
+                            <div class="about-metric-label">Anos de mercado</div>
+                        </div>
+                        <div class="col-6 text-center">
+                            <div class="about-metric-number">500+</div>
+                            <div class="about-metric-label">Clientes ativos</div>
+                        </div>
+                        <div class="col-6 text-center">
+                            <div class="about-metric-number">15</div>
+                            <div class="about-metric-label">Especialistas</div>
+                        </div>
+                        <div class="col-6 text-center">
+                            <div class="about-metric-number">98%</div>
+                            <div class="about-metric-label">Satisfação</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MISSÃO, VALORES, VISÃO -->
+<section class="py-5 about-values-section">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 class="section-heading">Missão, Valores e Visão</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4" data-aos="fade-up">
+                <div class="about-value-card text-center">
+                    <div class="about-value-icon">
+                        <i class="bi bi-bullseye"></i>
+                    </div>
+                    <h3 class="about-value-title">Nossa missão</h3>
+                    <p class="about-value-text">
+                        Simplificar a gestão contábil das empresas, oferecendo
+                        soluções consultivas que impulsionam crescimento e segurança
+                        financeira.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="about-value-card text-center">
+                    <div class="about-value-icon">
+                        <i class="bi bi-heart"></i>
+                    </div>
+                    <h3 class="about-value-title">Nossos valores</h3>
+                    <p class="about-value-text">
+                        Transparência, agilidade, comprometimento e excelência em
+                        cada atendimento. Construímos relacionamentos duradouros
+                        baseados em confiança.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="about-value-card text-center">
+                    <div class="about-value-icon">
+                        <i class="bi bi-trophy"></i>
+                    </div>
+                    <h3 class="about-value-title">Nossa visão</h3>
+                    <p class="about-value-text">
+                        Ser referência em contabilidade consultiva, reconhecida pela
+                        qualidade do atendimento e resultados concretos para nossos
+                        clientes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LINHA DO TEMPO -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 class="section-heading mb-1">Nossa trajetória</h2>
+            <p class="muted-text mb-0">
+                Uma história de crescimento e evolução constante
+            </p>
+        </div>
+
+        <div class="about-timeline" data-aos="fade-up">
+            <div class="about-timeline-item">
+                <div class="about-timeline-dot"></div>
+                <div class="about-timeline-content">
+                    <div class="about-timeline-year">2009</div>
+                    <h3 class="about-timeline-title">Fundação</h3>
+                    <p class="about-timeline-text">
+                        Início das atividades com foco em pequenas empresas.
+                    </p>
+                </div>
+            </div>
+
+            <div class="about-timeline-item">
+                <div class="about-timeline-dot"></div>
+                <div class="about-timeline-content">
+                    <div class="about-timeline-year">2014</div>
+                    <h3 class="about-timeline-title">Expansão</h3>
+                    <p class="about-timeline-text">
+                        Ampliação da equipe e atendimento a médias empresas.
+                    </p>
+                </div>
+            </div>
+
+            <div class="about-timeline-item">
+                <div class="about-timeline-dot"></div>
+                <div class="about-timeline-content">
+                    <div class="about-timeline-year">2018</div>
+                    <h3 class="about-timeline-title">Digitalização</h3>
+                    <p class="about-timeline-text">
+                        Implementação de atendimento 100% digital.
+                    </p>
+                </div>
+            </div>
+
+            <div class="about-timeline-item">
+                <div class="about-timeline-dot"></div>
+                <div class="about-timeline-content">
+                    <div class="about-timeline-year">2025</div>
+                    <h3 class="about-timeline-title">Hoje</h3>
+                    <p class="about-timeline-text">
+                        Mais de 500 clientes ativos e equipe de 15 especialistas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EQUIPE -->
+<section class="py-5 about-team-section">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 class="section-heading mb-1">Conheça nossa equipe</h2>
+            <p class="muted-text mb-0">
+                Profissionais experientes e comprometidos com seu sucesso
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3" data-aos="fade-up">
+                <div class="about-team-card h-100">
+                    <div class="about-team-avatar">
+                        <i class="bi bi-person-circle"></i>
+                    </div>
+                    <div class="about-team-body">
+                        <h3 class="about-team-name">Roberto Sarobe</h3>
+                        <div class="about-team-role">Contador e fundador</div>
+                        <p class="about-team-text">
+                            CRC 123456/SP – Mais de 20 anos de experiência em gestão
+                            contábil e fiscal.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="about-team-card h-100">
+                    <div class="about-team-avatar">
+                        <i class="bi bi-person-circle"></i>
+                    </div>
+                    <div class="about-team-body">
+                        <h3 class="about-team-name">Ana Paula Mendes</h3>
+                        <div class="about-team-role">Gerente de consultoria</div>
+                        <p class="about-team-text">
+                            Especialista em planejamento tributário e reestruturação
+                            empresarial.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                <div class="about-team-card h-100">
+                    <div class="about-team-avatar">
+                        <i class="bi bi-person-circle"></i>
+                    </div>
+                    <div class="about-team-body">
+                        <h3 class="about-team-name">Carlos Eduardo</h3>
+                        <div class="about-team-role">Coordenador de DP</div>
+                        <p class="about-team-text">
+                            Expert em legislação trabalhista e gestão de folha de pagamento.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="about-team-card h-100">
+                    <div class="about-team-avatar">
+                        <i class="bi bi-person-circle"></i>
+                    </div>
+                    <div class="about-team-body">
+                        <h3 class="about-team-name">Juliana Costa</h3>
+                        <div class="about-team-role">Analista fiscal</div>
+                        <p class="about-team-text">
+                            Especialização em compliance fiscal e obrigações acessórias.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="about-final-cta text-center">
+    <div class="container">
+        <h2 class="about-final-cta-title mb-3">
+            Vamos conversar sobre seu negócio?
+        </h2>
+        <p class="about-final-cta-text mb-4">
+            Descubra como podemos ajudar sua empresa a crescer com segurança.
+        </p>
+        <a href="https://wa.me/55SEUNUMEROAQUI" target="_blank" class="btn btn-accent btn-lg">
+            Fale conosco pelo WhatsApp
+        </a>
+    </div>
+</section>
 {% endblock %}
 
 {% block scripts %}
