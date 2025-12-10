@@ -252,17 +252,29 @@
 }
 
 .about-team-avatar {
-    height: 150px;
-    display: grid;
-    place-items: center;
-    background: linear-gradient(135deg, var(--primary-color-dark), var(--primary-color));
+    height: 210px;
+    overflow: hidden;
+    background: #e5e7eb;
 }
 
-.about-team-avatar i {
-    font-size: 3rem;
-    color: #fff;
-    opacity: .8;
+/* imagem do avatar */
+.about-team-avatar img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center 30%;
+    filter: grayscale(100%);
+    transition: transform .35s ease-out, filter .35s ease-out;
 }
+
+/* HOVER: volta a cor e dá leve zoom */
+.about-team-card:hover .about-team-avatar img {
+    filter: grayscale(0);
+    transform: scale(1.03);
+}
+
+
 
 .about-team-body {
     padding: 1.1rem 1.2rem 1.25rem;
