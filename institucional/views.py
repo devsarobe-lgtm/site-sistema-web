@@ -8,4 +8,4 @@ class AboutView(TemplateView):
     template_name = "about/about_site.html"
 
 class ServicesView(TemplateView):
-    template_name = "services/services_site.html"
+    template_name = "services/service_site.html"
