@@ -28,8 +28,11 @@
 
 html,
 body {
-    height: 100%;
+    height: auto;       
+    min-height: 100%;    
+    overflow-x: hidden;
 }
+
 
 body {
     background-color: var(--background-color);
@@ -37,7 +40,8 @@ body {
     font-family: var(--body-font);
     -webkit-font-smoothing: antialiased;
 
-    padding-top: 72px; /* ajuste fino se precisar: 64–80px */
+    padding-top: 72px;
+    /* ajuste fino se precisar: 64–80px */
 }
 
 
@@ -320,126 +324,66 @@ a:hover {
     color: var(--muted-text-color);
 }
 
-/* ===========================
-   CUSTOM SCROLLBAR (GLOBAL)
-=========================== */
+/* ============================== */
+/*  Floating WhatsApp Button      */
+/* ============================== */
 
-/* Navegadores WebKit (Chrome, Edge, Safari) */
-::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+:root {
+    --whatsapp-color: #25D366; /* verde padrão WhatsApp */
 }
 
-::-webkit-scrollbar-track {
-    background-color: rgba(11, 38, 71, 0.04);
-    /* var(--primary-color-dark) bem suave */
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 999px;
-    border: 2px solid var(--background-color);
-    /* cria efeito de “pill” */
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-color-dark);
-}
-
-/* Firefox */
-html {
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary-color) rgba(11, 38, 71, 0.04);
-}
-
-
-
-/* ===========================
-   WHATSAPP FLOAT (from scratch)
-=========================== */
-.fab-whatsapp {
+.whatsapp-container {
     position: fixed;
-    inset-block-end: 18px;
-    /* bottom */
-    inset-inline-end: 16px;
-    /* right */
-    width: 3rem;
-    height: 3rem;
-
-    display: grid;
-    place-items: center;
-
-    border-radius: 999px;
-    background-color: #25D366;
-    /* WhatsApp green */
-    color: #fff;
-    font-size: 1.4rem;
-    z-index: 1100;
-
-    /* estável e sem causar scroll lateral */
-    isolation: isolate;
-    contain: layout paint;
-    will-change: opacity;
-    transition: transform .18s ease-out, box-shadow .18s ease-out;
-    box-shadow: 0 8px 22px rgba(0, 0, 0, .25);
-
-    /* “piscar” intermitente (só opacidade → zero overflow) */
-    animation: wa-soft-blink 1.6s ease-in-out infinite;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 1200; /* acima do header */
 }
 
-.fab-whatsapp .bi {
-    color: inherit;
+.fab-whatsapp {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 999px;
+    background-color: var(--whatsapp-color);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: whatsapp-blink 1.4s ease-in-out infinite;
+}
+
+.fab-whatsapp i {
     line-height: 1;
 }
 
-/* hover/focus: destaque leve */
+/* hover/focus */
 .fab-whatsapp:hover,
 .fab-whatsapp:focus-visible {
-    animation-play-state: paused;
     transform: translateY(-2px);
-    box-shadow: 0 10px 26px rgba(0, 0, 0, .32);
-    text-decoration: none;
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.5);
     outline: none;
 }
 
-/* safe-area (iOS/Android com notch) */
-@supports (bottom: env(safe-area-inset-bottom)) {
-    .fab-whatsapp {
-        inset-block-end: calc(18px + env(safe-area-inset-bottom));
-        inset-inline-end: calc(16px + env(safe-area-inset-right));
-    }
-}
-
-/* mobile fine-tune */
-@media (max-width: 575.98px) {
-    .fab-whatsapp {
-        width: 2.8rem;
-        height: 2.8rem;
-        font-size: 1.3rem;
-        inset-block-end: 16px;
-        inset-inline-end: 14px;
-    }
-}
-
-/* acessibilidade: respeita redução de movimento */
-@media (prefers-reduced-motion: reduce) {
-    .fab-whatsapp {
-        animation: none;
-    }
-}
-
-/* keyframes: pisca suave sem translate/box-shadow animado */
-@keyframes wa-soft-blink {
-
-    0%,
-    100% {
+/* animação de “piscar” */
+@keyframes whatsapp-blink {
+    0%, 60%, 100% {
         opacity: 1;
     }
-
-    50% {
-        opacity: .65;
+    30% {
+        opacity: 0.35;
     }
 }
+
+@media (max-width: 575.98px) {
+    .whatsapp-container {
+        right: 0.75rem;
+        bottom: 0.75rem;
+    }
+}
+
+
 
 
 /* ===== Modals theming (usa sua paleta) ===== */
@@ -497,6 +441,7 @@ html {
     color: var(--primary-color-dark);
     filter: brightness(0.96);
 }
+
 
 
 /* ===========================
