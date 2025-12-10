@@ -35,7 +35,7 @@
 /* HERO */
 .about-hero {
     background: linear-gradient(180deg,
-            var(--primary-color-dark) 30%,
+            var(--primary-color-dark) 15%,
             var(--primary-color) 100%,
             #1ca2c9 1000%);
     color: #fff;
@@ -59,7 +59,9 @@
     margin-top: .75rem;
 }
 
-    background: linear-gradient(360deg, #ffffff 90%, var(--primary-color) 100%, #1ca2c9 100%);
+.about-metrics-section {
+    background: linear-gradient(360deg, #ffffff 20%, var(--primary-color) 100%, #1ca2c9 100%);
+}
 .about-metrics {
     border-radius: 1.5rem;
     padding: 2rem 1.5rem;
