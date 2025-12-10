@@ -28,8 +28,8 @@
 
 html,
 body {
-    height: auto;       
-    min-height: 100%;    
+    height: auto;
+    min-height: 100%;
     overflow-x: hidden;
 }
 
@@ -169,6 +169,45 @@ header,
         padding-bottom: 0.25rem;
     }
 }
+
+/* Active state do navbar */
+.nav-link-header.active {
+    color: var(--accent-color);
+    position: relative;
+}
+
+.nav-link-header.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.5rem;
+    /* ajusta para não “pular” o layout */
+    height: 2px;
+    background: var(--accent-color);
+    border-radius: 2px;
+}
+
+/* Navbar - active underline centralizado no mobile */
+@media (max-width: 767.98px) {
+    .navbar-collapse .nav-link-header {
+        display: inline-block;
+        text-align: center;
+        margin: .25rem auto;
+        padding-left: .25rem;
+        padding-right: .25rem;
+    }
+
+    .navbar-collapse .nav-link-header.active::after {
+        left: 50%;
+        right: auto;
+        width: 1.6em;
+        transform: translateX(-50%);
+        bottom: -0.25rem;
+    }
+}
+
+
 
 /* ===========================
     FOOTER (GLOBAL)
@@ -329,14 +368,16 @@ a:hover {
 /* ============================== */
 
 :root {
-    --whatsapp-color: #25D366; /* verde padrão WhatsApp */
+    --whatsapp-color: #25D366;
+    /* verde padrão WhatsApp */
 }
 
 .whatsapp-container {
     position: fixed;
     right: 1.5rem;
     bottom: 1.5rem;
-    z-index: 1200; /* acima do header */
+    z-index: 1200;
+    /* acima do header */
 }
 
 .fab-whatsapp {
@@ -368,9 +409,13 @@ a:hover {
 
 /* animação de “piscar” */
 @keyframes whatsapp-blink {
-    0%, 60%, 100% {
+
+    0%,
+    60%,
+    100% {
         opacity: 1;
     }
+
     30% {
         opacity: 0.35;
     }

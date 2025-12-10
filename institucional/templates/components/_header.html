@@ -23,34 +23,55 @@
 
             <!-- Menu (desktop + mobile) -->
             <div class="collapse navbar-collapse justify-content-end text-center" id="mainNavbar">
+                {% with current=request.resolver_match.url_name %}
                 <ul class="navbar-nav align-items-md-center gap-md-3">
                     <li class="nav-item">
-                        <a href="{% url 'home' %}" class="nav-link nav-link-header">Home</a>
+                        <a href="{% url 'home' %}"
+                            class="nav-link nav-link-header {% if current == 'home' %}active{% endif %}"
+                            aria-current="{% if current == 'home' %}page{% endif %}">
+                            Home
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{% url 'about' %}" class="nav-link nav-link-header">Sobre</a>
+                        <a href="{% url 'about' %}"
+                            class="nav-link nav-link-header {% if current == 'about' %}active{% endif %}"
+                            aria-current="{% if current == 'about' %}page{% endif %}">
+                            Sobre
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#services" class="nav-link nav-link-header" data-scroll-target="services">Serviços</a>
+                        <a href="" class="nav-link nav-link-header"
+                            data-scroll-target="services">
+                            Serviços
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link nav-link-header">Planos</a>
+                        <a href=""
+                            class="nav-link nav-link-header {% if current == 'plans' %}active{% endif %}">
+                            Planos
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link nav-link-header">Atualizações</a>
+                        <a href=""
+                            class="nav-link nav-link-header {% if current == 'updates' %}active{% endif %}">
+                            Atualizações
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link nav-link-header">Contato</a>
+                        <a href=""
+                            class="nav-link nav-link-header {% if current == 'contact' %}active{% endif %}">
+                            Contato
+                        </a>
                     </li>
                     <li class="nav-item mt-3 mt-md-0 w-100 w-md-auto">
                         <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer"
                             class="btn btn-outline-warning btn-whatsapp d-inline-flex align-items-center justify-content-center mx-auto">
-                            <i class="bi bi-telephone me-2"></i>
-                            WhatsApp
+                            <i class="bi bi-telephone me-2"></i> WhatsApp
                         </a>
                     </li>
-
                 </ul>
+                {% endwith %}
+
             </div>
         </div>
     </nav>
