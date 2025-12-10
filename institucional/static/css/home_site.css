@@ -62,66 +62,6 @@ body main .hero-section,
     }
 }
 
-/* CTAs */
-
-.hero-cta-group {
-    gap: 0.75rem;
-    position: relative;
-    z-index: 10;
-}
-
-/* Botão principal - WhatsApp */
-.btn-hero-primary {
-    background-color: var(--accent-color);
-    border-color: var(--accent-color);
-    color: var(--primary-color-dark);
-    font-weight: 600;
-    padding: 0.75rem 2.5rem;
-    border-radius: 0.75rem;
-    transition: transform 0.18s ease, box-shadow 0.18s ease;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-}
-
-.btn-hero-primary:hover,
-.btn-hero-primary:focus {
-    background-color: var(--accent-color);
-    border-color: var(--accent-color);
-    color: var(--primary-color-dark);
-
-    /* só o efeito de zoom + sombra */
-    transform: scale(1.05, 1.08);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.32);
-}
-
-/* Botão secundário */
-
-.btn-hero-secondary {
-    background-color: #ffffff;
-    border: 1.5px solid var(--accent-color);
-    color: var(--primary-color-dark);
-    font-weight: 600;
-    padding: 0.75rem 2.4rem;
-    border-radius: 0.75rem;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
-}
-
-
-.btn-hero-secondary:hover,
-.btn-hero-secondary:focus {
-    background-color: rgba(201, 162, 95, 0.08);
-    /* leve fundo dourado translúcido */
-    border-color: var(--accent-color);
-    color: var(--accent-color);
-}
-
-
-/* Ícones dentro dos botões */
-
-.btn-hero-primary i,
-.btn-hero-secondary i {
-    color: inherit;
-}
-
 /* Onda inferior */
 
 .hero-wave {
@@ -840,38 +780,4 @@ body main .hero-section,
     font-size: 0.95rem;
     color: var(--muted-text-color);
     line-height: 1.7;
-}
-
-/* ===========================
-    FINAL CTA SECTION
-=========================== */
-
-.final-cta-section {
-    background: var(--primary-color-dark);
-    color: #ffffff;
-}
-
-.final-cta-inner {
-    background: rgba(11, 38, 71, 0.55);
-    border-radius: 1.5rem;
-    padding: 2.2rem 1.7rem;
-    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.35);
-}
-
-@media (min-width: 768px) {
-    .final-cta-inner {
-        padding: 2.6rem 2.4rem;
-    }
-}
-
-/* Títulos e texto dentro do CTA */
-
-.final-cta-section .section-title,
-.final-cta-title {
-    color: #ffffff;
-}
-
-.final-cta-text {
-    color: rgba(241, 245, 249, 0.9);
-    max-width: 36rem;
 }

@@ -19,7 +19,7 @@
     margin-bottom: 0.35rem;
 }
 
-.section-heading {
+.section-heading-about {
     font-family: var(--heading-font);
     font-weight: 700;
     font-size: clamp(1.9rem, 3vw, 2.3rem);
@@ -288,35 +288,4 @@
 .about-team-text {
     font-size: .9rem;
     color: var(--muted-text-color);
-}
-
-/* CTA FINAL */
-.about-final-cta {
-    background: linear-gradient(135deg, var(--primary-color-dark), var(--primary-color));
-    color: #fff;
-    padding: 3rem 0 3.5rem;
-}
-
-.about-final-cta-title {
-    font-family: var(--heading-font);
-    font-weight: 700;
-    color: #fff;
-}
-
-.about-final-cta-text {
-    max-width: 32rem;
-    margin: 0 auto;
-    color: rgba(241, 245, 249, 0.9);
-    font-size: 1.02rem;
-}
-
-/* Ajuste mobile hero/spacing */
-@media (max-width: 575.98px) {
-    .about-hero {
-        padding: 3.5rem 0 3rem;
-    }
-
-    .about-metrics {
-        padding: 1.6rem 1.3rem;
-    }
 }
