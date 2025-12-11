@@ -30,8 +30,9 @@
 =========================== */
 
 .plans-section {
-    background-color: var(--background-color);
+    background: linear-gradient(360deg, #ffffff 80%, var(--primary-color) 100%, #1ca2c9 100%);
 }
+
 .plans-intro-text {
     max-width: 680px;
     margin-bottom: 0;
@@ -40,6 +41,30 @@
     font-size: 0.98rem;
     text-align: center;
 }
+
+/* titulo plans */
+
+.section-kicker {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.section-title {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    font-size: 2.1rem;
+    color: var(--primary-color-dark);
+}
+
+@media (min-width: 992px) {
+    .section-title {
+        font-size: 2.4rem;
+    }
+}
+
 
 /* ===========================
    PLAN CARDS
@@ -103,7 +128,8 @@
     color: var(--muted-text-color);
     line-height: 1.6;
     margin-bottom: 1.1rem;
-    min-height: 2.8rem; /* ajuda alinhar os preços entre os cards */
+    min-height: 2.8rem;
+    /* ajuda alinhar os preços entre os cards */
 }
 
 /* ===========================
@@ -129,7 +155,8 @@
 
 .plan-features {
     margin-bottom: 1.4rem;
-    min-height: 9.5rem; /* garante altura parecida entre as listas */
+    min-height: 9.5rem;
+    /* garante altura parecida entre as listas */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -145,7 +172,8 @@
 }
 
 .plan-feature i {
-    color: #10b981; /* verde check */
+    color: #10b981;
+    /* verde check */
     font-size: 1rem;
     margin-top: 0.1rem;
 }
