@@ -10,7 +10,326 @@
 
 {% block content %}
 
-<!-- Seção Hero -->
+<!-- HERO PLANOS -->
+{% include 'plans/components/_hero_plans.html' %}
+
+
+<!-- LISTA DE PLANOS -->
+
+<section class="plans-section py-5 py-md-6" id="plans">
+    <div class="container">
+        <div class="text-center mb-5 mb-md-6" data-aos="fade-up">
+            <!-- usa o mesmo style de título da home -->
+            <p class="section-kicker mb-1">Planos</p>
+            <h2 class="section-title mb-3">Planos que cabem no seu bolso</h2>
+            <p class="section-intro plans-intro-text mx-auto">
+                Escolha o plano ideal para o momento do seu negócio e conte com um acompanhamento
+                contábil próximo, claro e estratégico.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Plano MEI -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                <div class="plan-card h-100">
+                    <h3 class="plan-name">MEI</h3>
+                    <p class="plan-description">
+                        Ideal para microempreendedores que precisam manter a regularidade em dia
+                        sem abrir mão de suporte rápido e orientações claras.
+                    </p>
+
+                    <div class="plan-price mb-3">
+                        <span class="plan-price-main">R$ 99</span>
+                        <span class="plan-price-period">/mês</span>
+                    </div>
+
+                    <ul class="plan-features list-unstyled mb-4">
+                        <li class="plan-feature">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Declaração anual DASN-SIMEI</span>
+                        </li>
+                        <li class="plan-feature">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Emissão de DAS mensal</span>
+                        </li>
+                        <li class="plan-feature">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Suporte via WhatsApp</span>
+                        </li>
+                        <li class="plan-feature">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Orientações fiscais básicas</span>
+                        </li>
+                    </ul>
+
+                    <!-- CTA usando o mesmo style de botão secundário da home -->
+                    <a href="https://wa.me/5511999999999"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="plan-cta btn btn-hero-secondary w-100 d-inline-flex align-items-center justify-content-center gap-2">
+                        <i class="bi bi-whatsapp"></i>
+                        <span>Solicitar proposta</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Plano Simples Nacional (destaque) -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="60">
+                <div class="plan-card plan-card-featured h-100">
+                    <span class="plan-badge">Mais popular</span>
+
+                    <h3 class="plan-name">Simples Nacional</h3>
+                    <p class="plan-description">
+                        Para pequenas empresas que buscam um acompanhamento mais próximo, com
+                        rotinas fiscais, contábeis em um só lugar.
+                    </p>
+
+                    <div class="plan-price mb-3">
+                        <span class="plan-price-main">R$ 299</span>
+                        <span class="plan-price-period">/mês</span>
+                    </div>
+
+                    <ul class="plan-features list-unstyled mb-4">
+                        <li class="plan-feature">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Apuração completa de impostos</span>
+                        </li>
+                        <li class="plan-feature">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Escrituração contábil regular</span>
+                        </li>
+                        <li class="plan-feature">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Folha de pagamento (até 5 colaboradores)</span>
+                        </li>
+                        <li class="plan-feature">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Suporte prioritário</span>
+                        </li>
+                        <li class="plan-feature">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Consultoria mensal para o gestor</span>
+                        </li>
+                    </ul>
+
+                    <!-- destaque com botão principal da home -->
+                    <a href="https://wa.me/5511999999999"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="plan-cta plan-cta-featured btn btn-hero-primary w-100 d-inline-flex align-items-center justify-content-center gap-2">
+                        <i class="bi bi-whatsapp"></i>
+                        <span>Solicitar proposta</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Plano Lucro Presumido -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="120">
+                <div class="plan-card h-100">
+                    <h3 class="plan-name">Lucro Presumido</h3>
+                    <p class="plan-description">
+                        Indicado para empresas em expansão que precisam de gestão tributária
+                        estruturada e apoio estratégico nas decisões do dia a dia.
+                    </p>
+
+                    <div class="plan-price mb-3">
+                        <span class="plan-price-main">R$ 599</span>
+                        <span class="plan-price-period">/mês</span>
+                    </div>
+
+                    <ul class="plan-features list-unstyled mb-4">
+                        <li class="plan-feature">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Gestão tributária completa</span>
+                        </li>
+                        <li class="plan-feature">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Escrituração contábil e fiscal avançada</span>
+                        </li>
+                        <li class="plan-feature">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Departamento pessoal completo</span>
+                        </li>
+                        <li class="plan-feature">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Consultoria estratégica recorrente</span>
+                        </li>
+                        <li class="plan-feature">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Atendimento dedicado ao negócio</span>
+                        </li>
+                    </ul>
+
+                    <a href="https://wa.me/5511999999999"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="plan-cta btn btn-hero-secondary w-100 d-inline-flex align-items-center justify-content-center gap-2">
+                        <i class="bi bi-whatsapp"></i>
+                        <span>Solicitar proposta</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+            <!-- TABELA COMPARATIVA -->
+        <div class="plans-compare-wrapper" data-aos="fade-up">
+            <div class="bg-white rounded-3 shadow-sm p-4 p-md-5">
+                <h3 class="section-heading text-center mb-4">
+                    Tabela comparativa
+                </h3>
+
+                <div class="table-responsive">
+                    <table class="table align-middle mb-0">
+                        <thead>
+                            <tr class="plans-compare-header-row">
+                                <th scope="col" class="text-start">Recurso</th>
+                                <th scope="col" class="text-center">MEI</th>
+                                <th scope="col" class="text-center plans-compare-highlight-col">
+                                    Simples Nacional
+                                </th>
+                                <th scope="col" class="text-center">Lucro Presumido</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-muted">Escrituração fiscal</td>
+                                <td class="text-center">
+                                    <span class="text-muted">Simplificada</span>
+                                </td>
+                                <td class="text-center plans-compare-highlight-col">
+                                    <i class="bi bi-check-circle-fill text-success"></i>
+                                </td>
+                                <td class="text-center">
+                                    <i class="bi bi-check-circle-fill text-success"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">Escrituração contábil</td>
+                                <td class="text-center text-muted">✕</td>
+                                <td class="text-center plans-compare-highlight-col">
+                                    <span class="text-muted">Opcional</span>
+                                </td>
+                                <td class="text-center">
+                                    <i class="bi bi-check-circle-fill text-success"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">Folha de pagamento</td>
+                                <td class="text-center text-muted">✕</td>
+                                <td class="text-center plans-compare-highlight-col">
+                                    Até 5
+                                </td>
+                                <td class="text-center">
+                                    Ilimitada
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">Consultoria</td>
+                                <td class="text-center">Básica</td>
+                                <td class="text-center plans-compare-highlight-col">Mensal</td>
+                                <td class="text-center">Estratégica</td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">Planejamento tributário</td>
+                                <td class="text-center text-muted">✕</td>
+                                <td class="text-center plans-compare-highlight-col">Básico</td>
+                                <td class="text-center">Avançado</td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">Relatórios gerenciais</td>
+                                <td class="text-center text-muted">✕</td>
+                                <td class="text-center plans-compare-highlight-col">Básicos</td>
+                                <td class="text-center">Personalizados</td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">Atendimento</td>
+                                <td class="text-center">WhatsApp</td>
+                                <td class="text-center plans-compare-highlight-col">Prioritário</td>
+                                <td class="text-center">Dedicado</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+</section>
+
+<!-- INFORMAÇÕES IMPORTANTES -->
+<section class="plans-info-section py-5 bg-light">
+    <div class="container">
+        <div class="bg-white rounded-3 shadow-sm p-4 p-md-5" data-aos="fade-up">
+            <h3 class="section-heading text-center mb-4">
+                Informações importantes
+            </h3>
+
+            <div class="plans-info-list">
+                <div class="plans-info-item">
+                    <span class="plans-info-bullet">•</span>
+                    <p>
+                        <strong>Sem taxa de adesão:</strong>
+                        Você paga apenas a mensalidade do plano escolhido.
+                    </p>
+                </div>
+
+                <div class="plans-info-item">
+                    <span class="plans-info-bullet">•</span>
+                    <p>
+                        <strong>Sem fidelidade:</strong>
+                        Contratos mensais flexíveis. Cancele quando quiser.
+                    </p>
+                </div>
+
+                <div class="plans-info-item">
+                    <span class="plans-info-bullet">•</span>
+                    <p>
+                        <strong>Valores "a partir de":</strong>
+                        Alguns casos podem ter valores diferenciados conforme complexidade.
+                    </p>
+                </div>
+
+                <div class="plans-info-item">
+                    <span class="plans-info-bullet">•</span>
+                    <p>
+                        <strong>Serviços adicionais:</strong>
+                        Abertura de empresa, certificado digital e outros serviços têm valores à parte.
+                    </p>
+                </div>
+
+                <div class="plans-info-item">
+                    <span class="plans-info-bullet">•</span>
+                    <p>
+                        <strong>Desconto para múltiplas empresas:</strong>
+                        Condições especiais para quem possui mais de uma empresa.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA FINAL REAPROVEITANDO SEU STYLE -->
+<section class="final-cta-section py-5">
+    <div class="container">
+        <div class="final-cta-inner text-center mx-auto" data-aos="fade-up">
+            <h2 class="final-cta-title mb-3">
+                Ainda tem dúvidas sobre qual plano escolher?
+            </h2>
+            <p class="final-cta-text mx-auto mb-4">
+                Nossa equipe está pronta para fazer uma análise gratuita e recomendar o melhor plano para você.
+            </p>
+            <a href="https://wa.me/5548988263060?text=Ol%C3%A1,%20gostaria%20de%20ajuda%20para%20escolher%20o%20melhor%20plano."
+                class="btn btn-hero-primary d-inline-flex align-items-center justify-content-center gap-2">
+                <i class="bi bi-whatsapp"></i>
+                <span>Solicitar orçamento pelo WhatsApp</span>
+            </a>
+        </div>
+    </div>
+</section>
+
 
 
 {% endblock %}
