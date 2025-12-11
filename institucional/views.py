@@ -1,4 +1,5 @@
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView, DetailView
+from . import models
 
 
 class HomeView(TemplateView):
@@ -12,6 +13,16 @@ class ServicesView(TemplateView):
 
 class PlansView(TemplateView):
     template_name = "plans/plans_site.html"
+
+
+class BlogListView(ListView):
+    model = models.BlogPost
+    template_name = 'blog/blog_site.html'
+    context_object_name = 'posts'
+    paginate_by = 6
+    ordering = ('-updated_at',)
+    
+
 
 class ContactView(TemplateView):
     template_name = "contact/contact_site.html"
