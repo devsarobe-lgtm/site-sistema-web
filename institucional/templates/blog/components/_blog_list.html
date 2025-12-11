@@ -1,0 +1,121 @@
+<section class="blog-list-section py-5">
+    <div class="container">
+
+        <!-- FILTROS -->
+        <div class="d-flex flex-wrap justify-content-center gap-2 mb-4" data-aos="fade-up">
+            <button type="button" class="btn blog-filter-btn active" data-filter="all">
+                Todas
+            </button>
+            <button type="button" class="btn blog-filter-btn" data-filter="Dicas Contábeis">
+                Dicas Contábeis
+            </button>
+            <button type="button" class="btn blog-filter-btn" data-filter="Obrigações Fiscais">
+                Obrigações Fiscais
+            </button>
+            <button type="button" class="btn blog-filter-btn" data-filter="Atualizações Tributárias">
+                Atualizações Tributárias
+            </button>
+        </div>
+
+
+        <!-- LISTA DE POSTS -->
+        <div class="row g-4">
+
+            <!-- CARD 1 -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                <article class="blog-card h-100" data-category="Obrigações Fiscais">
+                    <div class="blog-card-image-wrapper">
+                        <img src="https://images.pexels.com/photos/6863332/pexels-photo-6863332.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            class="blog-card-image" alt="Prazo de Entrega do Imposto de Renda 2024">
+                        <span class="blog-card-badge">
+                            Obrigações Fiscais
+                        </span>
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-meta">
+                            <span><i class="bi bi-calendar3 me-1"></i>15 de março de 2024</span>
+                            <span><i class="bi bi-clock me-1"></i>3 min</span>
+                        </div>
+                        <h3 class="blog-card-title">
+                            Prazo de Entrega do Imposto de Renda 2024
+                        </h3>
+                        <p class="blog-card-text">
+                            Fique atento aos prazos e documentos necessários para declarar o Imposto de Renda de Pessoa
+                            Física em 2024.
+                        </p>
+                        <a href="#" class="blog-card-link">
+                            Ler mais <i class="bi bi-arrow-right-short ms-1"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
+                <article class="blog-card h-100" data-category="Dicas Contábeis">
+                    <div class="blog-card-image-wrapper">
+                        <img src="https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            class="blog-card-image" alt="5 Dicas para Reduzir Impostos Legalmente">
+                        <span class="blog-card-badge">
+                            Dicas Contábeis
+                        </span>
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-meta">
+                            <span><i class="bi bi-calendar3 me-1"></i>10 de março de 2024</span>
+                            <span><i class="bi bi-clock me-1"></i>5 min</span>
+                        </div>
+                        <h3 class="blog-card-title">
+                            5 Dicas para Reduzir Impostos Legalmente
+                        </h3>
+                        <p class="blog-card-text">
+                            Conheça estratégias legais de planejamento tributário que podem reduzir significativamente a
+                            carga de impostos da sua empresa.
+                        </p>
+                        <a href="#" class="blog-card-link">
+                            Ler mais <i class="bi bi-arrow-right-short ms-1"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <article class="blog-card h-100" data-category="Atualizações Tributárias">
+                    <div class="blog-card-image-wrapper">
+                        <img src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            class="blog-card-image" alt="Mudanças no eSocial em 2024">
+                        <span class="blog-card-badge">
+                            Atualizações Tributárias
+                        </span>
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-meta">
+                            <span><i class="bi bi-calendar3 me-1"></i>5 de março de 2024</span>
+                            <span><i class="bi bi-clock me-1"></i>4 min</span>
+                        </div>
+                        <h3 class="blog-card-title">
+                            Mudanças no eSocial em 2024
+                        </h3>
+                        <p class="blog-card-text">
+                            Entenda as principais mudanças no eSocial para 2024 e como adequar sua empresa às novas
+                            exigências.
+                        </p>
+                        <a href="#" class="blog-card-link">
+                            Ler mais <i class="bi bi-arrow-right-short ms-1"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+
+        <!-- PAGINAÇÃO / LOAD MORE (PODE VIRAR PAGINAÇÃO DO DJANGO DEPOIS) -->
+        <div class="text-center mt-4" data-aos="fade-up">
+            <button type="button" class="btn btn-outline-primary btn-sm">
+                Carregar mais artigos
+            </button>
+        </div>
+
+    </div>
+</section>
