@@ -1,0 +1,22 @@
+{% extends 'base_site.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/contact_site.css' %}">
+{% endblock %}
+
+{% block ld_json %}
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO SIMPLES -->
+{% include 'contact/components/_hero_contact.html' %}
+
+<!-- SEÇÃO PRINCIPAL -->
+{% include 'contact/components/_main_contact.html' %}
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

@@ -1,0 +1,212 @@
+/* ===========================
+   CONTACT PAGE
+=========================== */
+
+/* HERO SIMPLES */
+
+.contact-hero {
+    background: linear-gradient(180deg,
+            var(--primary-color-dark) 15%,
+            var(--primary-color) 100%,
+            #1ca2c9 1000%);
+    color: #ffffff;
+    padding: 4.5rem 0 4rem;
+}
+
+.contact-hero-title {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    font-size: clamp(1.9rem, 3vw, 2.4rem);
+    color: #ffffff;
+}
+
+.contact-hero-text {
+    font-size: 0.98rem;
+    color: rgba(241, 245, 249, 0.9);
+}
+
+/* ===========================
+   SECTION HEADINGS
+=========================== */
+
+.section-kicker {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 0.35rem;
+}
+
+.section-heading-contact {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    font-size: clamp(1.9rem, 3vw, 2.3rem);
+    color: var(--primary-color-dark);
+}
+
+.section-intro {
+    font-size: 0.98rem;
+    color: var(--muted-text-color);
+}
+
+
+.contact-page {
+    background: var(--background-color);
+}
+
+
+
+/* SEÇÃO PRINCIPAL */
+.contact-section {
+    background: linear-gradient(360deg, #ffffff 80%, var(--primary-color) 100%, #1ca2c9 100%);
+}
+
+/* Intro da coluna esquerda (título + texto) */
+.contact-intro {
+    margin-bottom: 1.8rem;
+}
+
+.contact-intro .section-heading-about {
+    margin-bottom: 0.4rem;
+}
+
+
+/* CARD WHATSAPP */
+.contact-whatsapp-box {
+    background: linear-gradient(135deg, #F6C94B, #E0A929);
+    padding: 1.8rem;
+    border-radius: 1.25rem;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+    color: var(--primary-color-dark);
+}
+
+.contact-whatsapp-box .icon-wrapper {
+    background: var(--primary-color-dark);
+    color: #fff;
+    width: 54px;
+    height: 54px;
+    border-radius: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+}
+
+.contact-box-title {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.contact-box-subtitle {
+    font-size: 0.9rem;
+    color: rgba(15, 23, 42, 0.8);
+}
+
+.contact-box-text {
+    font-size: 0.95rem;
+}
+
+/* LISTA DE INFORMAÇÕES (cards) */
+.contact-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-info-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1.2rem;
+    background: #f5f7fb;
+    border-radius: 1.1rem;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+}
+
+.contact-info-icon {
+    background: var(--primary-color-dark);
+    width: 48px;
+    height: 48px;
+    border-radius: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    flex-shrink: 0;
+    font-size: 1.3rem;
+}
+
+.info-title {
+    font-weight: 600;
+    margin-bottom: 0.15rem;
+}
+
+.info-text {
+    font-size: 0.95rem;
+    color: var(--muted-text-color);
+}
+
+/* OUTRAS FORMAS DE CONTATO */
+.contact-box {
+    background: #f5f7fb;
+    padding: 1.8rem;
+    border-radius: 1.25rem;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+}
+
+.contact-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    background: #ffffff;
+    padding: 1rem 1.1rem;
+    border-radius: 0.9rem;
+    border: 1px solid #e4e7ec;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    margin-bottom: 0.75rem;
+}
+
+.contact-option i {
+    font-size: 1.2rem;
+    color: var(--primary-color-dark);
+}
+
+.contact-option strong {
+    font-size: 0.95rem;
+}
+
+.contact-option:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
+    transform: translateY(-1px);
+}
+
+/* MAPA */
+.contact-map {
+    border-radius: 1.25rem;
+    overflow: hidden;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.1);
+    background: #ffffff;
+}
+
+.map-header {
+    background: var(--primary-color-dark);
+    padding: 1rem 1.4rem;
+    color: #ffffff;
+}
+
+.map-title {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.map-subtitle {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
