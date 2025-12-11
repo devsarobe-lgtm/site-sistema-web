@@ -20,27 +20,11 @@
 <!-- TABELA COMPARATIVA DE PLANOS -->
 {% include 'plans/components/_plans_comparative_table.html' %}
 
-
+<!-- Informações importantes -->
+{% include 'plans/components/_plans_info.html' %}
 
 <!-- CTA FINAL REAPROVEITANDO SEU STYLE -->
-<section class="final-cta-section py-5">
-    <div class="container">
-        <div class="final-cta-inner text-center mx-auto" data-aos="fade-up">
-            <h2 class="final-cta-title mb-3">
-                Ainda tem dúvidas sobre qual plano escolher?
-            </h2>
-            <p class="final-cta-text mx-auto mb-4">
-                Nossa equipe está pronta para fazer uma análise gratuita e recomendar o melhor plano para você.
-            </p>
-            <a href="https://wa.me/5548988263060?text=Ol%C3%A1,%20gostaria%20de%20ajuda%20para%20escolher%20o%20melhor%20plano."
-                class="btn btn-hero-primary d-inline-flex align-items-center justify-content-center gap-2">
-                <i class="bi bi-whatsapp"></i>
-                <span>Solicitar orçamento pelo WhatsApp</span>
-            </a>
-        </div>
-    </div>
-</section>
-
+{% include 'plans/components/_plans_final_cta.html' %}
 
 {% endblock %}
 
