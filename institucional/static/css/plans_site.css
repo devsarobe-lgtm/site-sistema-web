@@ -179,6 +179,96 @@
 }
 
 /* ===========================
+   PLANS COMPARISON TABLE
+=========================== */
+
+.plans-compare-section {
+    background-color: var(--background-color);
+}
+
+.plans-compare-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.plans-compare-card {
+    border-radius: 1.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.10);
+}
+
+/* título reaproveita .section-title, só controla espaçamento pela section */
+
+.plans-compare-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.95rem;
+}
+
+/* header com linha azul no topo, igual ao print */
+
+.plans-compare-header-row th {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    color: var(--primary-color-dark);
+    border-bottom: 2px solid var(--primary-color-dark);
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    white-space: nowrap;
+}
+
+/* primeira coluna com alinhamento mais confortável */
+
+.plans-compare-header-row th:first-child {
+    padding-left: 1rem;
+}
+
+/* linhas do corpo */
+
+.plans-compare-table tbody tr td {
+    padding: 0.85rem 1rem;
+    border-top: 1px solid #f3f4f6;
+}
+
+/* coluna de recurso (primeira) mais suave */
+
+.plans-compare-table tbody td:first-child {
+    color: var(--muted-text-color);
+}
+
+/* coluna destacada do Simples Nacional */
+
+.plans-compare-highlight-col {
+    background-color: #fff9f0;
+}
+
+/* ícones de check no mesmo verde usado nos planos */
+
+.plans-compare-table .bi-check-circle-fill {
+    color: #10b981;
+    font-size: 1rem;
+}
+
+/* pequenos ajustes responsivos */
+
+@media (max-width: 767.98px) {
+    .plans-compare-card {
+        border-radius: 1rem;
+        padding: 1.75rem 1.5rem;
+    }
+
+    .plans-compare-table {
+        font-size: 0.88rem;
+    }
+
+    .plans-compare-header-row th {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* ===========================
    CTA BUTTONS
 =========================== */
 

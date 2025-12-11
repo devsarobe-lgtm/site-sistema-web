@@ -18,143 +18,9 @@
 {% include 'plans/components/_plans_details.html' %}
 
 <!-- TABELA COMPARATIVA DE PLANOS -->
-<section>
-    <!-- TABELA COMPARATIVA -->
-    <div class="plans-compare-wrapper" data-aos="fade-up">
-        <div class="bg-white rounded-3 shadow-sm p-4 p-md-5">
-            <h3 class="section-heading text-center mb-4">
-                Tabela comparativa
-            </h3>
+{% include 'plans/components/_plans_comparative_table.html' %}
 
-            <div class="table-responsive">
-                <table class="table align-middle mb-0">
-                    <thead>
-                        <tr class="plans-compare-header-row">
-                            <th scope="col" class="text-start">Recurso</th>
-                            <th scope="col" class="text-center">MEI</th>
-                            <th scope="col" class="text-center plans-compare-highlight-col">
-                                Simples Nacional
-                            </th>
-                            <th scope="col" class="text-center">Lucro Presumido</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="text-muted">Escrituração fiscal</td>
-                            <td class="text-center">
-                                <span class="text-muted">Simplificada</span>
-                            </td>
-                            <td class="text-center plans-compare-highlight-col">
-                                <i class="bi bi-check-circle-fill text-success"></i>
-                            </td>
-                            <td class="text-center">
-                                <i class="bi bi-check-circle-fill text-success"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-muted">Escrituração contábil</td>
-                            <td class="text-center text-muted">✕</td>
-                            <td class="text-center plans-compare-highlight-col">
-                                <span class="text-muted">Opcional</span>
-                            </td>
-                            <td class="text-center">
-                                <i class="bi bi-check-circle-fill text-success"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-muted">Folha de pagamento</td>
-                            <td class="text-center text-muted">✕</td>
-                            <td class="text-center plans-compare-highlight-col">
-                                Até 5
-                            </td>
-                            <td class="text-center">
-                                Ilimitada
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-muted">Consultoria</td>
-                            <td class="text-center">Básica</td>
-                            <td class="text-center plans-compare-highlight-col">Mensal</td>
-                            <td class="text-center">Estratégica</td>
-                        </tr>
-                        <tr>
-                            <td class="text-muted">Planejamento tributário</td>
-                            <td class="text-center text-muted">✕</td>
-                            <td class="text-center plans-compare-highlight-col">Básico</td>
-                            <td class="text-center">Avançado</td>
-                        </tr>
-                        <tr>
-                            <td class="text-muted">Relatórios gerenciais</td>
-                            <td class="text-center text-muted">✕</td>
-                            <td class="text-center plans-compare-highlight-col">Básicos</td>
-                            <td class="text-center">Personalizados</td>
-                        </tr>
-                        <tr>
-                            <td class="text-muted">Atendimento</td>
-                            <td class="text-center">WhatsApp</td>
-                            <td class="text-center plans-compare-highlight-col">Prioritário</td>
-                            <td class="text-center">Dedicado</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
 
-</section>
-
-<!-- INFORMAÇÕES IMPORTANTES -->
-<section class="plans-info-section py-5 bg-light">
-    <div class="container">
-        <div class="bg-white rounded-3 shadow-sm p-4 p-md-5" data-aos="fade-up">
-            <h3 class="section-heading text-center mb-4">
-                Informações importantes
-            </h3>
-
-            <div class="plans-info-list">
-                <div class="plans-info-item">
-                    <span class="plans-info-bullet">•</span>
-                    <p>
-                        <strong>Sem taxa de adesão:</strong>
-                        Você paga apenas a mensalidade do plano escolhido.
-                    </p>
-                </div>
-
-                <div class="plans-info-item">
-                    <span class="plans-info-bullet">•</span>
-                    <p>
-                        <strong>Sem fidelidade:</strong>
-                        Contratos mensais flexíveis. Cancele quando quiser.
-                    </p>
-                </div>
-
-                <div class="plans-info-item">
-                    <span class="plans-info-bullet">•</span>
-                    <p>
-                        <strong>Valores "a partir de":</strong>
-                        Alguns casos podem ter valores diferenciados conforme complexidade.
-                    </p>
-                </div>
-
-                <div class="plans-info-item">
-                    <span class="plans-info-bullet">•</span>
-                    <p>
-                        <strong>Serviços adicionais:</strong>
-                        Abertura de empresa, certificado digital e outros serviços têm valores à parte.
-                    </p>
-                </div>
-
-                <div class="plans-info-item">
-                    <span class="plans-info-bullet">•</span>
-                    <p>
-                        <strong>Desconto para múltiplas empresas:</strong>
-                        Condições especiais para quem possui mais de uma empresa.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- CTA FINAL REAPROVEITANDO SEU STYLE -->
 <section class="final-cta-section py-5">
@@ -174,7 +40,6 @@
         </div>
     </div>
 </section>
-
 
 
 {% endblock %}
