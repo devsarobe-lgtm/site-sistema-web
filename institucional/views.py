@@ -21,7 +21,12 @@ class BlogListView(ListView):
     context_object_name = 'posts'
     paginate_by = 6
     ordering = ('-updated_at',)
-    
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['tags'] = models.Tag.objects.all()
+        return context
+
 
 
 class ContactView(TemplateView):

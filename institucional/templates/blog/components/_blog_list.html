@@ -1,121 +1,300 @@
 <section class="blog-list-section py-5">
     <div class="container">
-
-        <!-- FILTROS -->
-        <div class="d-flex flex-wrap justify-content-center gap-2 mb-4" data-aos="fade-up">
-            <button type="button" class="btn blog-filter-btn active" data-filter="all">
-                Todas
-            </button>
-            <button type="button" class="btn blog-filter-btn" data-filter="Dicas Contábeis">
-                Dicas Contábeis
-            </button>
-            <button type="button" class="btn blog-filter-btn" data-filter="Obrigações Fiscais">
-                Obrigações Fiscais
-            </button>
-            <button type="button" class="btn blog-filter-btn" data-filter="Atualizações Tributárias">
-                Atualizações Tributárias
-            </button>
-        </div>
-
-
-        <!-- LISTA DE POSTS -->
         <div class="row g-4">
 
-            <!-- CARD 1 -->
-            <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                <article class="blog-card h-100" data-category="Obrigações Fiscais">
-                    <div class="blog-card-image-wrapper">
-                        <img src="https://images.pexels.com/photos/6863332/pexels-photo-6863332.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            class="blog-card-image" alt="Prazo de Entrega do Imposto de Renda 2024">
-                        <span class="blog-card-badge">
-                            Obrigações Fiscais
-                        </span>
-                    </div>
-                    <div class="blog-card-body">
-                        <div class="blog-card-meta">
-                            <span><i class="bi bi-calendar3 me-1"></i>15 de março de 2024</span>
-                            <span><i class="bi bi-clock me-1"></i>3 min</span>
+            <!-- COLUNA PRINCIPAL (POSTS) -->
+            <div class="col-lg-8 blog-main-column">
+
+                <!-- POST 1 -->
+                <article class="card blog-list-card mb-4" data-aos="fade-up" data-category="Dicas Contábeis">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <div class="blog-list-card-image-wrapper h-100">
+                                <img src="https://images.pexels.com/photos/6863332/pexels-photo-6863332.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                    alt="Como reduzir impostos legalmente em 2025"
+                                    class="img-fluid blog-list-card-image">
+                            </div>
                         </div>
-                        <h3 class="blog-card-title">
-                            Prazo de Entrega do Imposto de Renda 2024
-                        </h3>
-                        <p class="blog-card-text">
-                            Fique atento aos prazos e documentos necessários para declarar o Imposto de Renda de Pessoa
-                            Física em 2024.
-                        </p>
-                        <a href="#" class="blog-card-link">
-                            Ler mais <i class="bi bi-arrow-right-short ms-1"></i>
-                        </a>
+                        <div class="col-md-8">
+                            <div class="card-body p-3 p-md-4">
+                                <div class="d-flex align-items-center flex-wrap gap-2 mb-2">
+                                    <span class="badge blog-category-badge">
+                                        Dicas Contábeis
+                                    </span>
+                                    <div class="d-flex flex-wrap gap-3 blog-meta">
+                                        <span class="d-inline-flex align-items-center gap-1">
+                                            <i class="bi bi-calendar3"></i>
+                                            <span>15 de janeiro, 2025</span>
+                                        </span>
+                                        <span>5 min</span>
+                                    </div>
+                                </div>
+                                <h2 class="blog-list-title mb-2">
+                                    Como reduzir impostos legalmente em 2025
+                                </h2>
+                                <p class="blog-list-excerpt mb-3">
+                                    Descubra estratégias comprovadas de planejamento tributário
+                                    para otimizar a carga fiscal da sua empresa.
+                                </p>
+                                <a href="#" class="blog-read-more d-inline-flex align-items-center gap-1">
+                                    <span>Ler mais</span>
+                                    <i class="bi bi-arrow-right-short"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </article>
+
+                <!-- POST 2 -->
+                <article class="card blog-list-card mb-4" data-aos="fade-up" data-category="Obrigações Fiscais">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <div class="blog-list-card-image-wrapper h-100">
+                                <img src="https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                    alt="Calendário fiscal 2025: principais prazos"
+                                    class="img-fluid blog-list-card-image">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body p-3 p-md-4">
+                                <div class="d-flex align-items-center flex-wrap gap-2 mb-2">
+                                    <span class="badge blog-category-badge">
+                                        Obrigações Fiscais
+                                    </span>
+                                    <div class="d-flex flex-wrap gap-3 blog-meta">
+                                        <span class="d-inline-flex align-items-center gap-1">
+                                            <i class="bi bi-calendar3"></i>
+                                            <span>10 de janeiro, 2025</span>
+                                        </span>
+                                        <span>8 min</span>
+                                    </div>
+                                </div>
+                                <h2 class="blog-list-title mb-2">
+                                    Calendário fiscal 2025: principais prazos
+                                </h2>
+                                <p class="blog-list-excerpt mb-3">
+                                    Não perca nenhum prazo importante. Confira o calendário
+                                    completo de obrigações fiscais para este ano.
+                                </p>
+                                <a href="#" class="blog-read-more d-inline-flex align-items-center gap-1">
+                                    <span>Ler mais</span>
+                                    <i class="bi bi-arrow-right-short"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- POST 3 -->
+                <article class="card blog-list-card mb-4" data-aos="fade-up" data-category="Atualizações Tributárias">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <div class="blog-list-card-image-wrapper h-100">
+                                <img src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                    alt="Reforma Tributária: o que muda para sua empresa"
+                                    class="img-fluid blog-list-card-image">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body p-3 p-md-4">
+                                <div class="d-flex align-items-center flex-wrap gap-2 mb-2">
+                                    <span class="badge blog-category-badge">
+                                        Atualizações Tributárias
+                                    </span>
+                                    <div class="d-flex flex-wrap gap-3 blog-meta">
+                                        <span class="d-inline-flex align-items-center gap-1">
+                                            <i class="bi bi-calendar3"></i>
+                                            <span>5 de janeiro, 2025</span>
+                                        </span>
+                                        <span>10 min</span>
+                                    </div>
+                                </div>
+                                <h2 class="blog-list-title mb-2">
+                                    Reforma Tributária: o que muda para sua empresa
+                                </h2>
+                                <p class="blog-list-excerpt mb-3">
+                                    Entenda as mudanças da reforma tributária e como se preparar
+                                    para as novas regras.
+                                </p>
+                                <a href="#" class="blog-read-more d-inline-flex align-items-center gap-1">
+                                    <span>Ler mais</span>
+                                    <i class="bi bi-arrow-right-short"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- POST 1 -->
+                <article class="card blog-list-card mb-4" data-aos="fade-up" data-category="Dicas Contábeis">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <div class="blog-list-card-image-wrapper h-100">
+                                <img src="https://images.pexels.com/photos/6863332/pexels-photo-6863332.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                    alt="Como reduzir impostos legalmente em 2025"
+                                    class="img-fluid blog-list-card-image">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body p-3 p-md-4">
+                                <div class="d-flex align-items-center flex-wrap gap-2 mb-2">
+                                    <span class="badge blog-category-badge">
+                                        Dicas Contábeis
+                                    </span>
+                                    <div class="d-flex flex-wrap gap-3 blog-meta">
+                                        <span class="d-inline-flex align-items-center gap-1">
+                                            <i class="bi bi-calendar3"></i>
+                                            <span>15 de janeiro, 2025</span>
+                                        </span>
+                                        <span>5 min</span>
+                                    </div>
+                                </div>
+                                <h2 class="blog-list-title mb-2">
+                                    Como reduzir impostos legalmente em 2025
+                                </h2>
+                                <p class="blog-list-excerpt mb-3">
+                                    Descubra estratégias comprovadas de planejamento tributário
+                                    para otimizar a carga fiscal da sua empresa.
+                                </p>
+                                <a href="#" class="blog-read-more d-inline-flex align-items-center gap-1">
+                                    <span>Ler mais</span>
+                                    <i class="bi bi-arrow-right-short"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- POST 2 -->
+                <article class="card blog-list-card mb-4" data-aos="fade-up" data-category="Obrigações Fiscais">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <div class="blog-list-card-image-wrapper h-100">
+                                <img src="https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                    alt="Calendário fiscal 2025: principais prazos"
+                                    class="img-fluid blog-list-card-image">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body p-3 p-md-4">
+                                <div class="d-flex align-items-center flex-wrap gap-2 mb-2">
+                                    <span class="badge blog-category-badge">
+                                        Obrigações Fiscais
+                                    </span>
+                                    <div class="d-flex flex-wrap gap-3 blog-meta">
+                                        <span class="d-inline-flex align-items-center gap-1">
+                                            <i class="bi bi-calendar3"></i>
+                                            <span>10 de janeiro, 2025</span>
+                                        </span>
+                                        <span>8 min</span>
+                                    </div>
+                                </div>
+                                <h2 class="blog-list-title mb-2">
+                                    Calendário fiscal 2025: principais prazos
+                                </h2>
+                                <p class="blog-list-excerpt mb-3">
+                                    Não perca nenhum prazo importante. Confira o calendário
+                                    completo de obrigações fiscais para este ano.
+                                </p>
+                                <a href="#" class="blog-read-more d-inline-flex align-items-center gap-1">
+                                    <span>Ler mais</span>
+                                    <i class="bi bi-arrow-right-short"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- POST 3 -->
+                <article class="card blog-list-card mb-4" data-aos="fade-up" data-category="Atualizações Tributárias">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <div class="blog-list-card-image-wrapper h-100">
+                                <img src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                    alt="Reforma Tributária: o que muda para sua empresa"
+                                    class="img-fluid blog-list-card-image">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body p-3 p-md-4">
+                                <div class="d-flex align-items-center flex-wrap gap-2 mb-2">
+                                    <span class="badge blog-category-badge">
+                                        Atualizações Tributárias
+                                    </span>
+                                    <div class="d-flex flex-wrap gap-3 blog-meta">
+                                        <span class="d-inline-flex align-items-center gap-1">
+                                            <i class="bi bi-calendar3"></i>
+                                            <span>5 de janeiro, 2025</span>
+                                        </span>
+                                        <span>10 min</span>
+                                    </div>
+                                </div>
+                                <h2 class="blog-list-title mb-2">
+                                    Reforma Tributária: o que muda para sua empresa
+                                </h2>
+                                <p class="blog-list-excerpt mb-3">
+                                    Entenda as mudanças da reforma tributária e como se preparar
+                                    para as novas regras.
+                                </p>
+                                <a href="#" class="blog-read-more d-inline-flex align-items-center gap-1">
+                                    <span>Ler mais</span>
+                                    <i class="bi bi-arrow-right-short"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
             </div>
 
-            <!-- CARD 2 -->
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
-                <article class="blog-card h-100" data-category="Dicas Contábeis">
-                    <div class="blog-card-image-wrapper">
-                        <img src="https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            class="blog-card-image" alt="5 Dicas para Reduzir Impostos Legalmente">
-                        <span class="blog-card-badge">
-                            Dicas Contábeis
-                        </span>
-                    </div>
-                    <div class="blog-card-body">
-                        <div class="blog-card-meta">
-                            <span><i class="bi bi-calendar3 me-1"></i>10 de março de 2024</span>
-                            <span><i class="bi bi-clock me-1"></i>5 min</span>
-                        </div>
-                        <h3 class="blog-card-title">
-                            5 Dicas para Reduzir Impostos Legalmente
-                        </h3>
-                        <p class="blog-card-text">
-                            Conheça estratégias legais de planejamento tributário que podem reduzir significativamente a
-                            carga de impostos da sua empresa.
-                        </p>
-                        <a href="#" class="blog-card-link">
-                            Ler mais <i class="bi bi-arrow-right-short ms-1"></i>
-                        </a>
-                    </div>
-                </article>
-            </div>
+            <!-- SIDEBAR -->
+            <aside class="col-lg-4 blog-sidebar-column">
 
-            <!-- CARD 3 -->
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <article class="blog-card h-100" data-category="Atualizações Tributárias">
-                    <div class="blog-card-image-wrapper">
-                        <img src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            class="blog-card-image" alt="Mudanças no eSocial em 2024">
-                        <span class="blog-card-badge">
-                            Atualizações Tributárias
-                        </span>
+                <!-- CATEGORIAS -->
+                <div id="blog-sidebar" class="card blog-sidebar-card mb-4" data-aos="fade-up">
+                    <div class="card-body">
+                        <h3 class="blog-sidebar-title mb-3">Categorias</h3>
+                        <ul class="list-unstyled mb-0">
+                            {% for tag in tags %}
+                            <li class="mb-2">
+                                <button type="button"
+                                    class="blog-sidebar-category w-100 d-flex align-items-center justify-content-between"
+                                    data-filter="{{ tag.name }}">
+                                    <span>{{ tag.name }}</span>
+                                    <span class="blog-sidebar-count">12</span>
+                                </button>
+                            </li>
+                            {% endfor %}
+                        </ul>
                     </div>
-                    <div class="blog-card-body">
-                        <div class="blog-card-meta">
-                            <span><i class="bi bi-calendar3 me-1"></i>5 de março de 2024</span>
-                            <span><i class="bi bi-clock me-1"></i>4 min</span>
-                        </div>
-                        <h3 class="blog-card-title">
-                            Mudanças no eSocial em 2024
-                        </h3>
-                        <p class="blog-card-text">
-                            Entenda as principais mudanças no eSocial para 2024 e como adequar sua empresa às novas
-                            exigências.
-                        </p>
-                        <a href="#" class="blog-card-link">
-                            Ler mais <i class="bi bi-arrow-right-short ms-1"></i>
-                        </a>
-                    </div>
-                </article>
+                </div>
+
+            </aside>
+
+            <!-- PAGINAÇÃO -->
+            <div class="col-12">
+                <nav class="blog-pagination-nav mt-4 d-flex justify-content-center"
+                    aria-label="Navegação de página do blog" data-aos="fade-up">
+                    <ul class="pagination blog-pagination mb-0">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                        </li>
+                        <li class="page-item active">
+                            <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Próximo</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
 
         </div>
-
-        <!-- PAGINAÇÃO / LOAD MORE (PODE VIRAR PAGINAÇÃO DO DJANGO DEPOIS) -->
-        <div class="text-center mt-4" data-aos="fade-up">
-            <button type="button" class="btn btn-outline-primary btn-sm">
-                Carregar mais artigos
-            </button>
-        </div>
-
     </div>
 </section>
