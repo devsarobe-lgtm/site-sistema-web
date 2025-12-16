@@ -9,6 +9,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (!sidebarCol || !section) return;
 
+    // cache da largura "natural" do card (antes de virar fixed/absolute)
+    let baseSidebarWidth = null;
+
+    function measureBaseSidebarWidth() {
+        const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+
+        // no mobile não precisa travar largura
+        if (viewportWidth < 992) {
+            baseSidebarWidth = null;
+            return;
+        }
+
+        // limpa inline pra medir como o layout original renderiza
+        const prevPosition = sidebar.style.position;
+        const prevTop = sidebar.style.top;
+        const prevBottom = sidebar.style.bottom;
+        const prevWidth = sidebar.style.width;
+        const prevMaxWidth = sidebar.style.maxWidth;
+
+        sidebar.style.position = 'static';
+        sidebar.style.top = '';
+        sidebar.style.bottom = '';
+        sidebar.style.width = '';
+        sidebar.style.maxWidth = '';
+
+        // width real do card no layout (pode vir com subpixel)
+        baseSidebarWidth = sidebar.getBoundingClientRect().width;
+
+        // restaura
+        sidebar.style.position = prevPosition;
+        sidebar.style.top = prevTop;
+        sidebar.style.bottom = prevBottom;
+        sidebar.style.width = prevWidth;
+        sidebar.style.maxWidth = prevMaxWidth;
+    }
+
     function handleSidebarScroll() {
         const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
 
@@ -18,22 +54,20 @@ document.addEventListener('DOMContentLoaded', function () {
             sidebar.style.top = '';
             sidebar.style.bottom = '';
             sidebar.style.width = '';
+            sidebar.style.maxWidth = '';
             return;
         }
 
         const scrollY = window.scrollY || window.pageYOffset;
         const headerHeight = header ? header.offsetHeight : 0;
-        const gapTop = 16;       // espaço entre header e sidebar
-        const gapBottom = 75;    // espaço acima da paginação
+        const gapTop = 16;
+        const gapBottom = 75;
 
         const sidebarHeight = sidebar.offsetHeight;
 
-        // coordenadas absolutas (na página)
         const sidebarColRect = sidebarCol.getBoundingClientRect();
         const sidebarColTopDoc = sidebarColRect.top + scrollY;
 
-        // limite inferior: topo da paginação (se existir),
-        // senão o fim da seção de blog
         let bottomLimitDoc;
         if (pagination) {
             const pagRect = pagination.getBoundingClientRect();
@@ -49,9 +83,10 @@ document.addEventListener('DOMContentLoaded', function () {
         // ponto onde deve parar de seguir (antes da paginação)
         const endScroll = bottomLimitDoc - sidebarHeight - headerHeight - gapTop;
 
-        // largura fixa quando fixed/absolute para não “pular”
-        const colWidth = sidebarColRect.width;
-        sidebar.style.width = colWidth + 'px';
+        // trava na largura natural do card (não na largura da coluna)
+        const safeWidth = Math.floor((baseSidebarWidth || sidebar.getBoundingClientRect().width) * 1000) / 1000;
+        sidebar.style.width = safeWidth + 'px';
+        sidebar.style.maxWidth = safeWidth + 'px';
 
         // Antes da área de sticky: comportamento normal
         if (scrollY <= startScroll) {
@@ -59,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
             sidebar.style.top = '';
             sidebar.style.bottom = '';
             sidebar.style.width = '';
+            sidebar.style.maxWidth = '';
             return;
         }
 
@@ -77,7 +113,13 @@ document.addEventListener('DOMContentLoaded', function () {
         sidebar.style.bottom = '';
     }
 
-    window.addEventListener('scroll', handleSidebarScroll);
-    window.addEventListener('resize', handleSidebarScroll);
+    // mede a largura base primeiro
+    measureBaseSidebarWidth();
     handleSidebarScroll();
+
+    window.addEventListener('scroll', handleSidebarScroll);
+    window.addEventListener('resize', function () {
+        measureBaseSidebarWidth();
+        handleSidebarScroll();
+    });
 });

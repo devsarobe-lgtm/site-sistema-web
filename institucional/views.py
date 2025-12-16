@@ -1,4 +1,5 @@
 from django.views.generic import TemplateView, ListView, DetailView
+from django.db.models import Count
 from . import models
 
 
@@ -24,9 +25,12 @@ class BlogListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['tags'] = models.Tag.objects.all()
-        return context
 
+        context['tags'] = models.Tag.objects.annotate(
+            total_posts=Count('blog_posts')
+        ).order_by('name')
+
+        return context
 
 
 class ContactView(TemplateView):

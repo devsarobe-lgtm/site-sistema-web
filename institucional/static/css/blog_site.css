@@ -81,7 +81,6 @@
 }
 
 /* Sidebar */
-/* Sidebar visual */
 .blog-sidebar-card {
     border: none;
     border-radius: 1rem;
@@ -116,10 +115,15 @@
     color: #4b5563;
 }
 
-/* importante para o posicionamento absoluto parar antes da paginação */
 .blog-sidebar-column {
     position: relative;
 }
+
+#blog-sidebar {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
 
 
 
