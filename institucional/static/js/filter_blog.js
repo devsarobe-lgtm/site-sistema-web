@@ -1,22 +1,24 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const filterButtons = document.querySelectorAll('.blog-filter-btn');
-    const blogCards = document.querySelectorAll('.blog-card');
+    const filterButtons = document.querySelectorAll('.blog-sidebar-category[data-filter]');
+    if (!filterButtons.length) return;
 
-    filterButtons.forEach(function (button) {
-        button.addEventListener('click', function () {
-            const filter = this.getAttribute('data-filter');
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+            const tag = (this.getAttribute('data-filter') || '').trim();
 
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
+            const url = new URL(window.location.href);
 
-            blogCards.forEach(function (card) {
-                const category = card.getAttribute('data-category');
-                if (filter === 'all' || category === filter) {
-                    card.parentElement.classList.remove('d-none');
-                } else {
-                    card.parentElement.classList.add('d-none');
-                }
-            });
+            // sempre que trocar tag, volta pra página 1
+            url.searchParams.delete('page');
+
+            if (tag) {
+                url.searchParams.set('tag', tag);
+            } else {
+                // "Todas"
+                url.searchParams.delete('tag');
+            }
+
+            window.location.href = url.toString();
         });
     });
 });
