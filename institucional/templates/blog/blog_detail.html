@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block styles %}
-<link rel="stylesheet" href="{% static 'css/blog_site.css' %}">
+<link rel="stylesheet" href="{% static 'css/blog_site_detail.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -12,16 +12,16 @@
         <div class="row g-4 align-items-start">
 
             <!-- COLUNA PRINCIPAL -->
-            <div class="col-lg-8">
+            <div class="col-lg-8 ">
 
-                <a href="{% url 'blog' %}" class="blog-detail-back d-inline-flex align-items-center gap-2 mb-3">
+                <a href="{% url 'blog' %}" class="blog-detail-back d-inline-flex align-items-center gap-2 mb-3" data-aos="fade-up">
                     <i class="bi bi-arrow-left"></i>
                     <span>Voltar para o blog</span>
                 </a>
 
-                <h1 class="blog-detail-title mb-3">{{ post.title }}</h1>
+                <h1 class="blog-detail-title mb-3" data-aos="fade-up" >{{ post.title }}</h1>
 
-                <div class="blog-detail-meta d-flex flex-wrap align-items-center mb-4">
+                <div class="blog-detail-meta d-flex flex-wrap align-items-center mb-4" data-aos="fade-up">
 
                     <span class="blog-meta-item">
                         <i class="bi bi-calendar3"></i>
@@ -45,7 +45,7 @@
                 </div>
 
 
-                <article class="card blog-detail-card">
+                <article class="card blog-detail-card" data-aos="fade-up">
 
                     {% if post.image %}
                     <div class="blog-detail-cover">
@@ -55,7 +55,7 @@
 
                     <div class="card-body p-3 p-md-4">
                         <div class="blog-detail-content">
-                            {{ post.content|linebreaks }}
+                            {{ post.content|safe }}
                         </div>
                     </div>
                 </article>
