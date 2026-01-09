@@ -34,6 +34,7 @@ body {
 }
 
 
+
 body {
     background-color: var(--background-color);
     color: var(--text-color);
@@ -431,6 +432,8 @@ a:hover {
 
 
 /* ===== Modals theming (usa sua paleta) ===== */
+
+
 .modal-themed .modal-header {
     background: var(--primary-color-dark);
     color: #fff;
@@ -581,6 +584,18 @@ a:hover {
     color: rgba(241, 245, 249, 0.9);
     max-width: 36rem;
 }
+
+
+/* Evita compensação de scrollbar do Bootstrap (gap na direita) */
+body.modal-open {
+    padding-right: 0 !important;
+}
+
+/* Alguns casos o Bootstrap aplica no próprio modal */
+.modal.show {
+    padding-right: 0 !important;
+}
+
 
 /* ===========================
     AOS (Animate On Scroll)
