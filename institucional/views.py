@@ -1,5 +1,7 @@
+
 from django.views.generic import TemplateView, ListView, DetailView
 from django.db.models import Count
+from django.shortcuts import get_object_or_404
 from . import models
 
 
@@ -48,6 +50,35 @@ class BlogListView(ListView):
         return context
 
 
+class BlogDetailView(DetailView):
+    model = models.BlogPost
+    template_name = 'blog/blog_detail.html'
+    context_object_name = 'post'
+    slug_field = 'slug'
+    slug_url_kwarg = 'slug'
+
+    def get_object(self, queryset=None):
+        return get_object_or_404(models.BlogPost, slug=self.kwargs['slug'], is_active=True)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        # sidebar (igual lista)
+        context['tags'] = models.Tag.objects.annotate(
+            total_posts=Count('blog_posts')
+        ).order_by('name')
+
+        # relacionados (opcional, simples)
+        post = context['post']
+        context['related_posts'] = (
+            models.BlogPost.objects.filter(is_active=True, tags__in=post.tags.all())
+            .exclude(pk=post.pk)
+            .distinct()
+            .order_by('-updated_at')[:3]
+        )
+
+
+        return context
 
 class ContactView(TemplateView):
     template_name = "contact/contact_site.html"
