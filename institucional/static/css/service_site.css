@@ -136,7 +136,7 @@
 
 .service-step {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 0.6rem;
 }
 
@@ -164,7 +164,7 @@
    WHATSAPP BUTTON (SERVICES)
 =========================== */
 
-.btn-whatsapp {
+.btn-whatsapp-service {
     background: var(--accent-color);
     border: none;
     color: #111827;
@@ -175,12 +175,12 @@
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
 }
 
-.btn-whatsapp i {
+.btn-whatsapp-service i {
     font-size: 1.05rem;
 }
 
-.btn-whatsapp:hover,
-.btn-whatsapp:focus {
+.btn-whatsapp-service:hover,
+.btn-whatsapp-service:focus {
     background: #e4b86a;
     color: #111827;
 }
