@@ -26,7 +26,12 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
 
-    <link rel="canonical" href="">
+    <!-- Link canônico -->
+    {% block canonical %}
+    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
+    {% endblock %}
+
+
 
     {% block ld_json %}
     {% endblock %}
