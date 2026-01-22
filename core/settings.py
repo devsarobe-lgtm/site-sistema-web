@@ -3,6 +3,8 @@ from pathlib import Path
 import os
 import environ
 
+from .utils.jazzmin import JAZZMIN_SETTINGS, JAZZMIN_UI_TWEAKS
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
@@ -19,6 +21,7 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -110,6 +113,11 @@ TIME_ZONE = 'America/Sao_Paulo'
 USE_I18N = True
 
 USE_TZ = True
+
+
+JAZZMIN_SETTINGS = JAZZMIN_SETTINGS
+
+JAZZMIN_UI_TWEAKS = JAZZMIN_UI_TWEAKS
 
 SESSION_COOKIE_AGE = env.int('SESSION_COOKIE_AGE')
 SESSION_SAVE_EVERY_REQUEST = env.bool('SESSION_SAVE_EVERY_REQUEST') 
