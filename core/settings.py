@@ -13,7 +13,7 @@ env = environ.Env(
     DEBUG=(bool, False)
 )
 
-DEBUG = env('DEBUG')
+DEBUG = env.bool("DEBUG", default=False)
 
 SECRET_KEY = env('SECRET_KEY')
 
@@ -123,11 +123,26 @@ SESSION_COOKIE_AGE = env.int('SESSION_COOKIE_AGE')
 SESSION_SAVE_EVERY_REQUEST = env.bool('SESSION_SAVE_EVERY_REQUEST') 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = env.bool('SESSION_EXPIRE_AT_BROWSER_CLOSE')
 
+
+if not DEBUG:
+    #Https settings
+    SECURE_SSL_REDIRECT = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", default=[])
+
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    SECURE_REFERRER_POLICY = "same-origin"
+    X_FRAME_OPTIONS = "DENY"
+
+
 AXES_FAILURE_LIMIT = env.int('AXES_FAILURE_LIMIT')
 AXES_COOLOFF_TIME = env.int('AXES_COOLOFF_TIME')
 AXES_LOCKOUT_TEMPLATE = '403.html'
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 
