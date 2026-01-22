@@ -1,5 +1,6 @@
 import os
 from django.db import models
+from django.urls import reverse
 from django.core.exceptions import ValidationError
 from django.utils.text import slugify
 
@@ -52,6 +53,9 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("blog_detail", kwargs={"slug": self.slug})    
 
     def clean(self):
         super().clean()
