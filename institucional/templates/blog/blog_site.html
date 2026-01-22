@@ -6,7 +6,98 @@
 {% endblock %}
 
 {% block ld_json %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AccountingService",
+      "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization",
+      "name": "Sarobe Contabilidade",
+      "url": "{{ request.scheme }}://{{ request.get_host }}/",
+      "email": "sarobe.contabilidade@gmail.com",
+      "telephone": ["+55-48-3266-0069", "+55-48-98826-3060"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Victor Meirelles, 07",
+        "addressLocality": "São José",
+        "addressRegion": "SC",
+        "postalCode": "88101-170",
+        "addressCountry": "BR"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ request.scheme }}://{{ request.get_host }}/#website",
+      "url": "{{ request.scheme }}://{{ request.get_host }}/",
+      "name": "Sarobe Contabilidade",
+      "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+      "inLanguage": "pt-BR"
+    },
+    {
+      "@type": "Blog",
+      "@id": "{{ request.build_absolute_uri }}#blog",
+      "url": "{{ request.build_absolute_uri }}",
+      "name": "Blog | Sarobe Contabilidade",
+      "inLanguage": "pt-BR",
+      "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "{{ request.build_absolute_uri }}#webpage",
+      "url": "{{ request.build_absolute_uri }}",
+      "name": "Blog | Sarobe Contabilidade",
+      "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+      "about": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+      "mainEntity": { "@id": "{{ request.build_absolute_uri }}#postList" },
+      "inLanguage": "pt-BR"
+    },
+
+    {
+      "@type": "ItemList",
+      "@id": "{{ request.build_absolute_uri }}#postList",
+      "name": "Posts do Blog",
+      "itemListOrder": "https://schema.org/ItemListOrderDescending",
+      "numberOfItems": {{ page_obj.object_list|length }},
+      "itemListElement": [
+        {% for post in page_obj.object_list %}
+        {
+          "@type": "ListItem",
+          "position": {{ forloop.counter }},
+          "url": "{{ request.scheme }}://{{ request.get_host }}{% url 'blog_detail' post.slug %}",
+          "item": {
+            "@type": "BlogPosting",
+            "@id": "{{ request.scheme }}://{{ request.get_host }}{% url 'blog_detail' post.slug %}#blogposting",
+            "mainEntityOfPage": "{{ request.scheme }}://{{ request.get_host }}{% url 'blog_detail' post.slug %}",
+            "headline": "{{ post.title|escapejs }}",
+            "description": "{{ post.summary_content|default_if_none:''|striptags|truncatechars:180|escapejs }}",
+            "datePublished": "{{ post.created_at|date:'c' }}",
+            {% if post.updated_at %}"dateModified": "{{ post.updated_at|date:'c' }}",{% endif %}
+            {% if post.cover_image %}
+            "image": [
+              "{{ request.scheme }}://{{ request.get_host }}{{ post.cover_image.url }}"
+            ],
+            {% endif %}
+            "author": {
+              "@type": "Organization",
+              "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization",
+              "name": "Sarobe Contabilidade"
+            },
+            "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+            {% if post.tags.all %}
+            "keywords": "{% for t in post.tags.all %}{{ t.name|escapejs }}{% if not forloop.last %}, {% endif %}{% endfor %}",
+            {% endif %}
+            "inLanguage": "pt-BR"
+          }
+        }{% if not forloop.last %},{% endif %}
+        {% endfor %}
+      ]
+    }
+  ]
+}
+</script>
 {% endblock %}
+
 
 {% block info %}
 <title></title>

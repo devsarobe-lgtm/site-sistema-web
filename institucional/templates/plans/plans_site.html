@@ -12,7 +12,154 @@
 {% endblock %}
 
 {% block ld_json %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AccountingService",
+      "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization",
+      "name": "Sarobe Contabilidade",
+      "url": "{{ request.scheme }}://{{ request.get_host }}/",
+      "email": "sarobe.contabilidade@gmail.com",
+      "telephone": ["+55-48-3266-0069", "+55-48-98826-3060"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Victor Meirelles, 07",
+        "addressLocality": "São José",
+        "addressRegion": "SC",
+        "postalCode": "88101-170",
+        "addressCountry": "BR"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "{{ request.build_absolute_uri }}#webpage",
+      "url": "{{ request.build_absolute_uri }}",
+      "name": "Planos e preços | Sarobe Contabilidade",
+      "inLanguage": "pt-BR",
+      "about": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+      "mainEntity": { "@id": "{{ request.build_absolute_uri }}#offerCatalog" }
+    },
+    {
+      "@type": "OfferCatalog",
+      "@id": "{{ request.build_absolute_uri }}#offerCatalog",
+      "name": "Planos e preços",
+      "description": "Escolha o plano ideal para o momento da sua empresa. Preços transparentes e sem surpresas. Valores a partir de; consulte condições especiais.",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "@id": "{{ request.build_absolute_uri }}#offer-mei",
+          "name": "Plano MEI",
+          "priceCurrency": "BRL",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "BRL",
+            "description": "Valores a partir de. Consulte condições especiais conforme complexidade."
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "@id": "{{ request.build_absolute_uri }}#service-mei",
+            "name": "Contabilidade para MEI",
+            "serviceType": "MEI",
+            "provider": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+            "areaServed": "BR",
+            "description": "Ideal para quem está começando como MEI.",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Inclui",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Declaração anual DASN-SIMEI" },
+                { "@type": "ListItem", "position": 2, "name": "Emissão de DAS mensal" },
+                { "@type": "ListItem", "position": 3, "name": "Suporte via WhatsApp" },
+                { "@type": "ListItem", "position": 4, "name": "Orientações fiscais básicas" },
+                { "@type": "ListItem", "position": 5, "name": "Orientação sobre limites e obrigações" }
+              ]
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "@id": "{{ request.build_absolute_uri }}#offer-simples",
+          "name": "Plano Simples Nacional",
+          "priceCurrency": "BRL",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "BRL",
+            "description": "Valores a partir de. Consulte condições especiais conforme complexidade."
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "@id": "{{ request.build_absolute_uri }}#service-simples",
+            "name": "Contabilidade para Simples Nacional",
+            "serviceType": "Simples Nacional",
+            "provider": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+            "areaServed": "BR",
+            "description": "Completo para empresas em crescimento.",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Inclui",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Escrituração fiscal completa" },
+                { "@type": "ListItem", "position": 2, "name": "Apuração de impostos mensal" },
+                { "@type": "ListItem", "position": 3, "name": "Folha de pagamento (até 5 colaboradores)" },
+                { "@type": "ListItem", "position": 4, "name": "Suporte prioritário" },
+                { "@type": "ListItem", "position": 5, "name": "Obrigações acessórias (SPED, DCTF, etc.)" },
+                { "@type": "ListItem", "position": 6, "name": "Consultoria mensal" },
+                { "@type": "ListItem", "position": 7, "name": "Emissão de certidões" },
+                { "@type": "ListItem", "position": 8, "name": "Planejamento tributário básico" }
+              ]
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "@id": "{{ request.build_absolute_uri }}#offer-lucro",
+          "name": "Plano Lucro Presumido",
+          "priceCurrency": "BRL",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "BRL",
+            "description": "Valores a partir de. Consulte condições especiais conforme complexidade."
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "@id": "{{ request.build_absolute_uri }}#service-lucro",
+            "name": "Contabilidade para Lucro Presumido",
+            "serviceType": "Lucro Presumido",
+            "provider": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+            "areaServed": "BR",
+            "description": "Solução completa e estratégica.",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Inclui",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Escrituração fiscal e contábil completa" },
+                { "@type": "ListItem", "position": 2, "name": "Apuração de impostos mensal" },
+                { "@type": "ListItem", "position": 3, "name": "Folha de pagamento ilimitada" },
+                { "@type": "ListItem", "position": 4, "name": "Todas as obrigações acessórias" },
+                { "@type": "ListItem", "position": 5, "name": "Atendimento dedicado ao negócio" },
+                { "@type": "ListItem", "position": 6, "name": "Consultoria estratégica mensal" },
+                { "@type": "ListItem", "position": 7, "name": "Planejamento tributário avançado" },
+                { "@type": "ListItem", "position": 8, "name": "Análise de indicadores (DRE, Fluxo de Caixa)" }
+              ]
+            }
+          }
+        }
+      ],
+      "termsOfService": [
+        "Sem taxa de adesão: você paga apenas a mensalidade do plano escolhido.",
+        "Sem fidelidade: contratos mensais flexíveis. Cancele quando quiser.",
+        "Valores 'a partir de': podem variar conforme complexidade.",
+        "Serviços adicionais (abertura de empresa, certificado digital e outros) têm valores à parte.",
+        "Desconto para múltiplas empresas: condições especiais."
+      ]
+    }
+  ]
+}
+</script>
 {% endblock %}
+
 
 {% block content %}
 

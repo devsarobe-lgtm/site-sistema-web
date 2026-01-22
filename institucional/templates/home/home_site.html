@@ -11,7 +11,274 @@
 {% endblock %}
 
 {% block ld_json %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AccountingService",
+      "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization",
+      "name": "Sarobe Contabilidade",
+      "url": "{{ request.scheme }}://{{ request.get_host }}/",
+      "description": "Contabilidade consultiva para sua empresa crescer com segurança. Cuidamos do fiscal, trabalhista e financeiro, enquanto você foca no seu negócio.",
+      "email": "sarobe.contabilidade@gmail.com",
+      "telephone": ["+55-48-3266-0069", "+55-48-98826-3060"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Victor Meirelles, 07",
+        "addressLocality": "São José",
+        "addressRegion": "SC",
+        "postalCode": "88101-170",
+        "addressCountry": "BR"
+      },
+      "areaServed": "BR",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": 5.0,
+        "reviewCount": 34,
+        "bestRating": 5
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ request.scheme }}://{{ request.get_host }}/#website",
+      "url": "{{ request.scheme }}://{{ request.get_host }}/",
+      "name": "Sarobe Contabilidade",
+      "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+      "inLanguage": "pt-BR"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "{{ request.build_absolute_uri }}#webpage",
+      "url": "{{ request.build_absolute_uri }}",
+      "name": "Sarobe Contabilidade | Contabilidade Consultiva em São José/SC",
+      "inLanguage": "pt-BR",
+      "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+      "about": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+      "mainEntity": [
+        { "@id": "{{ request.build_absolute_uri }}#serviceList" },
+        { "@id": "{{ request.build_absolute_uri }}#offerCatalog" }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "{{ request.build_absolute_uri }}#serviceList",
+      "name": "Nossos Serviços",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Service",
+            "@id": "{{ request.build_absolute_uri }}#service-contabilidade-geral",
+            "name": "Contabilidade Geral",
+            "serviceType": "Contabilidade",
+            "provider": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+            "areaServed": "BR",
+            "description": "Escrituração contábil, balancetes e demonstrações financeiras, com apuração de resultados periódicos e análise patrimonial."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Service",
+            "@id": "{{ request.build_absolute_uri }}#service-fiscal-tributario",
+            "name": "Departamento Fiscal e Tributário",
+            "serviceType": "Fiscal e Tributário",
+            "provider": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+            "areaServed": "BR",
+            "description": "Apuração de impostos, obrigações acessórias e planejamento tributário com consultoria e recuperação de créditos."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Service",
+            "@id": "{{ request.build_absolute_uri }}#service-departamento-pessoal",
+            "name": "Departamento Pessoal",
+            "serviceType": "Departamento Pessoal",
+            "provider": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+            "areaServed": "BR",
+            "description": "Folha de pagamento, admissões, férias, rescisões e encargos, com envio de eSocial e rotinas trabalhistas."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "Service",
+            "@id": "{{ request.build_absolute_uri }}#service-societario",
+            "name": "Abertura, Alteração e Encerramento",
+            "serviceType": "Societário",
+            "provider": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+            "areaServed": "BR",
+            "description": "Abertura, alterações contratuais e encerramentos com enquadramento e regularização conforme exigências legais."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "Service",
+            "@id": "{{ request.build_absolute_uri }}#service-consultoria",
+            "name": "Consultoria e Gestão Contábil",
+            "serviceType": "Consultoria Contábil",
+            "provider": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+            "areaServed": "BR",
+            "description": "Indicadores, contabilidade consultiva, suporte em auditorias e relatórios estratégicos para decisões seguras."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "Service",
+            "@id": "{{ request.build_absolute_uri }}#service-condominios",
+            "name": "Serviços para Condomínios",
+            "serviceType": "Contabilidade Condominial",
+            "provider": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+            "areaServed": "BR",
+            "description": "Controle de receitas e despesas, balancetes mensais, folha de pagamento, obrigações fiscais e suporte ao síndico."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "OfferCatalog",
+      "@id": "{{ request.build_absolute_uri }}#offerCatalog",
+      "name": "Planos",
+      "description": "Escolha o plano ideal para o momento do seu negócio e conte com acompanhamento contábil próximo, claro e estratégico.",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "@id": "{{ request.build_absolute_uri }}#offer-mei",
+          "name": "Plano MEI",
+          "priceCurrency": "BRL",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "BRL",
+            "description": "Valores a partir de. Solicite proposta."
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "@id": "{{ request.build_absolute_uri }}#service-plan-mei",
+            "name": "Plano MEI",
+            "provider": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+            "areaServed": "BR",
+            "description": "Ideal para microempreendedores que precisam manter a regularidade em dia com suporte rápido e orientações claras."
+          }
+        },
+        {
+          "@type": "Offer",
+          "@id": "{{ request.build_absolute_uri }}#offer-simples",
+          "name": "Plano Simples Nacional",
+          "priceCurrency": "BRL",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "BRL",
+            "description": "Valores a partir de. Solicite proposta."
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "@id": "{{ request.build_absolute_uri }}#service-plan-simples",
+            "name": "Plano Simples Nacional",
+            "provider": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+            "areaServed": "BR",
+            "description": "Para pequenas empresas que buscam acompanhamento próximo com rotinas fiscais e contábeis integradas."
+          }
+        },
+        {
+          "@type": "Offer",
+          "@id": "{{ request.build_absolute_uri }}#offer-lucro",
+          "name": "Plano Lucro Presumido",
+          "priceCurrency": "BRL",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "BRL",
+            "description": "Valores a partir de. Solicite proposta."
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "@id": "{{ request.build_absolute_uri }}#service-plan-lucro",
+            "name": "Plano Lucro Presumido",
+            "provider": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+            "areaServed": "BR",
+            "description": "Indicado para empresas em expansão com gestão tributária estruturada e apoio estratégico nas decisões."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "@id": "{{ request.build_absolute_uri }}#faq",
+      "url": "{{ request.build_absolute_uri }}#faq",
+      "name": "Perguntas frequentes",
+      "inLanguage": "pt-BR",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Como funciona a contabilidade consultiva da Sarobe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Atuamos de forma próxima ao cliente, não apenas entregando obrigações fiscais, mas também analisando indicadores, resultados e riscos para apoiar nas decisões do dia a dia da empresa."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Atendem empresas de outros estados ou somente de Florianópolis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Atendemos empresas de diferentes estados do Brasil. Nosso atendimento é digital, com reuniões online, envio de documentos por canais seguros e suporte contínuo por e-mail e WhatsApp."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Preciso mudar de contador para migrar minha empresa para a Sarobe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim, mas todo o processo é conduzido por nossa equipe. Orientamos a rescisão com o contador atual, realizamos a transferência de documentos e regularizamos cadastros sem interromper as rotinas da empresa."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quais tipos de empresas e segmentos vocês atendem?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Atendemos MEI, empresas do Simples Nacional, Lucro Presumido e condomínios, em diversos segmentos: serviços, comércio, profissionais liberais, saúde, tecnologia, entre outros."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como funciona o suporte do dia a dia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Você conta com um time dedicado para dúvidas fiscais, trabalhistas e contábeis, com atendimento por WhatsApp, telefone e e-mail, além de reuniões periódicas para alinhamento de resultados."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Existe algum custo para fazer a análise inicial da minha empresa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não. A primeira conversa é gratuita. Avaliamos o enquadramento, regime tributário e necessidades da sua empresa para sugerir o plano mais adequado e possíveis economias fiscais."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 {% endblock %}
+
 
 {% block content %}
 

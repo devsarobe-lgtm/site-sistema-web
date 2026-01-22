@@ -11,7 +11,139 @@
 {% endblock %}
 
 {% block ld_json %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AccountingService",
+      "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization",
+      "name": "Sarobe Contabilidade",
+      "url": "{{ request.scheme }}://{{ request.get_host }}/",
+      "description": "Há mais de 18 anos transformando a gestão contábil de empresas com atendimento consultivo, tecnologia e comprometimento.",
+      "foundingDate": "2009",
+      "email": "sarobe.contabilidade@gmail.com",
+      "telephone": ["+55-48-3266-0069", "+55-48-98826-3060"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Victor Meirelles, 07",
+        "addressLocality": "São José",
+        "addressRegion": "SC",
+        "postalCode": "88101-170",
+        "addressCountry": "BR"
+      },
+      "areaServed": "BR",
+      "numberOfEmployees": 4,
+      "founder": {
+        "@type": "Person",
+        "@id": "{{ request.scheme }}://{{ request.get_host }}/#person-gladys-sarobe",
+        "name": "Gladys Sarobe",
+        "jobTitle": "Founder / Accountant",
+        "identifier": "CRC 025082/SC",
+        "description": "Mais de 20 anos de experiência em gestão contábil e departamento societário."
+      },
+      "employee": [
+        {
+          "@type": "Person",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}/#person-gladys-sarobe",
+          "name": "Gladys Sarobe",
+          "jobTitle": "Founder / Accountant",
+          "identifier": "CRC 025082/SC",
+          "description": "Mais de 20 anos de experiência em gestão contábil e departamento societário."
+        },
+        {
+          "@type": "Person",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}/#person-fabricio-philippi",
+          "name": "Fabricio Philippi",
+          "jobTitle": "Departamento Pessoal",
+          "description": "Expert em legislação trabalhista e gestão de folha de pagamento."
+        },
+        {
+          "@type": "Person",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}/#person-elisiane-sarobe",
+          "name": "Elisiane Sarobe",
+          "jobTitle": "Departamento Fiscal",
+          "description": "Especialização em compliance fiscal, planejamento tributário e obrigações acessórias."
+        },
+        {
+          "@type": "Person",
+          "@id": "{{ request.scheme }}://{{ request.get_host }}/#person-wando-mendes",
+          "name": "Wando Mendes",
+          "jobTitle": "Departamento Contábil",
+          "description": "Expert em demonstrações financeiras (Balanço Patrimonial, DRE e Fluxo de Caixa)."
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "{{ request.build_absolute_uri }}#webpage",
+      "url": "{{ request.build_absolute_uri }}",
+      "name": "Sobre | Sarobe Contabilidade",
+      "inLanguage": "pt-BR",
+      "about": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+      "mainEntity": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" }
+    },
+    {
+      "@type": "AboutPage",
+      "@id": "{{ request.build_absolute_uri }}#aboutpage",
+      "url": "{{ request.build_absolute_uri }}",
+      "name": "Sobre a Sarobe Contabilidade",
+      "inLanguage": "pt-BR",
+      "isPartOf": { "@id": "{{ request.build_absolute_uri }}#webpage" },
+      "mainEntity": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "{{ request.build_absolute_uri }}#timeline",
+      "name": "Linha do tempo",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Event",
+            "name": "Início das atividades",
+            "startDate": "2007-01-01",
+            "description": "Início das atividades com foco em pequenas empresas."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Event",
+            "name": "Expansão",
+            "startDate": "2014-01-01",
+            "description": "Ampliação da equipe e atendimento a médias empresas."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Event",
+            "name": "Digitalização",
+            "startDate": "2018-01-01",
+            "description": "Implementação de atendimento 100% digital."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "Event",
+            "name": "Hoje",
+            "startDate": "2025-01-01",
+            "description": "Mais de 50 clientes ativos e equipe de 4 especialistas."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 {% endblock %}
+
 
 {% block content %}
 <!-- HERO SOBRE -->

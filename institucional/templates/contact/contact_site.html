@@ -11,7 +11,87 @@
 {% endblock %}
 
 {% block ld_json %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AccountingService",
+      "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization",
+      "name": "Sarobe Contabilidade",
+      "url": "{{ request.scheme }}://{{ request.get_host }}/",
+      "email": "sarobe.contabilidade@gmail.com",
+      "telephone": [
+        "+55-48-3266-0069",
+        "+55-48-98826-3060"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Victor Meirelles, 07",
+        "addressLocality": "São José",
+        "addressRegion": "SC",
+        "postalCode": "88101-170",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -27.599272976244563,
+        "longitude": -48.61050272475024
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "telephone": "+55-48-3266-0069",
+          "email": "sarobe.contabilidade@gmail.com",
+          "areaServed": "BR",
+          "availableLanguage": ["pt-BR"]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "telephone": "+55-48-98826-3060",
+          "areaServed": "BR",
+          "availableLanguage": ["pt-BR"]
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ request.scheme }}://{{ request.get_host }}/#website",
+      "url": "{{ request.scheme }}://{{ request.get_host }}/",
+      "name": "Sarobe Contabilidade",
+      "publisher": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+      "inLanguage": "pt-BR"
+    },
+    {
+      "@type": "ContactPage",
+      "@id": "{{ request.build_absolute_uri }}#webpage",
+      "url": "{{ request.build_absolute_uri }}",
+      "name": "Contato | Sarobe Contabilidade",
+      "isPartOf": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#website" },
+      "about": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+      "inLanguage": "pt-BR"
+    }
+  ]
+}
+</script>
 {% endblock %}
+
 
 {% block content %}
 

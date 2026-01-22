@@ -11,7 +11,192 @@
 {% endblock %}
 
 {% block ld_json %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AccountingService",
+      "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization",
+      "name": "Sarobe Contabilidade",
+      "url": "{{ request.scheme }}://{{ request.get_host }}/",
+      "email": "sarobe.contabilidade@gmail.com",
+      "telephone": ["+55-48-3266-0069", "+55-48-98826-3060"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Victor Meirelles, 07",
+        "addressLocality": "São José",
+        "addressRegion": "SC",
+        "postalCode": "88101-170",
+        "addressCountry": "BR"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "{{ request.build_absolute_uri }}#webpage",
+      "url": "{{ request.build_absolute_uri }}",
+      "name": "Serviços | Sarobe Contabilidade",
+      "inLanguage": "pt-BR",
+      "about": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+      "mainEntity": { "@id": "{{ request.build_absolute_uri }}#serviceList" }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "{{ request.build_absolute_uri }}#serviceList",
+      "name": "Nossos Serviços",
+      "description": "Soluções contábeis completas para todas as fases do seu negócio.",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Service",
+            "@id": "{{ request.build_absolute_uri }}#service-contabilidade-geral",
+            "name": "Contabilidade Geral",
+            "serviceType": "Contabilidade",
+            "provider": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+            "areaServed": "BR",
+            "description": "Escrituração contábil completa, balancetes e demonstrações financeiras, com apuração de resultados periódicos e análise patrimonial.",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Benefícios",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Visão completa da saúde financeira do negócio" },
+                { "@type": "ListItem", "position": 2, "name": "Balancetes e demonstrações financeiras atualizadas" },
+                { "@type": "ListItem", "position": 3, "name": "Análise patrimonial para tomada de decisão" },
+                { "@type": "ListItem", "position": 4, "name": "Base sólida para relacionamento com bancos e investidores" },
+                { "@type": "ListItem", "position": 5, "name": "Informações confiáveis para planejamento de longo prazo" }
+              ]
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Service",
+            "@id": "{{ request.build_absolute_uri }}#service-fiscal-tributario",
+            "name": "Departamento Fiscal e Tributário",
+            "serviceType": "Fiscal e Tributário",
+            "provider": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+            "areaServed": "BR",
+            "description": "Apuração de impostos, entrega de obrigações acessórias e planejamento tributário estratégico, com consultoria e recuperação de créditos.",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Benefícios",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Apuração correta de tributos em todas as esferas" },
+                { "@type": "ListItem", "position": 2, "name": "Entrega pontual de obrigações acessórias" },
+                { "@type": "ListItem", "position": 3, "name": "Planejamento tributário para redução legal de impostos" },
+                { "@type": "ListItem", "position": 4, "name": "Análise e recuperação de créditos tributários" },
+                { "@type": "ListItem", "position": 5, "name": "Minimização de riscos de autuações e multas" }
+              ]
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Service",
+            "@id": "{{ request.build_absolute_uri }}#service-departamento-pessoal",
+            "name": "Departamento Pessoal",
+            "serviceType": "Departamento Pessoal",
+            "provider": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+            "areaServed": "BR",
+            "description": "Gestão completa de folha, admissões, férias, rescisões e encargos, com envio de eSocial e demais obrigações.",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Benefícios",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Folha de pagamento calculada com precisão" },
+                { "@type": "ListItem", "position": 2, "name": "Gestão completa de admissões, férias e rescisões" },
+                { "@type": "ListItem", "position": 3, "name": "Envio correto de eSocial, FGTS e demais encargos" },
+                { "@type": "ListItem", "position": 4, "name": "Redução de riscos trabalhistas e passivos futuros" },
+                { "@type": "ListItem", "position": 5, "name": "Orientação constante sobre legislação trabalhista" }
+              ]
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "Service",
+            "@id": "{{ request.build_absolute_uri }}#service-abertura-alteracao-encerramento",
+            "name": "Abertura, Alteração e Encerramento",
+            "serviceType": "Societário",
+            "provider": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+            "areaServed": "BR",
+            "description": "Definição de modelo societário e regime tributário, registros, alterações contratuais, regularizações e encerramentos.",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Benefícios",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Escolha adequada do tipo societário e regime tributário" },
+                { "@type": "ListItem", "position": 2, "name": "Registro ágil em órgãos competentes" },
+                { "@type": "ListItem", "position": 3, "name": "Alterações contratuais com segurança jurídica" },
+                { "@type": "ListItem", "position": 4, "name": "Encerramento regularizado, sem pendências futuras" },
+                { "@type": "ListItem", "position": 5, "name": "Orientação estratégica em cada etapa do ciclo da empresa" }
+              ]
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "Service",
+            "@id": "{{ request.build_absolute_uri }}#service-consultoria-gestao",
+            "name": "Consultoria e Gestão Contábil",
+            "serviceType": "Consultoria Contábil",
+            "provider": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+            "areaServed": "BR",
+            "description": "Análise de indicadores, contabilidade consultiva e suporte em auditorias, com relatórios estratégicos para decisões seguras.",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Benefícios",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Indicadores claros para gestão do negócio" },
+                { "@type": "ListItem", "position": 2, "name": "Relatórios customizados para a diretoria" },
+                { "@type": "ListItem", "position": 3, "name": "Suporte em auditorias e diligências" },
+                { "@type": "ListItem", "position": 4, "name": "Identificação de oportunidades de melhoria" },
+                { "@type": "ListItem", "position": 5, "name": "Base contábil alinhada à estratégia da empresa" }
+              ]
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "Service",
+            "@id": "{{ request.build_absolute_uri }}#service-condominios",
+            "name": "Serviços para Condomínios",
+            "serviceType": "Contabilidade Condominial",
+            "provider": { "@id": "{{ request.scheme }}://{{ request.get_host }}/#organization" },
+            "areaServed": "BR",
+            "description": "Contabilidade completa para condomínios, com controle de receitas e despesas, balancetes mensais, folha, obrigações fiscais e suporte ao síndico.",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Benefícios",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Organização completa das finanças do condomínio" },
+                { "@type": "ListItem", "position": 2, "name": "Balancetes mensais claros para assembleias" },
+                { "@type": "ListItem", "position": 3, "name": "Gestão de folha de pagamento e encargos" },
+                { "@type": "ListItem", "position": 4, "name": "Cumprimento de todas as obrigações fiscais" },
+                { "@type": "ListItem", "position": 5, "name": "Suporte direto ao síndico na tomada de decisões" }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 {% endblock %}
+
 
 {% block content %}
 
