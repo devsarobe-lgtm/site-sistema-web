@@ -13,6 +13,9 @@ sitemaps = {
     "blog": BlogPostSitemap,
 }
 
+handler403 = "institucional.views.error_403"
+handler404 = "institucional.views.error_404"
+handler500 = "institucional.views.error_500"
 
 urlpatterns = [
     path('admin/', admin.site.urls),

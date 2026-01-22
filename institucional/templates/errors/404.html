@@ -1,0 +1,41 @@
+{% extends 'base_site.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/error_pages.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="error-page py-5">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-7" data-aos="fade-up">
+                <div class="error-card p-4 p-md-5">
+                    <div class="error-icon mb-3">
+                        <i class="bi bi-search"></i>
+                    </div>
+
+                    <p class="error-code mb-2">404</p>
+                    <h1 class="error-title mb-3">Página não encontrada</h1>
+                    <p class="error-text mb-4">
+                        O link pode estar incorreto ou a página foi removida.
+                    </p>
+
+                    <div class="d-flex gap-2 justify-content-center flex-wrap">
+                        <a class="btn btn-primary" href="{% url 'home' %}">
+                            <i class="bi bi-house-door me-2"></i>Voltar ao início
+                        </a>
+                        <a class="btn btn-outline-secondary" href="{% url 'blog' %}">
+                            <i class="bi bi-journal-text me-2"></i>Ir para o blog
+                        </a>
+                    </div>
+                </div>
+
+                <p class="error-subtle mt-3 mb-0">
+                    Se você digitou o endereço, confira e tente novamente.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

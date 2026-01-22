@@ -1,0 +1,83 @@
+.error-page {
+    background: var(--background-color);
+}
+
+.error-card {
+    border-radius: 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+    backdrop-filter: blur(8px);
+
+    /* FIX alinhamento */
+    text-align: center;
+    margin: 0 auto;
+    max-width: 860px;
+}
+
+.error-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-icon i {
+    font-size: 3.1rem;
+    color: var(--accent-color);
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-code {
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--muted-text-color);
+    margin: 0;
+}
+
+.error-title {
+    font-family: var(--heading-font);
+    font-weight: 800;
+    color: var(--text-color);
+    line-height: 1.1;
+    margin: 0;
+}
+
+.error-text {
+    color: var(--muted-text-color);
+    margin: 0;
+}
+
+.error-subtle {
+    color: var(--muted-text-color);
+    opacity: 0.9;
+}
+
+/* FIX alinhamento dos botões */
+.error-actions {
+    display: flex;
+    gap: .75rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.error-actions .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+}
+
+/* seu outline-light pode "sumir" em fundo claro */
+.error-actions .btn-outline-light {
+    border-color: rgba(255, 255, 255, 0.22);
+    color: var(--text-color);
+}
+
+.error-actions .btn-outline-light:hover {
+    border-color: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.06);
+}
