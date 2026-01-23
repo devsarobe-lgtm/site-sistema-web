@@ -1,30 +1,30 @@
 {% load static %}
 
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {% if IS_PROD %}
     <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-TFR6M3PH');
     </script>
     <!-- End Google Tag Manager -->
     {% endif %}
 
-    {% block info %}
-    {% endblock %}
+    {% block info %}{% endblock %}
 
     <link rel="icon" href="{% static 'img/icon/Logo_branca_icon__sem_fundo.ico' %}" type="image/x-icon">
 
@@ -41,50 +41,41 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
 
-    <!-- Link canônico -->
     {% block canonical %}
     <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
     {% endblock %}
 
-    <!-- JSON-LD -->
-    {% block ld_json %}
-    {% endblock %}
+    {% block ld_json %}{% endblock %}
 
-    <!-- CSS base global (cores + tipografia) -->
     <link rel="stylesheet" href="{% static 'css/base_style_site.css' %}">
-    {% block styles %}
-    {% endblock %}
-
+    {% block styles %}{% endblock %}
 </head>
 
 <body class="d-flex flex-column min-vh-100">
     {% if IS_PROD %}
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TFR6M3PH" height="0" width="0"
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TFR6M3PH" height="0" width="0"
             style="display:none;visibility:hidden"></iframe>
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
     {% endif %}
+
     {% include 'components/_header.html' %}
+
     <main class="flex-grow-1">
-        {% block content %}
-        {% endblock %}
+        {% block content %}{% endblock %}
     </main>
+
     {% include 'components/_whats_button.html' %}
     {% include 'components/_privacy_terms.html' %}
     {% include 'components/_footer.html' %}
 
-    <!-- Bootstrap JS -->
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-
-    <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-    <!-- Script de animações -->
     <script src="{% static 'js/animation_script.js' %}"></script>
 
-    {% block scripts %}
-    {% endblock %}
+    {% block scripts %}{% endblock %}
 </body>
 
 </html>
