@@ -115,6 +115,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+GTM_ID = env("GTM_ID", default="")
 
 JAZZMIN_SETTINGS = JAZZMIN_SETTINGS
 
