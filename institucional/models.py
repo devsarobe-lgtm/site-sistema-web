@@ -80,3 +80,5 @@ class BlogPost(models.Model):
             if os.path.isfile(image_path):
                 os.remove(image_path)
         super().delete(*args, **kwargs)
+
+
