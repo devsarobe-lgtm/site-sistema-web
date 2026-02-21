@@ -116,8 +116,7 @@
 }
 
 .service-list li::before {
-    content: "\F26A";
-    font-family: "bootstrap-icons";
+    content: "✓";
     position: absolute;
     left: 0;
     top: 0.05rem;
@@ -175,7 +174,7 @@
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
 }
 
-.btn-whatsapp-service i {
+.btn-whatsapp-service .icon-svg {
     font-size: 1.05rem;
 }
 

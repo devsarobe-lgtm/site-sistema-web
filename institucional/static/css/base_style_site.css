@@ -151,7 +151,7 @@ header,
 }
 
 /* Corrigir cor dos ícones dentro do botão WhatsApp */
-.btn-whatsapp i,
+.btn-whatsapp .icon-svg,
 .btn-whatsapp .bi,
 .btn-whatsapp .fa {
     color: inherit;
@@ -261,11 +261,13 @@ header,
 }
 
 /* Ícones no footer */
-.main-footer .bi {
+.main-footer .bi,
+.main-footer .icon-svg {
     color: rgba(255, 255, 255, .75);
 }
 
-.main-footer a:hover .bi {
+.main-footer a:hover .bi,
+.main-footer a:hover .icon-svg {
     color: #fff;
 }
 
@@ -300,6 +302,14 @@ a {
 a:hover {
     color: var(--accent-color);
     text-decoration: none;
+}
+
+.icon-svg {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+    flex-shrink: 0;
 }
 
 
@@ -396,7 +406,7 @@ a:hover {
     animation: whatsapp-blink 1.4s ease-in-out infinite;
 }
 
-.fab-whatsapp i {
+.fab-whatsapp .icon-svg {
     line-height: 1;
 }
 
@@ -545,8 +555,8 @@ a:hover {
 
 /* Ícones dentro dos botões */
 
-.btn-hero-primary i,
-.btn-hero-secondary i {
+.btn-hero-primary .icon-svg,
+.btn-hero-secondary .icon-svg {
     color: inherit;
 }
 

@@ -21,7 +21,7 @@
     justify-content: center;
 }
 
-.error-icon i {
+.error-icon .icon-svg {
     font-size: 3.1rem;
     color: var(--accent-color);
     line-height: 1;

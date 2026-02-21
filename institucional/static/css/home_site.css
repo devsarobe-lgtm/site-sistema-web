@@ -239,7 +239,7 @@ body main .hero-section,
     text-decoration: none;
 }
 
-.service-more-link i {
+.service-more-link .icon-svg {
     font-size: 1rem;
     transition: transform 0.18s ease;
     color: inherit;
@@ -251,8 +251,8 @@ body main .hero-section,
     text-decoration: none;
 }
 
-.service-more-link:hover i,
-.service-more-link:focus i {
+.service-more-link:hover .icon-svg,
+.service-more-link:focus .icon-svg {
     transform: translateX(2px);
 }
 
@@ -268,7 +268,8 @@ body main .hero-section,
     background: linear-gradient(135deg, var(--primary-color-dark), var(--primary-color));
 }
 
-.service-icon .bi {
+.service-icon .bi,
+.service-icon .icon-svg {
     color: #ffffff;
     font-size: 1.4rem;
 }
@@ -401,7 +402,7 @@ body main .hero-section,
     margin-bottom: 0.4rem;
 }
 
-.plan-feature i {
+.plan-feature .icon-svg {
     color: #10b981;
     /* verde check */
     font-size: 1rem;
@@ -452,7 +453,7 @@ body main .hero-section,
     color: var(--primary-color);
 }
 
-.plans-more-link i {
+.plans-more-link .icon-svg {
     font-size: 1rem;
     transition: transform 0.18s ease;
     color: inherit;
@@ -464,8 +465,8 @@ body main .hero-section,
     text-decoration: none;
 }
 
-.plans-more-link:hover i,
-.plans-more-link:focus i {
+.plans-more-link:hover .icon-svg,
+.plans-more-link:focus .icon-svg {
     transform: translateX(2px);
 }
 
@@ -764,13 +765,15 @@ body main .hero-section,
 
 /* Ícone seta */
 
-.faq-icon .bi {
+.faq-icon .bi,
+.faq-icon .icon-svg {
     font-size: 1rem;
     transition: transform 0.2s ease;
     color: var(--primary-color);
 }
 
-.faq-question-btn:not(.collapsed) .faq-icon .bi {
+.faq-question-btn:not(.collapsed) .faq-icon .bi,
+.faq-question-btn:not(.collapsed) .faq-icon .icon-svg {
     transform: rotate(180deg);
 }
 

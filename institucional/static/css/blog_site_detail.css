@@ -15,7 +15,7 @@
     transition: color 0.18s ease;
 }
 
-.blog-detail-back i {
+.blog-detail-back .icon-svg {
     transition: transform 0.18s ease;
 }
 
@@ -23,7 +23,7 @@
     color: var(--accent-color);
 }
 
-.blog-detail-back:hover i {
+.blog-detail-back:hover .icon-svg {
     transform: translateX(-2px);
 }
 
@@ -50,7 +50,7 @@
     white-space: nowrap;
 }
 
-.blog-meta-item i {
+.blog-meta-item .icon-svg {
     font-size: 0.95rem;
     color: var(--primary-color);
     opacity: 0.85;

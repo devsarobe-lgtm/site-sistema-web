@@ -171,7 +171,7 @@
     margin-bottom: 0.75rem;
 }
 
-.contact-option i {
+.contact-option .icon-svg {
     font-size: 1.2rem;
     color: var(--primary-color-dark);
 }
