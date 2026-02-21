@@ -1,4 +1,5 @@
 {% load static %}
+{% load static compress %}
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -9,46 +10,42 @@
 
     {% if IS_PROD %}
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-TFR6M3PH');</script>
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TFR6M3PH');</script>
     <!-- End Google Tag Manager -->
     {% endif %}
 
     {% block info %}{% endblock %}
-
     <link rel="icon" href="{% static 'img/icon/Logo_branca_icon__sem_fundo.ico' %}" type="image/x-icon">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
     <!-- AOS -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
     <!-- Google Fonts: Poppins (títulos) + Inter (textos) -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
-
     {% block canonical %}
     <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
     {% endblock %}
-
     {% block ld_json %}{% endblock %}
 
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/base_style_site.css' %}">
     {% block styles %}{% endblock %}
+    {% endcompress %}
+
 </head>
 
 <body class="d-flex flex-column min-vh-100">
     {% if IS_PROD %}
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TFR6M3PH"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TFR6M3PH" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     {% endif %}
 
@@ -62,11 +59,11 @@
     {% include 'components/_privacy_terms.html' %}
     {% include 'components/_footer.html' %}
 
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    {% compress js %}
+    <script src="{% static 'js/aos.js' %}"></script>
     <script src="{% static 'js/animation_script.js' %}"></script>
-
     {% block scripts %}{% endblock %}
+    {% endcompress %}
 </body>
 
 </html>

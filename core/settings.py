@@ -29,8 +29,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    "django.contrib.sitemaps",
+    'django.contrib.sitemaps',
     'axes',
+    'compressor',
 
     'institucional',
 ]
@@ -142,9 +143,20 @@ AXES_FAILURE_LIMIT = env.int('AXES_FAILURE_LIMIT')
 AXES_COOLOFF_TIME = env.int('AXES_COOLOFF_TIME')
 AXES_LOCKOUT_TEMPLATE = '403.html'
 
+
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "compressor.finders.CompressorFinder",
+]
+
+COMPRESS_ENABLED = not DEBUG
+COMPRESS_OFFLINE = not DEBUG
+COMPRESS_URL = STATIC_URL
+COMPRESS_ROOT = STATIC_ROOT
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
