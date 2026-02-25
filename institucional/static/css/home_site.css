@@ -126,6 +126,7 @@ body main .hero-section,
     letter-spacing: 0.18em;
     font-weight: 600;
     color: var(--accent-color);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
 }
 
 .section-title {
