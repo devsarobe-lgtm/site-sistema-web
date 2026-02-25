@@ -148,9 +148,10 @@ AXES_LOCKOUT_TEMPLATE = '403.html'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_DIRS = [
+if DEBUG:
+    STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
-]
+    ]
 
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
