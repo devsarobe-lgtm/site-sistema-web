@@ -82,6 +82,113 @@
         });
     };
 
+    const setupFaqAccordion = () => {
+        const accordion = document.getElementById('faqAccordion');
+        if (!isElement(accordion)) return;
+
+        const getTargetFromButton = (button) => {
+            if (!isElement(button)) return null;
+            const selector = button.getAttribute('data-bs-target');
+            if (!selector || !selector.startsWith('#')) return null;
+            const target = document.querySelector(selector);
+            return isElement(target) ? target : null;
+        };
+
+        const getButtonsForTarget = (target) => {
+            if (!isElement(target) || !target.id) return [];
+            return [...accordion.querySelectorAll('[data-bs-toggle="collapse"][data-bs-target]')].filter((button) => {
+                return isElement(button) && button.getAttribute('data-bs-target') === `#${target.id}`;
+            });
+        };
+
+        const syncButtonState = (target, expanded) => {
+            getButtonsForTarget(target).forEach((button) => {
+                button.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+                button.classList.toggle('collapsed', !expanded);
+            });
+        };
+
+        const show = (target) => {
+            if (!isElement(target) || target.classList.contains('show') || target.classList.contains('collapsing')) return;
+
+            target.classList.remove('collapse');
+            target.classList.add('collapsing');
+            target.style.height = '0px';
+
+            forceReflow(target);
+            target.style.height = `${target.scrollHeight}px`;
+            syncButtonState(target, true);
+
+            afterTransition(target, () => {
+                target.classList.remove('collapsing');
+                target.classList.add('collapse', 'show');
+                target.style.height = '';
+            });
+        };
+
+        const hide = (target) => {
+            if (!isElement(target) || !target.classList.contains('show') || target.classList.contains('collapsing')) return;
+
+            target.style.height = `${target.getBoundingClientRect().height}px`;
+            forceReflow(target);
+
+            target.classList.add('collapsing');
+            target.classList.remove('collapse', 'show');
+            target.style.height = '0px';
+            syncButtonState(target, false);
+
+            afterTransition(target, () => {
+                target.classList.remove('collapsing');
+                target.classList.add('collapse');
+                target.style.height = '';
+            });
+        };
+
+        const hideSiblings = (target) => {
+            if (!isElement(target)) return;
+            const parentSelector = target.getAttribute('data-bs-parent');
+            if (!parentSelector || !parentSelector.startsWith('#')) return;
+
+            const parent = document.querySelector(parentSelector);
+            if (!isElement(parent)) return;
+
+            [...parent.querySelectorAll('.collapse.show')].forEach((item) => {
+                if (!isElement(item) || item === target) return;
+                hide(item);
+            });
+        };
+
+        [...accordion.querySelectorAll('[data-bs-toggle="collapse"][data-bs-target]')].forEach((button) => {
+            if (!isElement(button)) return;
+            const target = getTargetFromButton(button);
+            if (!isElement(target)) return;
+            syncButtonState(target, target.classList.contains('show'));
+        });
+
+        accordion.addEventListener('click', (event) => {
+            const target = event.target;
+            if (!(target instanceof Element)) return;
+
+            const button = target.closest('[data-bs-toggle="collapse"][data-bs-target]');
+            if (!isElement(button) || !accordion.contains(button)) return;
+
+            if (accordion.querySelector('.collapsing')) return;
+
+            const collapse = getTargetFromButton(button);
+            if (!isElement(collapse) || collapse.classList.contains('collapsing')) return;
+
+            event.preventDefault();
+
+            if (collapse.classList.contains('show')) {
+                hide(collapse);
+                return;
+            }
+
+            hideSiblings(collapse);
+            show(collapse);
+        });
+    };
+
     const setupModals = () => {
         let activeModal = null;
         let activeTrigger = null;
@@ -188,7 +295,7 @@
 
         document.addEventListener('click', (event) => {
             const target = event.target;
-            if (!isElement(target)) return;
+            if (!(target instanceof Element)) return;
 
             const modalTrigger = target.closest('[data-bs-toggle="modal"][data-bs-target]');
             if (isElement(modalTrigger)) {
@@ -251,6 +358,7 @@
 
     document.addEventListener('DOMContentLoaded', () => {
         setupNavbarCollapse();
+        setupFaqAccordion();
         setupModals();
     });
 })();
