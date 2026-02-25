@@ -167,7 +167,14 @@ COMPRESS_URL = STATIC_URL
 COMPRESS_ROOT = STATIC_ROOT
 
 COMPRESS_TEMPLATES = [os.path.join(BASE_DIR, "templates")]
-COMPRESS_OFFLINE_IGNORE_PATTERNS = [r"^admin/.*"]
+COMPRESS_OFFLINE_IGNORE_PATTERNS = [
+    r".*/admin/.*",
+    r"^admin/.*",
+]
+
+COMPRESS_OFFLINE_CONTEXT = [
+    {"STATIC_URL": STATIC_URL}
+]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
