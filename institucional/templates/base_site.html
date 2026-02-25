@@ -24,18 +24,37 @@
 
     {% block info %}{% endblock %}
     <link rel="icon" href="{% static 'img/icon/Logo_branca_icon__sem_fundo.ico' %}" type="image/x-icon">
+
     <!-- Google Fonts: Poppins (títulos) + Inter (textos) -->
-    <link rel="stylesheet"
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="preload" as="style"
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+    </noscript>
+
     {% block canonical %}
     <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
     {% endblock %}
     {% block ld_json %}{% endblock %}
 
     {% compress css %}
+    <link rel="preload" href="{% static 'css/bootstrap.min.css' %}" as="style">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <link rel="preload" href="{% static 'css/base_style_site.css' %}" as="style">
     <link rel="stylesheet" href="{% static 'css/base_style_site.css' %}">
+
+    <link rel="preload" href="{% static 'css/aos.css' %}" as="style">
     <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
     {% block styles %}{% endblock %}
     {% endcompress %}
 
