@@ -516,6 +516,7 @@ body main .hero-section,
 .partner-logo {
     max-width: 130px;
     width: 100%;
+    height: auto;
     border-radius: 0.75rem;
     box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
     transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
