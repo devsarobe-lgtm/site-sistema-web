@@ -355,10 +355,94 @@
             }
         });
     };
+    const COOKIE_CONSENT_KEY = 'cookie_consent_ga4_v1';
+
+    const hasCookieConsent = () => {
+        try {
+            return window.localStorage.getItem(COOKIE_CONSENT_KEY) === 'accepted';
+        } catch (e) {
+            return false;
+        }
+    };
+
+    const setCookieConsent = () => {
+        try {
+            window.localStorage.setItem(COOKIE_CONSENT_KEY, 'accepted');
+        } catch (e) {
+            // se localStorage falhar, seguimos sem persistir
+        }
+    };
+
+    const loadGTM = () => {
+        const gtmId = window.__GTM_ID__;
+        if (!gtmId) return;
+
+        if (window.__GTM_LOADED__) return;
+        window.__GTM_LOADED__ = true;
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(gtmId)}`;
+        document.head.appendChild(script);
+    };
+
+    const setupCookieBanner = () => {
+        const banner = document.getElementById('cookieBanner');
+        const acceptBtn = document.getElementById('cookieAcceptBtn');
+
+        if (!isElement(banner) || !isElement(acceptBtn)) return;
+
+        const backdrop = banner.querySelector('[data-cookie-close="true"]');
+        const panel = banner.querySelector('.cookie-banner__panel');
+
+        const openBanner = () => {
+            banner.hidden = false;
+            document.body.classList.add('cookie-banner-open');
+            if (panel) panel.focus();
+        };
+
+        const closeBanner = () => {
+            banner.hidden = true;
+            document.body.classList.remove('cookie-banner-open');
+        };
+
+        // se já aceitou, carrega GTM e não mostra banner
+        if (hasCookieConsent()) {
+            closeBanner();
+            loadGTM();
+            return;
+        }
+
+        openBanner();
+
+        // fechar clicando fora (sem aceitar => não carrega GA4)
+        if (backdrop) {
+            backdrop.addEventListener('click', () => {
+                closeBanner();
+            });
+        }
+
+        // fechar com ESC (sem aceitar => não carrega GA4)
+        const onKeyDown = (e) => {
+            if (e.key === 'Escape') closeBanner();
+        };
+        document.addEventListener('keydown', onKeyDown, { passive: true });
+
+        // aceitar => salva + carrega GTM/GA4
+        acceptBtn.addEventListener('click', () => {
+            setCookieConsent();
+            closeBanner();
+            loadGTM();
+        });
+    };
 
     document.addEventListener('DOMContentLoaded', () => {
         setupNavbarCollapse();
         setupFaqAccordion();
         setupModals();
+        setupCookieBanner();
     });
 })();
