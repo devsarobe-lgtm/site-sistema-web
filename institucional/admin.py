@@ -33,7 +33,7 @@ class BlogPostAdmin(admin.ModelAdmin):
             'fields': ('title', 'summary_content', 'content', 'tags')
         }),
         ('Imagens', {
-            'fields': ('image', 'cover_image')
+            'fields': ('cover_image',)
         }),
         ('Controle', {
             'fields': ('created_by', 'is_active', 'created_at', 'updated_at')
