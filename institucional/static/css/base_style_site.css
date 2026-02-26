@@ -687,7 +687,7 @@ body.modal-open {
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.28);
-    backdrop-filter: blur(2px);
+    backdrop-filter: none;
 }
 
 .cookie-banner__panel {
