@@ -348,12 +348,13 @@
     color: var(--muted-text-color);
 }
 
+
 .blog-cta-card{
     border-radius: 1rem;
     box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
     background: linear-gradient(180deg, var(--primary-color-dark) 0%, #111827 100%);
-    color: #fff;
     padding: 1.25rem 1.5rem;
+    color: #fff !important;
     text-align: center;
 }
 
