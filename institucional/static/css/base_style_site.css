@@ -295,6 +295,30 @@ header,
     text-decoration: none;
 }
 
+.footer-credit {
+    color: rgba(255, 255, 255, .58);
+    font-size: .78rem;
+    letter-spacing: .01em;
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+a.footer-credit span {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+a.footer-credit:hover,
+a.footer-credit:focus {
+    color: #fff;
+}
+
+.footer-credit[aria-hidden="true"] {
+    width: 1px;
+    height: 1rem;
+    background: rgba(255, 255, 255, .22);
+}
+
 /* === Brand no footer (mesmo padrão do header) === */
 .footer-brand .logo-img {
     height: 40px;
@@ -339,6 +363,10 @@ header,
 
     .main-footer li+li {
         margin-top: .25rem;
+    }
+
+    .footer-credit[aria-hidden="true"] {
+        display: none;
     }
 }
 
