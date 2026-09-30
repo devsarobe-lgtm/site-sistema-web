@@ -8,6 +8,7 @@
     const heroWave = hero?.querySelector('.lp-hero__wave');
     const backToTop = document.querySelector('[data-lp-back-to-top]');
     const desktopQuery = window.matchMedia('(min-width: 992px)');
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     let scheduleHeaderUpdate = () => {};
 
     if (header && menuButton && navigation) {
@@ -45,18 +46,6 @@
         window.addEventListener('pageshow', scheduleHeaderUpdate);
     }
 
-    const focusPageTarget = (link) => {
-        if (link.origin !== window.location.origin ||
-            link.pathname !== window.location.pathname || !link.hash) return false;
-
-        const target = document.getElementById(link.hash.slice(1));
-        if (!target) return false;
-
-        if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
-        target.focus({ preventScroll: true });
-        return true;
-    };
-
     if (header && menuButton && navigation) {
         const setMenuOpen = (isOpen, restoreFocus = false) => {
             navigation.classList.toggle('is-open', isOpen);
@@ -78,7 +67,7 @@
             const link = event.target.closest('a');
             if (link) {
                 setMenuOpen(false);
-                if (!focusPageTarget(link) && link.target === '_blank') {
+                if (link.target === '_blank') {
                     menuButton.focus({ preventScroll: true });
                 }
             }
@@ -100,10 +89,26 @@
         desktopQuery.addEventListener('change', () => setMenuOpen(false));
     }
 
-    hero?.addEventListener('click', (event) => {
-        if (!(event.target instanceof Element)) return;
-        const link = event.target.closest('a');
-        if (link) focusPageTarget(link);
+    document.addEventListener('click', (event) => {
+        if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey ||
+            event.shiftKey || event.altKey || !(event.target instanceof Element)) return;
+
+        const link = event.target.closest('a[data-lp-scroll]');
+        if (!link || link.hasAttribute('download') || (link.target && link.target !== '_self') ||
+            link.origin !== window.location.origin || link.pathname !== window.location.pathname ||
+            link.search !== window.location.search || !link.hash) return;
+
+        const target = document.getElementById(link.hash.slice(1));
+        if (!target) return;
+
+        event.preventDefault();
+        if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+        target.scrollIntoView({
+            behavior: reducedMotionQuery.matches ? 'auto' : 'smooth',
+            block: 'start',
+        });
+        target.focus({ preventScroll: true });
+        if (window.location.hash !== link.hash) window.history.pushState(null, '', link.hash);
     });
 
     if (backToTop) {
@@ -118,7 +123,7 @@
             document.querySelector('.lp-header__brand')?.focus({ preventScroll: true });
             window.scrollTo({
                 top: 0,
-                behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+                behavior: reducedMotionQuery.matches ? 'auto' : 'smooth',
             });
         });
     }

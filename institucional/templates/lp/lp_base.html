@@ -27,6 +27,7 @@
 
     <main id="main-content" tabindex="-1">
         {% block content %}{% endblock %}
+        {% include 'lp/components/_service.html' %}
         {% include 'lp/components/_partners.html' %}
     </main>
     {% include 'lp/components/_back_to_top.html' %}

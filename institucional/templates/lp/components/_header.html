@@ -1,7 +1,7 @@
 {% load static %}
 <header class="lp-header{% if not lp_hero %} lp-header--solid{% endif %}" id="lp-header">
     <div class="container lp-header__inner">
-        <a class="lp-header__brand" href="{% if lp_hero %}#{{ lp_hero.id|default:'inicio' }}{% else %}{% url 'home' %}{% endif %}"
+        <a class="lp-header__brand" href="{% if lp_hero %}#{{ lp_hero.id|default:'inicio' }}{% else %}{% url 'home' %}{% endif %}" data-lp-scroll
             aria-label="{% if lp_hero %}Sarobe Contabilidade — voltar ao início da página{% else %}Sarobe Contabilidade — ir para a página inicial{% endif %}">
             <picture>
                 <source type="image/webp" srcset="{% static 'img/logos/logo_branca_icon_sem_fundo.webp' %} 1x, {% static 'img/logos/logo_branca_icon_sem_fundo_2x.webp' %} 2x">
@@ -24,8 +24,9 @@
         <nav class="lp-header__nav" id="lp-navigation" aria-label="Navegação da página" data-lp-navigation>
             <ul class="lp-header__links">
                 {% for item in lp_nav_items %}
-                <li><a href="{{ item.url }}"{% if item.active %} aria-current="location"{% endif %}>{{ item.label }}</a></li>
+                <li><a href="{{ item.url }}" data-lp-scroll{% if item.active %} aria-current="location"{% endif %}>{{ item.label }}</a></li>
                 {% endfor %}
+                <li><a href="#servicos" data-lp-scroll>Serviços</a></li>
             </ul>
             {% if lp_whatsapp_url %}
             <a class="lp-button lp-header__contact" href="{{ lp_whatsapp_url }}" target="_blank" rel="noopener noreferrer">

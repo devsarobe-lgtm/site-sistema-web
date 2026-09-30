@@ -2,7 +2,6 @@ from django.views.generic import TemplateView, ListView, DetailView
 from django.shortcuts import render
 from django.db.models import Count
 from django.shortcuts import get_object_or_404
-from django.urls import reverse
 from . import models
 
 
@@ -105,7 +104,7 @@ class TaxReformView(TemplateView):
         )
         context["lp_nav_items"] = [
             {"label": "Home", "url": "#inicio"},
-            {"label": "Como ajudamos", "url": "#como-podemos-ajudar"},
+            {"label": "Atuação", "url": "#como-podemos-ajudar"},
         ]
         context["lp_whatsapp_url"] = (
             "https://wa.me/554832660069?text=Ol%C3%A1%21%20Gostaria%20de%20"
@@ -125,7 +124,7 @@ class TaxReformView(TemplateView):
             "primary_external": True,
             "primary_icon": "whatsapp",
             "secondary_label": "Conheça nossos serviços",
-            "secondary_url": reverse("services"),
+            "secondary_url": "#servicos",
             "image_path": "img/team/team_home.webp",
             "image_alt": "Equipe da Sarobe Contabilidade reunida",
             "image_width": 500,
