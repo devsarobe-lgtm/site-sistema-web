@@ -8,5 +8,6 @@ urlpatterns = [
     path('contato/', views.ContactView.as_view(), name='contact'),
     path('atualizacao/', views.BlogListView.as_view(), name='blog'),
     path('planos/', views.PlansView.as_view(), name='plans'),
-    path('atualizacao/<slug:slug>/', views.BlogDetailView.as_view(), name='blog_detail')
+    path('atualizacao/<slug:slug>/', views.BlogDetailView.as_view(), name='blog_detail'),
+    path('reforma-tributaria/', views.TaxReformView.as_view(), name='tax_reform'),
 ]
