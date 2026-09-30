@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 170">
+  <defs><linearGradient id="gold" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#8c6734"/><stop offset=".5" stop-color="#e5c476"/><stop offset="1" stop-color="#9e7236"/></linearGradient></defs>
+  <path d="M16 151V16h138v135H16Z" fill="none" stroke="url(#gold)" stroke-width="2.5"/>
+  <path d="M25 42h120M48 30v11m74-11v11M48 42 31 86m17-44 17 44m57-44-17 44m17-44 17 44M26 87c7 11 38 11 45 0m27 0c7 11 38 11 45 0" fill="none" stroke="url(#gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="84" y="136" fill="url(#gold)" font-family="Georgia,'Times New Roman',serif" font-size="88" font-style="italic" text-anchor="middle" letter-spacing="-15">JR</text>
+</svg>

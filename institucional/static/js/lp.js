@@ -122,4 +122,21 @@
             });
         });
     }
+
+    const partnersSections = document.querySelectorAll('[data-lp-partners]');
+    if (partnersSections.length) {
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.setAttribute('data-lp-partners-active', '');
+                    observer.unobserve(entry.target);
+                });
+            }, { threshold: 0.1 });
+
+            partnersSections.forEach((section) => observer.observe(section));
+        } else {
+            partnersSections.forEach((section) => section.setAttribute('data-lp-partners-active', ''));
+        }
+    }
 })();

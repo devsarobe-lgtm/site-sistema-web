@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 112">
+  <defs><linearGradient id="sail" x1="0" y1="0" x2=".75" y2="1"><stop stop-color="#a7c4de"/><stop offset=".45" stop-color="#1e5798"/><stop offset="1" stop-color="#16447e"/></linearGradient></defs>
+  <path fill="url(#sail)" d="M15 15h96c9 24 8 57-9 73H4c13-19 20-43 11-73Z"/>
+  <path fill="#168448" d="M4 88c38 1 75-7 105-26-12 22-37 34-67 34H1Z"/>
+  <path fill="#e9d828" d="M63 86c19-8 35-20 48-37-3 15-12 29-27 37Z"/>
+  <text x="119" y="70" fill="#204d94" font-family="Arial,Helvetica,sans-serif" font-size="66" font-style="italic" font-weight="700" letter-spacing="-6">CDL</text>
+  <text x="123" y="104" fill="#159957" font-family="Arial,Helvetica,sans-serif" font-size="32" font-style="italic" font-weight="700">S&#227;o Jos&#233;</text>
+</svg>
