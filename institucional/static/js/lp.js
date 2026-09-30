@@ -157,6 +157,20 @@
         observer.observe(aboutStats);
     }
 
+    const reviewsSection = document.querySelector('[data-lp-reviews]');
+    if (reviewsSection && !reducedMotionQuery.matches && 'IntersectionObserver' in window) {
+        const reviewCards = reviewsSection.querySelectorAll('.lp-reviews__card');
+        const reviewsObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-visible');
+                reviewsObserver.unobserve(entry.target);
+            });
+        }, { threshold: 0.1 });
+
+        reviewCards.forEach((card) => reviewsObserver.observe(card));
+    }
+
     const partnersSections = document.querySelectorAll('[data-lp-partners]');
     if (partnersSections.length) {
         if ('IntersectionObserver' in window) {
