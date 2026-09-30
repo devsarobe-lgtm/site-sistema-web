@@ -128,6 +128,35 @@
         });
     }
 
+    const aboutStats = document.querySelector('[data-lp-about-stats]');
+    if (aboutStats && !reducedMotionQuery.matches && 'IntersectionObserver' in window) {
+        const numbers = [...aboutStats.querySelectorAll('[data-lp-about-count]')];
+        const observer = new IntersectionObserver((entries) => {
+            if (!entries.some((entry) => entry.isIntersecting)) return;
+            observer.disconnect();
+
+            const startTime = performance.now();
+            const duration = 1000;
+            const updateNumbers = (now) => {
+                const progress = Math.min((now - startTime) / duration, 1);
+                const easedProgress = 1 - Math.pow(1 - progress, 3);
+
+                numbers.forEach((number) => {
+                    const target = Number(number.dataset.lpAboutCount);
+                    const prefix = number.dataset.lpAboutPrefix || '';
+                    const suffix = number.dataset.lpAboutSuffix || '';
+                    number.textContent = `${prefix}${Math.round(target * easedProgress)}${suffix}`;
+                });
+
+                if (progress < 1) window.requestAnimationFrame(updateNumbers);
+            };
+
+            window.requestAnimationFrame(updateNumbers);
+        }, { threshold: 0.35 });
+
+        observer.observe(aboutStats);
+    }
+
     const partnersSections = document.querySelectorAll('[data-lp-partners]');
     if (partnersSections.length) {
         if ('IntersectionObserver' in window) {

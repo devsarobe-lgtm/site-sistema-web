@@ -796,6 +796,287 @@
     }
 }
 
+.lp-about {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: clamp(4rem, 8vw, 7rem);
+    background: linear-gradient(130deg, #fff 10%, #f8f9fa 60%, var(--background-color));
+}
+
+.lp-about::before,
+.lp-about::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+.lp-about::before {
+    width: clamp(28rem, 60vw, 65rem);
+    aspect-ratio: 1;
+    top: -35%;
+    right: -32%;
+    border: 1px solid rgba(201, 162, 95, 0.32);
+}
+
+.lp-about::after {
+    width: clamp(24rem, 50vw, 52rem);
+    aspect-ratio: 1.5;
+    right: -24%;
+    bottom: -65%;
+    transform: rotate(-22deg);
+    background: var(--primary-color-dark);
+}
+
+.lp-about > .container {
+    position: relative;
+    z-index: 1;
+}
+
+.lp-about__content {
+    max-width: 36rem;
+}
+
+.lp-about__eyebrow {
+    margin: 0 0 1rem;
+    font-size: 0.88rem;
+    letter-spacing: 0.2em;
+}
+
+.lp-about h2 {
+    max-width: 12ch;
+    margin: 0 0 1.5rem;
+    color: var(--primary-color-dark);
+    font-family: var(--heading-font);
+    font-size: clamp(2.1rem, 4.7vw, 4.1rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+}
+
+.lp-about__content > p:not(.lp-about__eyebrow) {
+    margin: 0 0 0.9rem;
+    color: #64748b;
+    font-size: clamp(1rem, 1.5vw, 1.12rem);
+    line-height: 1.55;
+}
+
+.lp-about__benefits {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem 0;
+    margin: clamp(2rem, 4vw, 2.5rem) 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lp-about__benefits li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    min-width: 0;
+    padding-inline: 0.5rem;
+    color: var(--primary-color-dark);
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.35;
+    text-align: center;
+}
+
+.lp-about__benefits li:nth-child(odd) {
+    border-right: 1px solid rgba(201, 162, 95, 0.2);
+}
+
+.lp-about__benefit-icon {
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    aspect-ratio: 1;
+    border: 1px solid var(--accent-color);
+    border-radius: 50%;
+    color: var(--primary-color-dark);
+}
+
+.lp-about__benefit-icon svg {
+    width: 1.55rem;
+    height: 1.55rem;
+}
+
+.lp-about__visual {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    position: relative;
+    min-width: 0;
+}
+
+.lp-about__photo {
+    grid-column: 1;
+    grid-row: 1;
+    overflow: hidden;
+    border-radius: 1.25rem;
+    background: #dfe3e7;
+    box-shadow: 0 1.25rem 3rem rgba(11, 38, 71, 0.13);
+}
+
+.lp-about__photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.lp-about__quote {
+    grid-column: 1;
+    grid-row: 3;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin: 1.5rem 0 0;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    border-radius: 1rem;
+    background: linear-gradient(145deg, #092744, var(--primary-color-dark) 70%, #143a63);
+    box-shadow: 0 1.25rem 2.5rem rgba(11, 38, 71, 0.2);
+    color: #fff;
+}
+
+.lp-about__quote-mark {
+    display: block;
+    height: 2.5rem;
+    color: var(--accent-color);
+    font-family: Georgia, serif;
+    font-size: 4.5rem;
+    line-height: 1;
+}
+
+.lp-about__quote p {
+    margin: 1rem 0 1.5rem;
+    color: #fff;
+    font-size: clamp(0.95rem, 1.5vw, 1.08rem);
+    line-height: 1.6;
+}
+
+.lp-about__quote cite {
+    display: block;
+    padding-top: 1rem;
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    font-style: normal;
+}
+
+.lp-about__quote cite::before {
+    content: "";
+    display: block;
+    width: 2.25rem;
+    height: 2px;
+    margin-bottom: 1rem;
+    background: var(--accent-color);
+}
+
+.lp-about__stats {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: center;
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 90%;
+    margin: -1.5rem 0 0;
+    padding: 1.25rem 0.5rem;
+    border-radius: 1rem;
+    background: #fff;
+    box-shadow: 0 1rem 2.5rem rgba(11, 38, 71, 0.11);
+    list-style: none;
+    text-align: center;
+}
+
+.lp-about__stats li {
+    display: grid;
+    align-content: start;
+    gap: 0.2rem;
+    min-width: 0;
+    padding-inline: 0.5rem;
+}
+
+.lp-about__stats li:not(:last-child) {
+    border-right: 1px solid rgba(201, 162, 95, 0.22);
+}
+
+.lp-about__stats strong {
+    color: var(--accent-color);
+    font-family: var(--heading-font);
+    font-size: clamp(1.4rem, 3vw, 2.3rem);
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.lp-about__stats li > span:last-child {
+    color: #64748b;
+    font-size: clamp(0.7rem, 1.3vw, 0.9rem);
+    line-height: 1.35;
+}
+
+@media (min-width: 768px) {
+    .lp-about__stats {
+        margin-top: -2.5rem;
+    }
+
+    .lp-about__benefits {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .lp-about__benefits li:nth-child(odd) {
+        border-right: 0;
+    }
+
+    .lp-about__benefits li:not(:last-child) {
+        border-right: 1px solid rgba(201, 162, 95, 0.2);
+    }
+}
+
+@media (min-width: 1200px) {
+    .lp-about {
+        padding-bottom: clamp(5rem, 8vw, 8rem);
+    }
+
+    .lp-about__visual {
+        grid-template-columns: minmax(0, 73%) minmax(0, 27%);
+        align-items: center;
+    }
+
+    .lp-about__photo {
+        grid-column: 1;
+        grid-row: 1;
+        aspect-ratio: 4 / 3;
+    }
+
+    .lp-about__photo img {
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .lp-about__quote {
+        grid-column: 2;
+        grid-row: 1;
+        width: calc(100% + 0.5rem);
+        margin: 0 0 0 -0.5rem;
+        padding: clamp(1.125rem, 2vw, 1.6rem);
+    }
+
+    .lp-about__quote p {
+        margin-block: 0.75rem 1rem;
+        font-size: clamp(0.88rem, 1vw, 1.02rem);
+        line-height: 1.5;
+    }
+
+    .lp-about__stats {
+        margin: -2.5rem 0.5rem 0 0;
+    }
+}
+
 .lp-partners {
     padding-block: clamp(2rem, 7vw, 2rem);
     overflow: hidden;
