@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap-grid.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap-components.css' %}">
     <link rel="stylesheet" href="{% static 'css/base_style_site.css' %}">
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
     <link rel="stylesheet" href="{% static 'css/lp.css' %}">
     {% block styles %}{% endblock %}
     {% endcompress %}
@@ -40,6 +41,7 @@
     {% include 'components/_privacy_terms.html' %}
 
     {% compress js %}
+    <script defer src="{% static 'js/aos.js' %}"></script>
     <script defer src="{% static 'js/bootstrap_interactions.js' %}"></script>
     <script defer src="{% static 'js/lp.js' %}"></script>
     {% block scripts %}{% endblock %}

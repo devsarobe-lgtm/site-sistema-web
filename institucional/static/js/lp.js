@@ -89,6 +89,39 @@
         desktopQuery.addEventListener('change', () => setMenuOpen(false));
     }
 
+    if (header && navigation) {
+        const sectionLinks = [...navigation.querySelectorAll('.lp-header__links a[href^="#"]')]
+            .map((link) => ({ link, section: document.getElementById(link.hash.slice(1)) }))
+            .filter(({ section }) => section);
+
+        if (sectionLinks.length) {
+            let navigationFrame = null;
+            const updateActiveSection = () => {
+                navigationFrame = null;
+                const marker = header.getBoundingClientRect().height + Math.min(window.innerHeight * 0.2, 160);
+                const active = sectionLinks.find(({ section }) => {
+                    const bounds = section.getBoundingClientRect();
+                    return bounds.top <= marker && bounds.bottom > marker;
+                });
+
+                sectionLinks.forEach(({ link }) => {
+                    if (link === active?.link) link.setAttribute('aria-current', 'location');
+                    else link.removeAttribute('aria-current');
+                });
+            };
+
+            const scheduleActiveSection = () => {
+                if (navigationFrame !== null) return;
+                navigationFrame = window.requestAnimationFrame(updateActiveSection);
+            };
+
+            updateActiveSection();
+            window.addEventListener('scroll', scheduleActiveSection, { passive: true });
+            window.addEventListener('resize', scheduleActiveSection);
+            window.addEventListener('pageshow', scheduleActiveSection);
+        }
+    }
+
     document.addEventListener('click', (event) => {
         if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey ||
             event.shiftKey || event.altKey || !(event.target instanceof Element)) return;
@@ -126,6 +159,21 @@
                 behavior: reducedMotionQuery.matches ? 'auto' : 'smooth',
             });
         });
+    }
+
+    if (window.AOS && !reducedMotionQuery.matches) {
+        const revealTargets = [
+            '.tax-help__intro', '.tax-help__entry',
+            '.lp-service__intro', '.lp-service__plan',
+            '.lp-about__content', '.lp-about__visual',
+            '.lp-faq__intro', '.lp-faq__item',
+        ];
+
+        document.querySelectorAll(revealTargets.join(',')).forEach((element) => {
+            element.setAttribute('data-aos', 'fade-up');
+        });
+
+        window.AOS.init({ duration: 650, once: true, offset: 80, easing: 'ease-out' });
     }
 
     const aboutStats = document.querySelector('[data-lp-about-stats]');
@@ -177,10 +225,14 @@
 
         faqItems.forEach((item) => {
             item.addEventListener('toggle', () => {
-                if (!item.open) return;
-                faqItems.forEach((other) => {
-                    if (other !== item) other.open = false;
-                });
+                if (item.open) {
+                    faqItems.forEach((other) => {
+                        if (other !== item) other.open = false;
+                    });
+                }
+                if (window.AOS && !reducedMotionQuery.matches) {
+                    window.requestAnimationFrame(() => window.AOS.refresh());
+                }
             });
         });
 

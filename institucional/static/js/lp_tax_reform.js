@@ -8,11 +8,15 @@
 
     items.forEach((item) => {
         item.addEventListener('toggle', () => {
-            if (!item.open) return;
+            if (item.open) {
+                items.forEach((other) => {
+                    if (other !== item) other.open = false;
+                });
+            }
 
-            items.forEach((other) => {
-                if (other !== item) other.open = false;
-            });
+            if (window.AOS && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                window.requestAnimationFrame(() => window.AOS.refresh());
+            }
         });
     });
 
