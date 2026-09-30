@@ -265,14 +265,22 @@ class TaxReformView(TemplateView):
             ],
         }
         context["lp_cta"] = {
-            "eyebrow": "Entre em contato",
-            "title": "Vamos conversar sobre sua empresa?",
+            "eyebrow": "Vamos conversar?",
+            "title": "Dê o próximo passo com mais segurança",
             "description": (
-                "Nossa equipe pode ajudar você a entender o cenário "
-                "tributário do seu negócio."
+                "Fale com a Sarobe e receba uma orientação contábil personalizada "
+                "para a sua empresa. Entenda como se preparar para a Reforma "
+                "Tributária e manter seu negócio em conformidade."
             ),
-            "primary_label": "Falar pelo WhatsApp",
+            "benefits": [
+                {"icon": "shield", "label": "Atendimento especializado"},
+                {"icon": "chart", "label": "Análise da sua realidade"},
+                {"icon": "people", "label": "Suporte em todas as etapas"},
+            ],
+            "image_path": "img/lp/cta-office.webp",
+            "primary_label": "Conversar com a Sarobe",
             "primary_url": context["lp_whatsapp_url"],
             "primary_external": True,
+            "primary_icon": "whatsapp",
         }
         return context

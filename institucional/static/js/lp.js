@@ -195,6 +195,20 @@
         });
     }
 
+    const ctaSection = document.querySelector('[data-lp-cta]');
+    if (ctaSection && !reducedMotionQuery.matches && 'IntersectionObserver' in window) {
+        const ctaContent = ctaSection.querySelector('.lp-cta__content');
+        if (ctaContent) {
+            const ctaObserver = new IntersectionObserver((entries) => {
+                if (!entries.some((entry) => entry.isIntersecting)) return;
+                ctaContent.classList.add('is-visible');
+                ctaObserver.disconnect();
+            }, { threshold: 0.15 });
+
+            ctaObserver.observe(ctaSection);
+        }
+    }
+
     const partnersSections = document.querySelectorAll('[data-lp-partners]');
     if (partnersSections.length) {
         if ('IntersectionObserver' in window) {
