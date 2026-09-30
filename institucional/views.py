@@ -105,6 +105,10 @@ class TaxReformView(TemplateView):
         context["lp_nav_items"] = [
             {"label": "Home", "url": "#inicio"},
             {"label": "Atuação", "url": "#como-podemos-ajudar"},
+            {"label": "Serviços", "url": "#servicos"},
+            {"label": "Sobre", "url": "#sobre-a-sarobe"},
+            {"label": "Avaliações", "url": "#avaliacoes"},
+            {"label": "Dúvidas", "url": "#perguntas-frequentes"},
         ]
         context["lp_whatsapp_url"] = (
             "https://wa.me/554832660069?text=Ol%C3%A1%21%20Gostaria%20de%20"
