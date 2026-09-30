@@ -1,0 +1,58 @@
+{% load static %}
+{% if lp_hero %}
+<section class="lp-hero" id="{{ lp_hero.id|default:'inicio' }}" tabindex="-1" aria-labelledby="lp-hero-title">
+    <div class="container lp-hero__container">
+        <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-12 {% if lp_hero.image_path %}col-lg-6{% else %}col-lg-9{% endif %}">
+                {% if lp_hero.eyebrow %}
+                <p class="lp-eyebrow lp-hero__eyebrow">{{ lp_hero.eyebrow }}</p>
+                {% endif %}
+                <h1 id="lp-hero-title">{{ lp_hero.title }}</h1>
+                {% if lp_hero.description %}
+                <p class="lp-hero__description">{{ lp_hero.description }}</p>
+                {% endif %}
+
+                {% if lp_hero.primary_label and lp_hero.primary_url or lp_hero.secondary_label and lp_hero.secondary_url %}
+                <div class="lp-hero__actions">
+                    {% if lp_hero.primary_label and lp_hero.primary_url %}
+                    <a class="lp-button lp-hero__primary" href="{{ lp_hero.primary_url }}"
+                        {% if lp_hero.primary_external %}target="_blank" rel="noopener noreferrer"{% endif %}>
+                        {% if lp_hero.primary_icon == 'whatsapp' %}
+                        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+                            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                        </svg>
+                        {% endif %}
+                        <span>{{ lp_hero.primary_label }}</span>
+                    </a>
+                    {% endif %}
+                    {% if lp_hero.secondary_label and lp_hero.secondary_url %}
+                    <a class="lp-button lp-hero__secondary" href="{{ lp_hero.secondary_url }}"
+                        {% if lp_hero.secondary_external %}target="_blank" rel="noopener noreferrer"{% endif %}>
+                        <span>{{ lp_hero.secondary_label }}</span>
+                        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+                            <path d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                        </svg>
+                    </a>
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
+
+            {% if lp_hero.image_path %}
+            <div class="col-12 col-lg-6">
+                <div class="lp-hero__media">
+                    <img src="{% static lp_hero.image_path %}" alt="{{ lp_hero.image_alt }}"
+                        {% if lp_hero.image_width and lp_hero.image_height %}width="{{ lp_hero.image_width }}" height="{{ lp_hero.image_height }}"{% endif %}
+                        loading="eager" fetchpriority="high" decoding="async">
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="lp-hero__wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
+            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H0Z" fill="currentColor"/>
+        </svg>
+    </div>
+</section>
+{% endif %}

@@ -7,6 +7,18 @@
     const backToTop = document.querySelector('[data-lp-back-to-top]');
     const desktopQuery = window.matchMedia('(min-width: 992px)');
 
+    const focusPageTarget = (link) => {
+        if (link.origin !== window.location.origin ||
+            link.pathname !== window.location.pathname || !link.hash) return false;
+
+        const target = document.getElementById(link.hash.slice(1));
+        if (!target) return false;
+
+        if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
+        return true;
+    };
+
     if (header && menuButton && navigation) {
         header.classList.add('lp-header--ready');
 
@@ -28,13 +40,7 @@
             const link = event.target.closest('a');
             if (link) {
                 setMenuOpen(false);
-                if (link.origin === window.location.origin && link.pathname === window.location.pathname && link.hash) {
-                    const target = document.getElementById(link.hash.slice(1));
-                    if (target) {
-                        if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
-                        target.focus({ preventScroll: true });
-                    }
-                } else if (link.target === '_blank') {
+                if (!focusPageTarget(link) && link.target === '_blank') {
                     menuButton.focus({ preventScroll: true });
                 }
             }
@@ -55,6 +61,12 @@
 
         desktopQuery.addEventListener('change', () => setMenuOpen(false));
     }
+
+    document.querySelector('.lp-hero')?.addEventListener('click', (event) => {
+        if (!(event.target instanceof Element)) return;
+        const link = event.target.closest('a');
+        if (link) focusPageTarget(link);
+    });
 
     if (backToTop) {
         const updateBackToTop = () => {

@@ -104,8 +104,7 @@ class TaxReformView(TemplateView):
             "com a equipe da Sarobe Contabilidade em São José/SC."
         )
         context["lp_nav_items"] = [
-            {"label": "Início", "url": "#inicio"},
-            {"label": "Contato", "url": reverse("contact")},
+            {"label": "Home", "url": "#inicio"},
         ]
         context["lp_whatsapp_url"] = (
             "https://wa.me/554832660069?text=Ol%C3%A1%21%20Gostaria%20de%20"
@@ -113,6 +112,7 @@ class TaxReformView(TemplateView):
         )
         context["lp_header_contact_label"] = "Fale com a Sarobe"
         context["lp_hero"] = {
+            "id": "inicio",
             "eyebrow": "Sarobe Contabilidade",
             "title": "Reforma Tributária: prepare sua empresa para as mudanças",
             "description": (
@@ -121,6 +121,14 @@ class TaxReformView(TemplateView):
             ),
             "primary_label": "Conversar com a Sarobe",
             "primary_url": context["lp_whatsapp_url"],
+            "primary_external": True,
+            "primary_icon": "whatsapp",
+            "secondary_label": "Conheça nossos serviços",
+            "secondary_url": reverse("services"),
+            "image_path": "img/team/team_home.webp",
+            "image_alt": "Equipe da Sarobe Contabilidade reunida",
+            "image_width": 500,
+            "image_height": 333,
         }
         context["lp_cta"] = {
             "eyebrow": "Entre em contato",
