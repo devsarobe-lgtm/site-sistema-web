@@ -105,6 +105,7 @@ class TaxReformView(TemplateView):
         )
         context["lp_nav_items"] = [
             {"label": "Home", "url": "#inicio"},
+            {"label": "Como ajudamos", "url": "#como-podemos-ajudar"},
         ]
         context["lp_whatsapp_url"] = (
             "https://wa.me/554832660069?text=Ol%C3%A1%21%20Gostaria%20de%20"
@@ -134,6 +135,70 @@ class TaxReformView(TemplateView):
                 {"icon": "people", "label": "Assessoria completa"},
                 {"icon": "chart", "label": "Gestão financeira mais eficiente"},
                 {"icon": "star", "label": "Atendimento personalizado"},
+            ],
+        }
+        context["lp_help_you"] = {
+            "eyebrow": "Como podemos ajudar",
+            "title": "Sua empresa preparada para cada etapa da transição",
+            "description": (
+                "A Reforma Tributária do Consumo traz novas regras para as rotinas fiscais. "
+                "A Sarobe ajuda você a entender o que merece atenção e a organizar os "
+                "próximos passos de acordo com a realidade do seu negócio."
+            ),
+            "cta_label": "Conversar com a Sarobe",
+            "items": [
+                {
+                    "icon": "diagnosis",
+                    "title": "Diagnóstico do seu negócio",
+                    "description": (
+                        "Analisamos suas atividades, operações e regime tributário para "
+                        "identificar onde as mudanças podem afetar a empresa."
+                    ),
+                    "highlights": [
+                        "Mapeamento de riscos",
+                        "Revisão de processos",
+                        "Levantamento de oportunidades",
+                    ],
+                },
+                {
+                    "icon": "plan",
+                    "title": "Plano de adequação",
+                    "description": (
+                        "Organizamos prioridades para revisar processos, cadastros e "
+                        "documentos fiscais junto com a sua equipe."
+                    ),
+                    "highlights": [
+                        "Prioridades de ajuste",
+                        "Plano por etapas",
+                        "Alinhamento com a equipe",
+                    ],
+                },
+                {
+                    "icon": "implementation",
+                    "title": "Apoio na implementação",
+                    "description": (
+                        "Acompanhamos os ajustes nas rotinas contábeis e fiscais e "
+                        "orientamos as pessoas envolvidas no dia a dia."
+                    ),
+                    "highlights": [
+                        "Revisão de cadastros",
+                        "Ajustes em documentos",
+                        "Orientação operacional",
+                    ],
+                },
+                {
+                    "icon": "monitoring",
+                    "title": "Acompanhamento contínuo",
+                    "description": (
+                        "Monitoramos a regulamentação e atualizamos as orientações "
+                        "conforme novas regras forem detalhadas."
+                    ),
+                    "highlights": [
+                        "Atualizações normativas",
+                        "Revisão periódica",
+                        "Ajustes de rota",
+                    ],
+                },
             ],
         }
         context["lp_cta"] = {
