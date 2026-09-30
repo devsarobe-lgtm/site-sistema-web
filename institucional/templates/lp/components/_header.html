@@ -1,7 +1,8 @@
 {% load static %}
-<header class="lp-header" id="lp-header">
+<header class="lp-header{% if not lp_hero %} lp-header--solid{% endif %}" id="lp-header">
     <div class="container lp-header__inner">
-        <a class="lp-header__brand" href="#inicio" aria-label="Sarobe Contabilidade — ir para a página inicial">
+        <a class="lp-header__brand" href="{% if lp_hero %}#{{ lp_hero.id|default:'inicio' }}{% else %}{% url 'home' %}{% endif %}"
+            aria-label="{% if lp_hero %}Sarobe Contabilidade — voltar ao início da página{% else %}Sarobe Contabilidade — ir para a página inicial{% endif %}">
             <picture>
                 <source type="image/webp" srcset="{% static 'img/logos/logo_branca_icon_sem_fundo.webp' %} 1x, {% static 'img/logos/logo_branca_icon_sem_fundo_2x.webp' %} 2x">
                 <img src="{% static 'img/logos/logo_branca_icon_sem_fundo.webp' %}" alt="" width="50" height="50" loading="eager" decoding="async">

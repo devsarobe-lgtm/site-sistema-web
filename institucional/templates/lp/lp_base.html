@@ -19,7 +19,7 @@
     {% block styles %}{% endblock %}
     {% endcompress %}
 </head>
-<body class="lp-page {% block body_class %}{% endblock %}">
+<body class="lp-page{% if not lp_hero %} lp-page--no-hero{% endif %} {% block body_class %}{% endblock %}">
     <a class="lp-skip-link" href="#main-content">Pular para o conteúdo</a>
 
     {% include 'lp/components/_header.html' %}

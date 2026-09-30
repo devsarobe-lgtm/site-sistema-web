@@ -129,6 +129,12 @@ class TaxReformView(TemplateView):
             "image_alt": "Equipe da Sarobe Contabilidade reunida",
             "image_width": 500,
             "image_height": 333,
+            "benefits": [
+                {"icon": "shield", "label": "Segurança tributária"},
+                {"icon": "people", "label": "Assessoria completa"},
+                {"icon": "chart", "label": "Gestão financeira mais eficiente"},
+                {"icon": "star", "label": "Atendimento personalizado"},
+            ],
         }
         context["lp_cta"] = {
             "eyebrow": "Entre em contato",

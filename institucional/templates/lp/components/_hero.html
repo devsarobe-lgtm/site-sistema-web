@@ -54,5 +54,33 @@
             <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H0Z" fill="currentColor"/>
         </svg>
     </div>
+    {% if lp_hero.benefits %}
+    <section class="lp-hero-benefits" aria-label="Diferenciais da Sarobe Contabilidade">
+        <div class="container">
+            <ul class="row g-0 lp-hero-benefits__list">
+                {% for benefit in lp_hero.benefits %}
+                <li class="col-12 col-sm-6 col-lg-3 lp-hero-benefits__item">
+                    <span class="lp-hero-benefits__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                            {% if benefit.icon == 'shield' %}
+                            <path d="M12 2 20 5v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5l8-3Z"/>
+                            {% elif benefit.icon == 'people' %}
+                            <circle cx="9" cy="8" r="3"/><path d="M2.5 19v-1.5a5.5 5.5 0 0 1 11 0V19H2.5Z"/>
+                            <circle cx="18" cy="9" r="2"/><path d="M16 14.5a4.5 4.5 0 0 1 5.5 4.4V19h-5"/>
+                            {% elif benefit.icon == 'chart' %}
+                            <path d="M3 21h18M6 17v-5M12 17V8M18 17V4"/>
+                            {% elif benefit.icon == 'star' %}
+                            <path d="m12 2.5 2.9 6 6.6 1-4.8 4.7 1.1 6.6-5.8-3.1-5.8 3.1 1.1-6.6-4.8-4.7 6.6-1 2.9-6Z"/>
+                            {% endif %}
+                        </svg>
+                    </span>
+                    <span class="lp-hero-benefits__label">{{ benefit.label }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+    {% endif %}
 </section>
 {% endif %}

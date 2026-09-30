@@ -4,8 +4,46 @@
     const menuButton = document.querySelector('[data-lp-menu-toggle]');
     const navigation = document.querySelector('[data-lp-navigation]');
     const header = document.getElementById('lp-header');
+    const hero = document.querySelector('.lp-hero');
+    const heroWave = hero?.querySelector('.lp-hero__wave');
     const backToTop = document.querySelector('[data-lp-back-to-top]');
     const desktopQuery = window.matchMedia('(min-width: 992px)');
+    let scheduleHeaderUpdate = () => {};
+
+    if (header && menuButton && navigation) {
+        header.classList.add('lp-header--ready');
+    }
+
+    if (header) {
+        let headerFrame = null;
+        let headerBaseHeight = header.getBoundingClientRect().height;
+
+        const updateHeaderSurface = () => {
+            headerFrame = null;
+            if (!header.classList.contains('lp-header--menu-open')) {
+                const measuredHeight = header.getBoundingClientRect().height;
+                if (measuredHeight !== headerBaseHeight ||
+                    !document.body.style.getPropertyValue('--lp-header-height')) {
+                    headerBaseHeight = measuredHeight;
+                    document.body.style.setProperty('--lp-header-height', `${measuredHeight}px`);
+                }
+            }
+            const heroHasPassed = !hero || (heroWave
+                ? heroWave.getBoundingClientRect().top <= headerBaseHeight
+                : hero.getBoundingClientRect().bottom <= headerBaseHeight);
+            header.classList.toggle('lp-header--solid', heroHasPassed);
+        };
+
+        scheduleHeaderUpdate = () => {
+            if (headerFrame !== null) return;
+            headerFrame = window.requestAnimationFrame(updateHeaderSurface);
+        };
+
+        updateHeaderSurface();
+        window.addEventListener('scroll', scheduleHeaderUpdate, { passive: true });
+        window.addEventListener('resize', scheduleHeaderUpdate);
+        window.addEventListener('pageshow', scheduleHeaderUpdate);
+    }
 
     const focusPageTarget = (link) => {
         if (link.origin !== window.location.origin ||
@@ -20,10 +58,10 @@
     };
 
     if (header && menuButton && navigation) {
-        header.classList.add('lp-header--ready');
-
         const setMenuOpen = (isOpen, restoreFocus = false) => {
             navigation.classList.toggle('is-open', isOpen);
+            header.classList.toggle('lp-header--menu-open', isOpen);
+            scheduleHeaderUpdate();
             menuButton.setAttribute('aria-expanded', String(isOpen));
             menuButton.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
 
@@ -62,7 +100,7 @@
         desktopQuery.addEventListener('change', () => setMenuOpen(false));
     }
 
-    document.querySelector('.lp-hero')?.addEventListener('click', (event) => {
+    hero?.addEventListener('click', (event) => {
         if (!(event.target instanceof Element)) return;
         const link = event.target.closest('a');
         if (link) focusPageTarget(link);
