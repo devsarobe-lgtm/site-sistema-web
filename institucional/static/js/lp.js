@@ -161,6 +161,43 @@
         });
     }
 
+    const surface = document.querySelector('[data-lp-surface]');
+    if (surface) {
+        const anchors = [
+            ['.tax-help', '--lp-help-start'],
+            ['.lp-service', '--lp-service-start'],
+            ['.lp-about', '--lp-about-start'],
+            ['.lp-reviews', '--lp-reviews-start'],
+        ].map(([selector, property]) => ({ section: surface.querySelector(selector), property }))
+            .filter(({ section }) => section);
+        let decorFrame = null;
+
+        const updateSurfaceDecor = () => {
+            decorFrame = null;
+            const surfaceTop = surface.getBoundingClientRect().top;
+            anchors.forEach(({ section, property }) => {
+                surface.style.setProperty(property, `${section.getBoundingClientRect().top - surfaceTop}px`);
+            });
+            surface.setAttribute('data-lp-surface-ready', '');
+        };
+
+        const scheduleSurfaceDecor = () => {
+            if (decorFrame !== null) return;
+            decorFrame = window.requestAnimationFrame(updateSurfaceDecor);
+        };
+
+        scheduleSurfaceDecor();
+        window.addEventListener('resize', scheduleSurfaceDecor);
+        window.addEventListener('load', scheduleSurfaceDecor);
+        surface.addEventListener('toggle', scheduleSurfaceDecor, true);
+        document.fonts?.ready.then(scheduleSurfaceDecor);
+
+        if ('ResizeObserver' in window) {
+            const resizeObserver = new ResizeObserver(scheduleSurfaceDecor);
+            surface.querySelectorAll(':scope > section').forEach((section) => resizeObserver.observe(section));
+        }
+    }
+
     if (window.AOS && !reducedMotionQuery.matches) {
         const revealTargets = [
             '.tax-help__intro', '.tax-help__entry',

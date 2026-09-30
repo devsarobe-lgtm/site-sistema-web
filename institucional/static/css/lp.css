@@ -16,6 +16,84 @@
     flex: 1 0 auto;
 }
 
+.lp-surface {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--lp-surface);
+}
+
+.lp-surface > section {
+    position: relative;
+    z-index: 1;
+}
+
+.lp-surface__decor {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.lp-surface[data-lp-surface-ready] .lp-surface__decor {
+    visibility: visible;
+}
+
+.lp-surface__shape {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.lp-surface__shape--help-left {
+    top: calc(var(--lp-service-start) - clamp(12rem, 20vw, 20rem));
+    left: -28%;
+    width: clamp(40rem, 78vw, 90rem);
+    aspect-ratio: 1.45;
+    transform: rotate(18deg);
+    border: 1px solid rgba(201, 162, 95, 0.22);
+}
+
+.lp-surface__shape--help-right {
+    top: calc(var(--lp-help-start) - clamp(20rem, 30vw, 30rem));
+    right: -28%;
+    width: clamp(40rem, 65vw, 80rem);
+    aspect-ratio: 1.45;
+    transform: rotate(-20deg);
+    border: 1px solid rgba(201, 162, 95, 0.22);
+}
+
+.lp-surface__shape--about-ring {
+    top: calc(var(--lp-about-start) - clamp(10rem, 18vw, 18rem));
+    right: -32%;
+    width: clamp(28rem, 60vw, 65rem);
+    aspect-ratio: 1;
+    border: 1px solid rgba(201, 162, 95, 0.32);
+}
+
+.lp-surface__shape--reviews-orb {
+    display: none;
+    top: calc(var(--lp-reviews-start) - clamp(8rem, 15vw, 15rem));
+    right: -25%;
+    width: clamp(25rem, 55vw, 58rem);
+    aspect-ratio: 1;
+    background: radial-gradient(circle at 45% 45%, #244d70, var(--primary-color-dark) 72%);
+}
+
+.lp-surface__shape--reviews-ring {
+    top: calc(var(--lp-reviews-start) - clamp(20rem, 38vw, 38rem));
+    right: 10%;
+    width: clamp(32rem, 85vw, 85rem);
+    aspect-ratio: 1;
+    border: 1px solid rgba(201, 162, 95, 0.36);
+}
+
+@media (min-width: 992px) {
+    .lp-surface__shape--reviews-orb {
+        display: block;
+    }
+}
+
 .lp-page--no-hero main {
     padding-top: var(--lp-header-height);
 }
@@ -705,7 +783,7 @@
     isolation: isolate;
     overflow: hidden;
     padding-block: clamp(4rem, 8vw, 7rem);
-    background: var(--lp-surface);
+    background: transparent;
 }
 
 .lp-service__sprite {
@@ -997,33 +1075,7 @@
     isolation: isolate;
     overflow: hidden;
     padding-block: clamp(4rem, 8vw, 7rem);
-    background: var(--lp-surface);
-}
-
-.lp-about::before,
-.lp-about::after {
-    content: "";
-    position: absolute;
-    z-index: 0;
-    pointer-events: none;
-    border-radius: 50%;
-}
-
-.lp-about::before {
-    width: clamp(28rem, 60vw, 65rem);
-    aspect-ratio: 1;
-    top: -35%;
-    right: -32%;
-    border: 1px solid rgba(201, 162, 95, 0.32);
-}
-
-.lp-about::after {
-    width: clamp(24rem, 50vw, 52rem);
-    aspect-ratio: 1.5;
-    right: -24%;
-    bottom: -65%;
-    transform: rotate(-22deg);
-    background: radial-gradient(ellipse at 35% 30%, rgba(11, 38, 71, 0.72), transparent 70%);
+    background: transparent;
 }
 
 .lp-about > .container {
@@ -1278,32 +1330,7 @@
     isolation: isolate;
     overflow: hidden;
     padding-block: clamp(4rem, 8vw, 7rem);
-    background: var(--lp-surface);
-}
-
-.lp-reviews::before,
-.lp-reviews::after {
-    content: "";
-    position: absolute;
-    z-index: 0;
-    pointer-events: none;
-    border-radius: 50%;
-}
-
-.lp-reviews::before {
-    width: clamp(25rem, 55vw, 58rem);
-    aspect-ratio: 1;
-    top: -22%;
-    right: -25%;
-    background: radial-gradient(circle at 45% 45%, #244d70, var(--primary-color-dark) 72%);
-}
-
-.lp-reviews::after {
-    width: clamp(32rem, 85vw, 85rem);
-    aspect-ratio: 1;
-    top: -65%;
-    right: 10%;
-    border: 1px solid rgba(201, 162, 95, 0.36);
+    background: transparent;
 }
 
 .lp-reviews__sprite {
@@ -1563,7 +1590,7 @@
 
 .lp-faq {
     padding-block: clamp(4rem, 8vw, 7rem);
-    background: var(--lp-surface);
+    background: transparent;
 }
 
 .lp-faq__intro {
@@ -1721,7 +1748,7 @@
 .lp-partners {
     padding-block: clamp(2rem, 7vw, 2rem);
     overflow: hidden;
-    background: var(--lp-surface);
+    background: transparent;
 }
 
 .lp-partners .lp-partners__eyebrow {

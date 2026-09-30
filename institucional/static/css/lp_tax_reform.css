@@ -3,33 +3,7 @@
     isolation: isolate;
     overflow: hidden;
     padding-block: clamp(4rem, 8vw, 7rem);
-    background: var(--lp-surface);
-}
-
-.tax-help::before,
-.tax-help::after {
-    content: "";
-    position: absolute;
-    z-index: 0;
-    pointer-events: none;
-    border: 1px solid rgba(201, 162, 95, 0.22);
-    border-radius: 50%;
-}
-
-.tax-help::before {
-    bottom: -45%;
-    left: -28%;
-    width: clamp(40rem, 78vw, 90rem);
-    aspect-ratio: 1.45;
-    transform: rotate(18deg);
-}
-
-.tax-help::after {
-    top: -60%;
-    right: -28%;
-    width: clamp(40rem, 65vw, 80rem);
-    aspect-ratio: 1.45;
-    transform: rotate(-20deg);
+    background: transparent;
 }
 
 .tax-help > .container {

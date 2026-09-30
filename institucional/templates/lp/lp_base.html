@@ -28,11 +28,23 @@
 
     <main id="main-content" tabindex="-1">
         {% block content %}{% endblock %}
-        {% include 'lp/components/_service.html' %}
-        {% include 'lp/components/_partners.html' %}
-        {% include 'lp/components/_about.html' %}
-        {% include 'lp/components/_reviews.html' %}
-        {% include 'lp/components/_faq.html' %}
+        <div class="lp-surface" data-lp-surface>
+            <div class="lp-surface__decor" aria-hidden="true">
+                {% if lp_help_you %}
+                <span class="lp-surface__shape lp-surface__shape--help-left"></span>
+                <span class="lp-surface__shape lp-surface__shape--help-right"></span>
+                {% endif %}
+                <span class="lp-surface__shape lp-surface__shape--about-ring"></span>
+                <span class="lp-surface__shape lp-surface__shape--reviews-orb"></span>
+                <span class="lp-surface__shape lp-surface__shape--reviews-ring"></span>
+            </div>
+            {% block surface_intro %}{% endblock %}
+            {% include 'lp/components/_service.html' %}
+            {% include 'lp/components/_partners.html' %}
+            {% include 'lp/components/_about.html' %}
+            {% include 'lp/components/_reviews.html' %}
+            {% include 'lp/components/_faq.html' %}
+        </div>
         {% include 'lp/components/_cta.html' %}
     </main>
     {% include 'lp/components/_back_to_top.html' %}
