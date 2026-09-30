@@ -1,7 +1,5 @@
 User-agent: *
 Disallow: /admin/
-Disallow: /static/
-Disallow: /media/
 Allow: /
 
 Sitemap: https://sarobecontabilidade.com.br/sitemap.xml

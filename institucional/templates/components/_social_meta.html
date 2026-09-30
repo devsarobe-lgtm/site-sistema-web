@@ -1,0 +1,15 @@
+{% load static %}
+{% static 'img/lp/cta-office.webp' as default_social_image %}
+{% with social_image=image_path|default:default_social_image %}
+<meta property="og:type" content="{{ social_type|default:'website' }}">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Sarobe Contabilidade">
+<meta property="og:title" content="{{ title }}{% if page_number > 1 and not filter_active %} — Página {{ page_number }}{% endif %}">
+<meta property="og:description" content="{{ description }}{% if page_number > 1 and not filter_active %} Página {{ page_number }} do blog.{% endif %}">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}{% if page_number > 1 and not filter_active %}?page={{ page_number }}{% endif %}">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ social_image }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ title }}{% if page_number > 1 and not filter_active %} — Página {{ page_number }}{% endif %}">
+<meta name="twitter:description" content="{{ description }}{% if page_number > 1 and not filter_active %} Página {{ page_number }} do blog.{% endif %}">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{{ social_image }}">
+{% endwith %}

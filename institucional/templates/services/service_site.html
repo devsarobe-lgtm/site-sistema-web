@@ -6,8 +6,11 @@
 {% endblock %}
 
 {% block info %}
-<title>Serviços Contábeis e Consultoria Empresarial | Sarobe Contabilidade</title>
-<meta name="description" content="Conheça os serviços da Sarobe Contabilidade. Oferecemos soluções contábeis, fiscais, trabalhistas e consultoria empresarial completa para empresas que buscam eficiência, segurança e crescimento sustentável.">
+{% with seo_title="Serviços Contábeis e Consultoria Empresarial | Sarobe Contabilidade" seo_description="Conheça os serviços da Sarobe Contabilidade. Oferecemos soluções contábeis, fiscais, trabalhistas e consultoria empresarial completa para empresas que buscam eficiência, segurança e crescimento sustentável." %}
+<title>{{ seo_title }}</title>
+<meta name="description" content="{{ seo_description }}">
+{% include 'components/_social_meta.html' with title=seo_title description=seo_description %}
+{% endwith %}
 {% endblock %}
 
 {% block ld_json %}

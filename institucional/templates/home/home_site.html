@@ -6,8 +6,11 @@
 {% endblock %}
 
 {% block info %}
-<title>Sarobe Contabilidade em São José SC | Consultoria e Assessoria Contábil para Empresas</title>
-<meta name="description" content="Contabilidade em São José SC com foco em empresas e condomínios. A Sarobe oferece soluções fiscais, contábeis e consultivas com segurança e atendimento próximo. Fale com um contador especializado!">
+{% with seo_title="Sarobe Contabilidade em São José SC | Consultoria e Assessoria Contábil para Empresas" seo_description="Contabilidade em São José SC com foco em empresas e condomínios. A Sarobe oferece soluções fiscais, contábeis e consultivas com segurança e atendimento próximo. Fale com um contador especializado!" %}
+<title>{{ seo_title }}</title>
+<meta name="description" content="{{ seo_description }}">
+{% include 'components/_social_meta.html' with title=seo_title description=seo_description %}
+{% endwith %}
 {% endblock %}
 
 {% block ld_json %}
@@ -31,13 +34,7 @@
         "postalCode": "88101-170",
         "addressCountry": "BR"
       },
-      "areaServed": "BR",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": 5.0,
-        "reviewCount": 34,
-        "bestRating": 5
-      }
+      "areaServed": "BR"
     },
     {
       "@type": "WebSite",

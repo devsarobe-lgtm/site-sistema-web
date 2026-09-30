@@ -8,6 +8,7 @@
 {% block info %}
 <title>{{ post.title_page }}</title>
 <meta name="description" content="{{post.description_page}}">
+{% include 'components/_social_meta.html' with title=post.title_page description=post.description_page image_path=post.cover_image.url social_type='article' %}
 {% endblock %}
 
 {% block ld_json %}
@@ -220,7 +221,7 @@
 
                                     {% if item.cover_image %}
                                     <div class="blog-related-thumb">
-                                        <img src="{{ item.cover_image.url }}" alt="{{ item.title }}" class="img-fluid">
+                                        <img src="{{ item.cover_image.url }}" alt="{{ item.title }}" class="img-fluid" width="{{ item.cover_image.width }}" height="{{ item.cover_image.height }}" loading="lazy" decoding="async">
                                     </div>
                                     {% endif %}
 

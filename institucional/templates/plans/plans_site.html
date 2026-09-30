@@ -7,8 +7,11 @@
 
 
 {% block info %}
-<title>Planos Contábeis e Consultoria Financeira | Sarobe Contabilidade</title>
-<meta name="description" content="Conheça os planos contábeis da Sarobe Contabilidade. Soluções sob medida para MEI, Simples Nacional e Lucro Presumido, com suporte completo, transparência e atendimento consultivo.">
+{% with seo_title="Planos Contábeis e Consultoria Financeira | Sarobe Contabilidade" seo_description="Conheça os planos contábeis da Sarobe Contabilidade. Soluções sob medida para MEI, Simples Nacional e Lucro Presumido, com suporte completo, transparência e atendimento consultivo." %}
+<title>{{ seo_title }}</title>
+<meta name="description" content="{{ seo_description }}">
+{% include 'components/_social_meta.html' with title=seo_title description=seo_description %}
+{% endwith %}
 {% endblock %}
 
 {% block ld_json %}

@@ -4,17 +4,40 @@
 {% block info %}
 <title>{{ lp_meta_title }}</title>
 <meta name="description" content="{{ lp_meta_description }}">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="pt_BR">
-<meta property="og:site_name" content="Sarobe Contabilidade">
-<meta property="og:title" content="{{ lp_meta_title }}">
-<meta property="og:description" content="{{ lp_meta_description }}">
-<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
 {% if lp_hero.image_path %}
 {% static lp_hero.image_path as lp_social_image %}
-<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ lp_social_image }}">
+{% include 'components/_social_meta.html' with title=lp_meta_title description=lp_meta_description image_path=lp_social_image %}
 <meta property="og:image:alt" content="{{ lp_hero.image_alt }}">
+{% else %}
+{% include 'components/_social_meta.html' with title=lp_meta_title description=lp_meta_description %}
 {% endif %}
+{% endblock %}
+
+{% block ld_json %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#webpage",
+      "url": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}",
+      "name": "{{ lp_meta_title|escapejs }}",
+      "description": "{{ lp_meta_description|escapejs }}",
+      "inLanguage": "pt-BR",
+      "about": {"@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#service"}
+    },
+    {
+      "@type": "Service",
+      "@id": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#service",
+      "name": "Assessoria contábil para a Reforma Tributária",
+      "description": "{{ lp_meta_description|escapejs }}",
+      "provider": {"@id": "{{ request.scheme }}://{{ request.get_host }}/#organization"},
+      "areaServed": {"@type": "AdministrativeArea", "name": "Grande Florianópolis, SC"}
+    }
+  ]
+}
+</script>
 {% endblock %}
 
 {% block styles %}

@@ -100,8 +100,15 @@
 
 
 {% block info %}
-<title>Atualizações e Dicas Contábeis | Blog Sarobe Contabilidade</title>
-<meta name="description" content="Confira as últimas novidades, dicas fiscais e orientações contábeis para empresas. O blog da Sarobe Contabilidade traz informações práticas sobre gestão, tributos e obrigações empresariais.">
+{% with seo_title="Atualizações e Dicas Contábeis | Blog Sarobe Contabilidade" seo_description="Confira as últimas novidades, dicas fiscais e orientações contábeis para empresas. O blog da Sarobe Contabilidade traz informações práticas sobre gestão, tributos e obrigações empresariais." %}
+<title>{{ seo_title }}{% if page_obj.number > 1 and not active_tag %} — Página {{ page_obj.number }}{% endif %}</title>
+<meta name="description" content="{{ seo_description }}{% if page_obj.number > 1 and not active_tag %} Página {{ page_obj.number }} do blog.{% endif %}">
+{% include 'components/_social_meta.html' with title=seo_title description=seo_description page_number=page_obj.number filter_active=active_tag %}
+{% endwith %}
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}{% if page_obj.number > 1 and not active_tag %}?page={{ page_obj.number }}{% endif %}">
 {% endblock %}
 
 {% block content %}

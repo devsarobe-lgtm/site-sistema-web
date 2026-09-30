@@ -97,10 +97,13 @@ class TaxReformView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["lp_meta_title"] = "Reforma Tributária para empresas | Sarobe Contabilidade"
+        context["lp_meta_title"] = (
+            "Reforma Tributária na Grande Florianópolis | Sarobe Contabilidade"
+        )
         context["lp_meta_description"] = (
-            "Entenda como a Reforma Tributária pode afetar sua empresa e converse "
-            "com a equipe da Sarobe Contabilidade em São José/SC."
+            "Orientação sobre a Reforma Tributária para empresas de São José "
+            "e Grande Florianópolis. Entenda possíveis impactos da CBS e do "
+            "IBS nas rotinas fiscais."
         )
         context["lp_nav_items"] = [
             {"label": "Home", "url": "#inicio"},
@@ -117,11 +120,12 @@ class TaxReformView(TemplateView):
         context["lp_header_contact_label"] = "Fale com a Sarobe"
         context["lp_hero"] = {
             "id": "inicio",
-            "eyebrow": "Sarobe Contabilidade",
-            "title": "Reforma Tributária: prepare sua empresa para as mudanças",
+            "eyebrow": "Sarobe Contabilidade | São José/SC",
+            "title": "Reforma Tributária: entenda o que muda para sua empresa",
             "description": (
-                "Conte com orientação contábil para entender os impactos "
-                "da Reforma Tributária no seu negócio."
+                "A Sarobe orienta empresas da Grande Florianópolis sobre "
+                "possíveis impactos da CBS e do IBS em notas fiscais, cadastros "
+                "e rotinas, conforme suas atividades e regime tributário."
             ),
             "primary_label": "Conversar com a Sarobe",
             "primary_url": context["lp_whatsapp_url"],
@@ -134,148 +138,148 @@ class TaxReformView(TemplateView):
             "image_width": 500,
             "image_height": 333,
             "benefits": [
-                {"icon": "shield", "label": "Segurança tributária"},
-                {"icon": "people", "label": "Assessoria completa"},
-                {"icon": "chart", "label": "Gestão financeira mais eficiente"},
-                {"icon": "star", "label": "Atendimento personalizado"},
+                {"icon": "shield", "label": "Análise de impactos fiscais"},
+                {"icon": "people", "label": "Orientação sobre CBS e IBS"},
+                {"icon": "chart", "label": "Revisão de rotinas fiscais"},
+                {"icon": "star", "label": "Acompanhamento da transição"},
             ],
         }
         context["lp_help_you"] = {
             "eyebrow": "Como podemos ajudar",
-            "title": "Sua empresa preparada para cada etapa da transição",
+            "title": "Orientação contábil para cada etapa da transição",
             "description": (
-                "A Reforma Tributária do Consumo traz novas regras para as rotinas fiscais. "
-                "A Sarobe ajuda você a entender o que merece atenção e a organizar os "
-                "próximos passos de acordo com a realidade do seu negócio."
+                "A Reforma Tributária do Consumo introduz a CBS e o IBS em etapas. "
+                "Avaliamos as operações e as rotinas fiscais da sua empresa para "
+                "identificar pontos de atenção e orientar os próximos passos."
             ),
             "cta_label": "Conversar com a Sarobe",
             "items": [
                 {
                     "icon": "diagnosis",
-                    "title": "Diagnóstico do seu negócio",
+                    "title": "Diagnóstico das operações",
                     "description": (
-                        "Analisamos suas atividades, operações e regime tributário para "
-                        "identificar onde as mudanças podem afetar a empresa."
+                        "Analisamos atividades, operações e regime tributário para "
+                        "identificar possíveis efeitos da CBS e do IBS nas rotinas fiscais."
                     ),
                     "highlights": [
-                        "Mapeamento de riscos",
-                        "Revisão de processos",
-                        "Levantamento de oportunidades",
+                        "Mapeamento das operações",
+                        "Revisão de documentos fiscais",
+                        "Pontos de atenção",
                     ],
                 },
                 {
                     "icon": "plan",
                     "title": "Plano de adequação",
                     "description": (
-                        "Organizamos prioridades para revisar processos, cadastros e "
-                        "documentos fiscais junto com a sua equipe."
+                        "Definimos com sua equipe prioridades para revisar cadastros, "
+                        "emissão de notas fiscais e processos de apuração."
                     ),
                     "highlights": [
-                        "Prioridades de ajuste",
-                        "Plano por etapas",
-                        "Alinhamento com a equipe",
+                        "Prioridades de adequação",
+                        "Revisão de cadastros",
+                        "Etapas de implementação",
                     ],
                 },
                 {
                     "icon": "implementation",
-                    "title": "Apoio na implementação",
+                    "title": "Orientação nos ajustes",
                     "description": (
-                        "Acompanhamos os ajustes nas rotinas contábeis e fiscais e "
-                        "orientamos as pessoas envolvidas no dia a dia."
+                        "Orientamos a revisão das rotinas contábeis e fiscais e "
+                        "esclarecemos dúvidas da equipe durante a aplicação dos ajustes."
                     ),
                     "highlights": [
-                        "Revisão de cadastros",
-                        "Ajustes em documentos",
-                        "Orientação operacional",
+                        "Rotinas contábeis e fiscais",
+                        "Documentos fiscais",
+                        "Orientação à equipe",
                     ],
                 },
                 {
                     "icon": "monitoring",
-                    "title": "Acompanhamento contínuo",
+                    "title": "Acompanhamento da transição",
                     "description": (
-                        "Monitoramos a regulamentação e atualizamos as orientações "
-                        "conforme novas regras forem detalhadas."
+                        "Acompanhamos normas e comunicados oficiais para revisar "
+                        "as orientações à medida que a transição avança."
                     ),
                     "highlights": [
                         "Atualizações normativas",
-                        "Revisão periódica",
-                        "Ajustes de rota",
+                        "Revisão das orientações",
+                        "Próximos passos",
                     ],
                 },
             ],
         }
         context["lp_faq"] = {
             "eyebrow": "Dúvidas frequentes",
-            "title": "Perguntas mais comuns",
+            "title": "Dúvidas sobre a Reforma Tributária",
             "description": (
-                "Reunimos as principais dúvidas para você entender como a Sarobe "
-                "pode apoiar sua empresa na Reforma Tributária."
+                "Entenda pontos da Reforma Tributária do Consumo que podem "
+                "afetar a rotina fiscal da sua empresa."
             ),
             "support_text": (
-                "Se ainda tiver alguma dúvida, nossa equipe está à disposição "
-                "para conversar e entender a realidade do seu negócio."
+                "As exigências variam conforme a atividade, as operações e o "
+                "regime tributário. Converse com a equipe sobre o seu caso."
             ),
             "cta_label": "Conversar com a Sarobe",
             "items": [
                 {
-                    "question": "Como a Reforma Tributária vai impactar minha empresa?",
+                    "question": "O que muda para minha empresa com a Reforma Tributária?",
                     "answer": (
-                        "A Reforma Tributária do Consumo muda regras de tributação e exige "
-                        "atenção aos documentos fiscais, à apuração e às obrigações "
-                        "acessórias. Os efeitos variam conforme atividade, operações e "
-                        "regime tributário. Nossa equipe analisa o cenário da sua empresa "
-                        "para identificar as rotinas que precisam de revisão."
+                        "A Reforma Tributária do Consumo introduz gradualmente a CBS e "
+                        "o IBS. Pode ser necessário revisar notas fiscais, cadastros e "
+                        "apuração de tributos. Os efeitos dependem da atividade, das "
+                        "operações e do regime tributário da empresa."
                     ),
                 },
                 {
-                    "question": "Quais empresas precisam se preparar agora?",
+                    "question": "Empresas do Simples Nacional também precisam se preparar?",
                     "answer": (
-                        "Empresas que vendem bens ou prestam serviços devem acompanhar "
-                        "as exigências e o cronograma aplicáveis às suas operações e ao "
-                        "seu regime tributário. O primeiro passo é revisar documentos "
-                        "fiscais, cadastros e processos para definir prioridades."
+                        "Sim. O Simples Nacional permanece, mas as regras da CBS e do "
+                        "IBS também exigem atenção às operações, aos documentos fiscais "
+                        "e à forma de recolhimento aplicável. A análise deve considerar "
+                        "a realidade de cada empresa."
                     ),
                 },
                 {
-                    "question": "A Sarobe também ajuda na implementação das mudanças?",
+                    "question": "Por onde começar a preparação para a Reforma Tributária?",
                     "answer": (
-                        "Sim. Além do diagnóstico, apoiamos a organização dos ajustes "
-                        "nas rotinas contábeis e fiscais, orientamos sua equipe e "
-                        "acompanhamos as mudanças conforme as regras forem detalhadas."
+                        "Comece pelas atividades e operações da empresa, pelo regime "
+                        "tributário, pelos cadastros e pelos documentos fiscais emitidos. "
+                        "Com essas informações, é possível identificar pontos de "
+                        "atenção e organizar as prioridades de revisão."
                     ),
                 },
                 {
-                    "question": "Quanto tempo leva para minha empresa estar em conformidade?",
+                    "question": "Como a Sarobe pode orientar minha empresa nessa transição?",
                     "answer": (
-                        "Não existe um prazo igual para todas as empresas. O tempo "
-                        "depende das operações, dos sistemas, dos cadastros e das "
-                        "obrigações aplicáveis. Após avaliar sua situação, organizamos "
-                        "um plano de adequação por etapas."
+                        "A equipe avalia as rotinas fiscais e os documentos da empresa, "
+                        "indica prioridades de adequação e orienta os ajustes conforme "
+                        "as exigências aplicáveis. O acompanhamento considera a evolução "
+                        "das normas durante a transição."
                     ),
                 },
                 {
-                    "question": "Como funciona a consultoria da Sarobe?",
+                    "question": "Quanto tempo leva para adequar minha empresa?",
                     "answer": (
-                        "Começamos entendendo suas atividades e rotinas fiscais. Com "
-                        "base nesse diagnóstico, apresentamos prioridades, orientamos "
-                        "os próximos passos e acompanhamos a implementação conforme "
-                        "as necessidades da sua empresa."
+                        "O prazo varia conforme as operações, os sistemas e os "
+                        "documentos fiscais utilizados. Após analisar esse cenário "
+                        "e o cronograma aplicável, é possível planejar a adequação "
+                        "por etapas, sem presumir um prazo único para todas as empresas."
                     ),
                 },
             ],
         }
         context["lp_cta"] = {
-            "eyebrow": "Vamos conversar?",
-            "title": "Dê o próximo passo com mais segurança",
+            "eyebrow": "Orientação para sua empresa",
+            "title": "Converse sobre a Reforma Tributária",
             "description": (
-                "Fale com a Sarobe e receba uma orientação contábil personalizada "
-                "para a sua empresa. Entenda como se preparar para a Reforma "
-                "Tributária e manter seu negócio em conformidade."
+                "Converse com a Sarobe sobre a CBS, o IBS e os possíveis ajustes "
+                "em documentos e rotinas fiscais. A orientação considera as "
+                "atividades, as operações e o regime tributário da sua empresa."
             ),
             "benefits": [
-                {"icon": "shield", "label": "Atendimento especializado"},
-                {"icon": "chart", "label": "Análise da sua realidade"},
-                {"icon": "people", "label": "Suporte em todas as etapas"},
+                {"icon": "shield", "label": "Análise das operações"},
+                {"icon": "chart", "label": "Orientação sobre rotinas fiscais"},
+                {"icon": "people", "label": "Acompanhamento da transição"},
             ],
             "image_path": "img/lp/cta-office.webp",
             "primary_label": "Conversar com a Sarobe",

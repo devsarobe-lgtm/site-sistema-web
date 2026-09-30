@@ -6,8 +6,12 @@
 {% endblock %}
 
 {% block info %}
-<title></title>
-<meta name="description" content="">
+{% with seo_title="Sobre a Sarobe Contabilidade | Equipe em São José, SC" seo_description="Conheça a história e a equipe da Sarobe Contabilidade em São José, SC. Atendimento contábil próximo para empresas da Grande Florianópolis." %}
+<title>{{ seo_title }}</title>
+<meta name="description" content="{{ seo_description }}">
+{% static 'img/team/team_home.webp' as about_social_image %}
+{% include 'components/_social_meta.html' with title=seo_title description=seo_description image_path=about_social_image %}
+{% endwith %}
 {% endblock %}
 
 {% block ld_json %}
