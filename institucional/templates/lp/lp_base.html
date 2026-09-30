@@ -22,66 +22,11 @@
 <body class="lp-page {% block body_class %}{% endblock %}">
     <a class="lp-skip-link" href="#main-content">Pular para o conteúdo</a>
 
-    <header class="lp-header" id="lp-header">
-        <div class="container lp-header__inner">
-            <a class="lp-header__brand" href="{% url 'home' %}" aria-label="Sarobe Contabilidade — página inicial">
-                <img src="{% static 'img/logos/logo_branca_icon_sem_fundo.webp' %}" alt="" width="50" height="50" decoding="async">
-                <span><strong>Sarobe</strong><small>Contabilidade</small></span>
-            </a>
-            <button class="lp-header__toggle" type="button" aria-controls="lp-navigation" aria-expanded="false" aria-label="Abrir menu" data-lp-menu-toggle>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-            </button>
-            <nav class="lp-header__nav" id="lp-navigation" aria-label="Navegação da página" data-lp-navigation>
-                <ul class="lp-header__links">
-                    {% for item in lp_nav_items %}
-                    <li><a href="{{ item.url }}">{{ item.label }}</a></li>
-                    {% endfor %}
-                </ul>
-                {% if lp_whatsapp_url %}
-                <a class="lp-button lp-header__contact" href="{{ lp_whatsapp_url }}" target="_blank" rel="noopener noreferrer">{{ lp_header_contact_label|default:'Fale com a Sarobe' }}</a>
-                {% endif %}
-            </nav>
-        </div>
-    </header>
-
     {% include 'components/_cookie_banner.html' %}
 
     <main id="main-content" tabindex="-1">
         {% block content %}{% endblock %}
-        {% block cta %}
-        {% if lp_cta %}
-        <section class="lp-cta" id="contato" tabindex="-1" aria-labelledby="lp-cta-title">
-            <div class="container lp-cta__inner">
-                {% if lp_cta.eyebrow %}<p class="lp-eyebrow">{{ lp_cta.eyebrow }}</p>{% endif %}
-                <h2 id="lp-cta-title">{{ lp_cta.title }}</h2>
-                {% if lp_cta.description %}<p>{{ lp_cta.description }}</p>{% endif %}
-                {% if lp_cta.primary_url and lp_cta.primary_label %}
-                <a class="lp-button" href="{{ lp_cta.primary_url }}"{% if lp_cta.primary_external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ lp_cta.primary_label }}</a>
-                {% endif %}
-            </div>
-        </section>
-        {% endif %}
-        {% endblock %}
     </main>
-
-    <footer class="lp-footer">
-        <div class="container lp-footer__inner">
-            <div>
-                <strong>Sarobe Contabilidade</strong>
-                <p>Contabilidade consultiva em São José/SC.</p>
-            </div>
-            <nav aria-label="Links do rodapé">
-                <a href="{% url 'home' %}">Site principal</a>
-                <a href="{% url 'contact' %}">Contato</a>
-                <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Política de Privacidade</a>
-                <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Termos de Uso</a>
-            </nav>
-        </div>
-    </footer>
-
-    <button class="lp-back-to-top" type="button" data-lp-back-to-top aria-label="Voltar ao topo" hidden>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 19V5m-7 7 7-7 7 7"/></svg>
-    </button>
     {% include 'components/_privacy_terms.html' %}
 
     {% compress js %}
