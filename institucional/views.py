@@ -200,6 +200,66 @@ class TaxReformView(TemplateView):
                 },
             ],
         }
+        context["lp_faq"] = {
+            "eyebrow": "Dúvidas frequentes",
+            "title": "Perguntas mais comuns",
+            "description": (
+                "Reunimos as principais dúvidas para você entender como a Sarobe "
+                "pode apoiar sua empresa na Reforma Tributária."
+            ),
+            "support_text": (
+                "Se ainda tiver alguma dúvida, nossa equipe está à disposição "
+                "para conversar e entender a realidade do seu negócio."
+            ),
+            "cta_label": "Conversar com a Sarobe",
+            "items": [
+                {
+                    "question": "Como a Reforma Tributária vai impactar minha empresa?",
+                    "answer": (
+                        "A Reforma Tributária do Consumo muda regras de tributação e exige "
+                        "atenção aos documentos fiscais, à apuração e às obrigações "
+                        "acessórias. Os efeitos variam conforme atividade, operações e "
+                        "regime tributário. Nossa equipe analisa o cenário da sua empresa "
+                        "para identificar as rotinas que precisam de revisão."
+                    ),
+                },
+                {
+                    "question": "Quais empresas precisam se preparar agora?",
+                    "answer": (
+                        "Empresas que vendem bens ou prestam serviços devem acompanhar "
+                        "as exigências e o cronograma aplicáveis às suas operações e ao "
+                        "seu regime tributário. O primeiro passo é revisar documentos "
+                        "fiscais, cadastros e processos para definir prioridades."
+                    ),
+                },
+                {
+                    "question": "A Sarobe também ajuda na implementação das mudanças?",
+                    "answer": (
+                        "Sim. Além do diagnóstico, apoiamos a organização dos ajustes "
+                        "nas rotinas contábeis e fiscais, orientamos sua equipe e "
+                        "acompanhamos as mudanças conforme as regras forem detalhadas."
+                    ),
+                },
+                {
+                    "question": "Quanto tempo leva para minha empresa estar em conformidade?",
+                    "answer": (
+                        "Não existe um prazo igual para todas as empresas. O tempo "
+                        "depende das operações, dos sistemas, dos cadastros e das "
+                        "obrigações aplicáveis. Após avaliar sua situação, organizamos "
+                        "um plano de adequação por etapas."
+                    ),
+                },
+                {
+                    "question": "Como funciona a consultoria da Sarobe?",
+                    "answer": (
+                        "Começamos entendendo suas atividades e rotinas fiscais. Com "
+                        "base nesse diagnóstico, apresentamos prioridades, orientamos "
+                        "os próximos passos e acompanhamos a implementação conforme "
+                        "as necessidades da sua empresa."
+                    ),
+                },
+            ],
+        }
         context["lp_cta"] = {
             "eyebrow": "Entre em contato",
             "title": "Vamos conversar sobre sua empresa?",

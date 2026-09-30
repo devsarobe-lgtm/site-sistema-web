@@ -171,6 +171,30 @@
         reviewCards.forEach((card) => reviewsObserver.observe(card));
     }
 
+    const faqSection = document.querySelector('[data-lp-faq]');
+    if (faqSection) {
+        const faqItems = [...faqSection.querySelectorAll('.lp-faq__item')];
+
+        faqItems.forEach((item) => {
+            item.addEventListener('toggle', () => {
+                if (!item.open) return;
+                faqItems.forEach((other) => {
+                    if (other !== item) other.open = false;
+                });
+            });
+        });
+
+        faqSection.addEventListener('keydown', (event) => {
+            if (event.key !== 'Escape' || !(event.target instanceof Element)) return;
+            const item = event.target.closest('.lp-faq__item');
+            if (!item?.open) return;
+
+            item.open = false;
+            item.querySelector('summary')?.focus();
+            event.preventDefault();
+        });
+    }
+
     const partnersSections = document.querySelectorAll('[data-lp-partners]');
     if (partnersSections.length) {
         if ('IntersectionObserver' in window) {
