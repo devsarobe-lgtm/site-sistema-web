@@ -2,6 +2,7 @@ from django.views.generic import TemplateView, ListView, DetailView
 from django.shortcuts import render
 from django.db.models import Count
 from django.shortcuts import get_object_or_404
+from django.urls import reverse
 from . import models
 
 
@@ -104,7 +105,7 @@ class TaxReformView(TemplateView):
         )
         context["lp_nav_items"] = [
             {"label": "Início", "url": "#inicio"},
-            {"label": "Contato", "url": "#contato"},
+            {"label": "Contato", "url": reverse("contact")},
         ]
         context["lp_whatsapp_url"] = (
             "https://wa.me/554832660069?text=Ol%C3%A1%21%20Gostaria%20de%20"

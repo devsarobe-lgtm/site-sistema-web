@@ -1,0 +1,43 @@
+{% load static %}
+<header class="lp-header" id="lp-header">
+    <div class="container lp-header__inner">
+        <a class="lp-header__brand" href="{% url 'home' %}" aria-label="Sarobe Contabilidade — ir para a página inicial">
+            <picture>
+                <source type="image/webp" srcset="{% static 'img/logos/logo_branca_icon_sem_fundo.webp' %} 1x, {% static 'img/logos/logo_branca_icon_sem_fundo_2x.webp' %} 2x">
+                <img src="{% static 'img/logos/logo_branca_icon_sem_fundo.webp' %}" alt="" width="50" height="50" loading="eager" decoding="async">
+            </picture>
+            <span class="lp-header__brand-text">
+                <strong>Sarobe</strong>
+                <small>Contabilidade</small>
+            </span>
+        </a>
+
+        <button class="lp-header__toggle" type="button" aria-controls="lp-navigation" aria-expanded="false"
+            aria-label="Abrir menu" data-lp-menu-toggle>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" aria-hidden="true" focusable="false">
+                <path d="M4 7h16M4 12h16M4 17h16"/>
+            </svg>
+        </button>
+
+        <nav class="lp-header__nav" id="lp-navigation" aria-label="Navegação da página" data-lp-navigation>
+            <ul class="lp-header__links">
+                {% for item in lp_nav_items %}
+                <li><a href="{{ item.url }}"{% if item.active %} aria-current="location"{% endif %}>{{ item.label }}</a></li>
+                {% empty %}
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'services' %}">Serviços</a></li>
+                <li><a href="{% url 'contact' %}">Contato</a></li>
+                {% endfor %}
+            </ul>
+            {% if lp_whatsapp_url %}
+            <a class="lp-button lp-header__contact" href="{{ lp_whatsapp_url }}" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+                    <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+                </svg>
+                <span>{{ lp_header_contact_label|default:'WhatsApp' }}</span>
+            </a>
+            {% endif %}
+        </nav>
+    </div>
+</header>

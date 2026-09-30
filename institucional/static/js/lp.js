@@ -3,10 +3,13 @@
 
     const menuButton = document.querySelector('[data-lp-menu-toggle]');
     const navigation = document.querySelector('[data-lp-navigation]');
+    const header = document.getElementById('lp-header');
     const backToTop = document.querySelector('[data-lp-back-to-top]');
-    const desktopQuery = window.matchMedia('(min-width: 768px)');
+    const desktopQuery = window.matchMedia('(min-width: 992px)');
 
-    if (menuButton && navigation) {
+    if (header && menuButton && navigation) {
+        header.classList.add('lp-header--ready');
+
         const setMenuOpen = (isOpen, restoreFocus = false) => {
             navigation.classList.toggle('is-open', isOpen);
             menuButton.setAttribute('aria-expanded', String(isOpen));
@@ -25,8 +28,15 @@
             const link = event.target.closest('a');
             if (link) {
                 setMenuOpen(false);
-                const target = link.hash && document.getElementById(link.hash.slice(1));
-                if (target) target.focus({ preventScroll: true });
+                if (link.origin === window.location.origin && link.pathname === window.location.pathname && link.hash) {
+                    const target = document.getElementById(link.hash.slice(1));
+                    if (target) {
+                        if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+                        target.focus({ preventScroll: true });
+                    }
+                } else if (link.target === '_blank') {
+                    menuButton.focus({ preventScroll: true });
+                }
             }
         });
 
