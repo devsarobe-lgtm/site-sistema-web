@@ -10,4 +10,5 @@ urlpatterns = [
     path('planos/', views.PlansView.as_view(), name='plans'),
     path('atualizacao/<slug:slug>/', views.BlogDetailView.as_view(), name='blog_detail'),
     path('reforma-tributaria/', views.TaxReformView.as_view(), name='tax_reform'),
+    path('contabilidade-online/', views.OnlineAccountingView.as_view(), name='online_accounting'),
 ]

@@ -10,6 +10,7 @@
     const desktopQuery = window.matchMedia('(min-width: 992px)');
     const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     let scheduleHeaderUpdate = () => {};
+    let scheduleNavigationUpdate = () => {};
 
     if (header && menuButton && navigation) {
         header.classList.add('lp-header--ready');
@@ -90,35 +91,74 @@
     }
 
     if (header && navigation) {
+        const linkList = navigation.querySelector('[data-lp-section-links]');
         const sectionLinks = [...navigation.querySelectorAll('.lp-header__links a[href^="#"]')]
             .map((link) => ({ link, section: document.getElementById(link.hash.slice(1)) }))
             .filter(({ section }) => section);
 
         if (sectionLinks.length) {
             let navigationFrame = null;
+            const updateIndicator = (link) => {
+                if (!linkList) return;
+                const bounds = link.getBoundingClientRect();
+                if (!bounds.width || !bounds.height) {
+                    linkList.style.setProperty('--lp-indicator-opacity', '0');
+                    return;
+                }
+
+                const listBounds = linkList.getBoundingClientRect();
+                const paddingBottom = parseFloat(window.getComputedStyle(link).paddingBottom) || 0;
+                linkList.style.setProperty('--lp-indicator-x', `${bounds.left - listBounds.left}px`);
+                linkList.style.setProperty('--lp-indicator-y', `${bounds.bottom - listBounds.top - paddingBottom + 3}px`);
+                linkList.style.setProperty('--lp-indicator-width', `${bounds.width}px`);
+                linkList.style.setProperty('--lp-indicator-opacity', '1');
+                linkList.setAttribute('data-lp-indicator-ready', '');
+            };
+
             const updateActiveSection = () => {
                 navigationFrame = null;
-                const marker = header.getBoundingClientRect().height + Math.min(window.innerHeight * 0.2, 160);
-                const active = sectionLinks.find(({ section }) => {
-                    const bounds = section.getBoundingClientRect();
-                    return bounds.top <= marker && bounds.bottom > marker;
+                const headerHeight = parseFloat(document.body.style.getPropertyValue('--lp-header-height')) || header.getBoundingClientRect().height;
+                const marker = headerHeight + Math.min(window.innerHeight * 0.2, 160);
+                let active = sectionLinks[0];
+                let activeTop = -Infinity;
+                sectionLinks.forEach((entry) => {
+                    const top = entry.section.getBoundingClientRect().top;
+                    if (top <= marker && top > activeTop) {
+                        active = entry;
+                        activeTop = top;
+                    }
                 });
 
                 sectionLinks.forEach(({ link }) => {
-                    if (link === active?.link) link.setAttribute('aria-current', 'location');
-                    else link.removeAttribute('aria-current');
+                    if (link === active.link) {
+                        if (!link.hasAttribute('aria-current')) link.setAttribute('aria-current', 'location');
+                    } else if (link.hasAttribute('aria-current')) {
+                        link.removeAttribute('aria-current');
+                    }
                 });
+                updateIndicator(active.link);
             };
 
             const scheduleActiveSection = () => {
                 if (navigationFrame !== null) return;
                 navigationFrame = window.requestAnimationFrame(updateActiveSection);
             };
+            scheduleNavigationUpdate = scheduleActiveSection;
 
             updateActiveSection();
             window.addEventListener('scroll', scheduleActiveSection, { passive: true });
             window.addEventListener('resize', scheduleActiveSection);
             window.addEventListener('pageshow', scheduleActiveSection);
+            window.addEventListener('load', scheduleActiveSection);
+            document.addEventListener('toggle', scheduleActiveSection, true);
+            document.fonts?.ready.then(scheduleActiveSection);
+
+            if ('ResizeObserver' in window) {
+                const navigationObserver = new ResizeObserver(scheduleActiveSection);
+                navigationObserver.observe(header);
+                if (linkList) navigationObserver.observe(linkList);
+                sectionLinks.forEach(({ section }) => navigationObserver.observe(section));
+            }
         }
     }
 
@@ -141,6 +181,7 @@
             block: 'start',
         });
         target.focus({ preventScroll: true });
+        scheduleNavigationUpdate();
         if (window.location.hash !== link.hash) window.history.pushState(null, '', link.hash);
     });
 

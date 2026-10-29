@@ -22,7 +22,7 @@
         </button>
 
         <nav class="lp-header__nav" id="lp-navigation" aria-label="Navegação da página" data-lp-navigation>
-            <ul class="lp-header__links">
+            <ul class="lp-header__links" data-lp-section-links>
                 {% for item in lp_nav_items %}
                 <li><a href="{{ item.url }}" data-lp-scroll{% if item.active %} aria-current="location"{% endif %}>{{ item.label }}</a></li>
                 {% endfor %}

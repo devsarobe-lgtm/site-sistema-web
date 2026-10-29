@@ -1,3 +1,5 @@
+from urllib.parse import urlencode
+
 from django.views.generic import TemplateView, ListView, DetailView
 from django.shortcuts import render
 from django.db.models import Count
@@ -283,6 +285,276 @@ class TaxReformView(TemplateView):
             ],
             "image_path": "img/lp/cta-office.webp",
             "primary_label": "Conversar com a Sarobe",
+            "primary_url": context["lp_whatsapp_url"],
+            "primary_external": True,
+            "primary_icon": "whatsapp",
+        }
+        return context
+
+class OnlineAccountingView(TemplateView):
+    template_name = "lp/online_accounting.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["lp_meta_title"] = (
+            "Trocar de contabilidade online em São José | Sarobe"
+        )
+        context["lp_meta_description"] = (
+            "Cansado de cobranças extras e robôs? Troque de contabilidade online "
+            "com atendimento humano e custos claros em São José e Grande Florianópolis. "
+            "Conheça a Sarobe."
+        )
+        context["lp_nav_items"] = [
+            {"label": "Início", "url": "#inicio"},
+            {"label": "O que muda", "url": "#como-podemos-ajudar"},
+            {"label": "Como trocar", "url": "#como-trocar-de-contabilidade"},
+            {"label": "Serviços", "url": "#servicos"},
+            {"label": "Sobre", "url": "#sobre-a-sarobe"},
+            {"label": "Avaliações", "url": "#avaliacoes"},
+            {"label": "Dúvidas", "url": "#perguntas-frequentes"},
+        ]
+        context["lp_whatsapp_url"] = "https://wa.me/554832660069?" + urlencode({
+            "text": "Olá! Quero trocar de contabilidade online e conhecer "
+            "o atendimento e a proposta da Sarobe para o meu CNPJ."
+        })
+        context["lp_header_contact_label"] = "Fale com nossa equipe"
+        context["lp_hero"] = {
+            "id": "inicio",
+            "eyebrow": "Contabilidade com atendimento humano | São José/SC",
+            "title": "Cansado da contabilidade online que complica o seu CNPJ?",
+            "description": (
+                "Cobranças extras, respostas de robô e o mesmo problema a cada "
+                "contato? Na Sarobe, você fala com pessoas, entende os custos "
+                "e tem acompanhamento próximo do seu CNPJ."
+            ),
+            "primary_label": "Quero trocar de contador",
+            "primary_url": context["lp_whatsapp_url"],
+            "primary_external": True,
+            "primary_icon": "whatsapp",
+            "secondary_label": "Conhecer o atendimento",
+            "secondary_url": "#como-podemos-ajudar",
+            "image_path": "img/team/team_home.webp",
+            "image_alt": "Equipe da Sarobe Contabilidade, em São José, SC",
+            "image_width": 500,
+            "image_height": 333,
+            "benefits": [
+                {"icon": "shield", "label": "Clareza sobre custos e serviços"},
+                {"icon": "people", "label": "Atendimento com pessoas"},
+                {"icon": "chart", "label": "Acompanhamento das demandas"},
+                {"icon": "star", "label": "Continuidade no atendimento"},
+            ],
+        }
+        context["lp_help_you"] = {
+            "eyebrow": "Sua empresa merece ser ouvida",
+            "title": "Menos desgaste com a contabilidade. Mais clareza para decidir.",
+            "description": (
+                "Se você está insatisfeito com a contabilidade online, compare "
+                "mais do que a mensalidade. Na Sarobe, em São José e na Grande "
+                "Florianópolis, a conversa inclui custos, canais de atendimento "
+                "e como suas demandas serão acompanhadas."
+            ),
+            "cta_label": "Quero conversar com a equipe",
+            "note": (
+                "Alterações de CNPJ e serviços fora do escopo podem ter custos "
+                "específicos. Alinhe o que está incluído e o que exige orçamento "
+                "antes de contratar."
+            ),
+            "items": [
+                {
+                    "icon": "plan",
+                    "title": "Mensalidade baixa, mas tudo custa à parte?",
+                    "description": (
+                        "Entenda o escopo da proposta antes de decidir. Conversamos "
+                        "sobre a rotina do seu CNPJ, os serviços incluídos e as "
+                        "situações que precisam de orçamento separado."
+                    ),
+                    "highlights": [
+                        "Serviços incluídos na proposta",
+                        "Alterações cadastrais com escopo definido",
+                        "Custos extras alinhados previamente",
+                    ],
+                },
+                {
+                    "icon": "people",
+                    "title": "Precisa de orientação e só recebe respostas de robô?",
+                    "description": (
+                        "Converse com a equipe da Sarobe sobre a realidade da sua "
+                        "empresa. O atendimento humano ajuda a entender a dúvida "
+                        "e orientar o próximo passo com uma linguagem clara."
+                    ),
+                    "highlights": [
+                        "Contato com a equipe pelo WhatsApp",
+                        "Orientação para o seu caso",
+                        "Explicações em linguagem clara",
+                    ],
+                },
+                {
+                    "icon": "monitoring",
+                    "title": "Seu problema fica parado sem uma resposta clara?",
+                    "description": (
+                        "Organizamos as demandas com você e alinhamos prioridades, "
+                        "documentos necessários e próximos passos. O prazo considera "
+                        "a complexidade do caso e eventuais dependências externas."
+                    ),
+                    "highlights": [
+                        "Prioridades alinhadas",
+                        "Próximos passos definidos",
+                        "Acompanhamento das pendências",
+                    ],
+                },
+                {
+                    "icon": "conversation",
+                    "title": "Troca o atendente e você precisa contar tudo de novo?",
+                    "description": (
+                        "Acompanhamos o contexto da sua empresa para dar continuidade "
+                        "às orientações. Você conversa com uma equipe que conhece "
+                        "a demanda e considera o que já foi tratado."
+                    ),
+                    "highlights": [
+                        "Contexto da empresa considerado",
+                        "Continuidade nas orientações",
+                        "Equipe próxima do seu negócio",
+                    ],
+                },
+            ],
+        }
+        context["lp_migration"] = {
+            "eyebrow": "Troca de contador com planejamento",
+            "title": "Trocar de contabilidade pode ser mais simples.",
+            "description": (
+                "A Sarobe avalia a rotina do seu CNPJ, apresenta uma proposta "
+                "clara e orienta a transição, considerando documentos, "
+                "pendências e prazos."
+            ),
+            "steps": [
+                {
+                    "icon": "document",
+                    "title": "Conte o que precisa mudar",
+                    "description": (
+                        "Compartilhe sua atividade, o regime tributário e as "
+                        "dificuldades com custos, atendimento ou pendências."
+                    ),
+                },
+                {
+                    "icon": "analysis",
+                    "title": "Compare uma proposta clara",
+                    "description": (
+                        "Confira a mensalidade, os serviços incluídos, os custos "
+                        "de demandas extras e como será o atendimento."
+                    ),
+                },
+                {
+                    "icon": "transition",
+                    "title": "Organize a transição com a equipe",
+                    "description": (
+                        "Alinhe os documentos e as responsabilidades de cada "
+                        "escritório antes de definir o início do acompanhamento."
+                    ),
+                },
+            ],
+            "cta_label": "Conversar sobre minha troca de contador",
+        }
+        context["lp_faq"] = {
+            "eyebrow": "Respostas para decidir com clareza",
+            "title": "Dúvidas sobre trocar de contabilidade online",
+            "description": (
+                "Veja o que avaliar sobre cobranças extras, atendimento humano "
+                "e continuidade antes de escolher outro escritório contábil."
+            ),
+            "support_text": (
+                "Cada CNPJ tem uma rotina. Converse com a equipe para alinhar "
+                "escopo, valores e condições de atendimento para sua empresa."
+            ),
+            "cta_label": "Tirar dúvidas com a equipe",
+            "items": [
+                {
+                    "question": "O que avaliar antes de trocar de contabilidade online?",
+                    "answer": (
+                        "Compare o escopo do contrato, o custo total e a forma de "
+                        "atendimento. Confira quais serviços estão na mensalidade, "
+                        "o que exige orçamento separado e como a equipe acompanha "
+                        "as demandas. Na Sarobe, essa conversa orienta a proposta "
+                        "para o seu CNPJ."
+                    ),
+                },
+                {
+                    "question": "Alterações no CNPJ estão incluídas na mensalidade?",
+                    "answer": (
+                        "Depende do escopo contratado e da alteração solicitada. "
+                        "Mudanças de endereço, atividades ou quadro societário "
+                        "podem exigir serviços específicos e taxas de órgãos "
+                        "públicos. Na proposta da Sarobe, alinhe o que está incluído "
+                        "e o que precisa de orçamento antes de autorizar o serviço."
+                    ),
+                },
+                {
+                    "question": "Na Sarobe vou falar com pessoas ou apenas com robôs?",
+                    "answer": (
+                        "Você pode conversar com a equipe da Sarobe pelo WhatsApp. "
+                        "O atendimento humano considera sua atividade, suas dúvidas "
+                        "e a rotina da empresa para orientar os próximos passos. "
+                        "Os canais e as condições de atendimento são alinhados "
+                        "na contratação."
+                    ),
+                },
+                {
+                    "question": "Vou falar sempre com o mesmo atendente?",
+                    "answer": (
+                        "O atendimento é feito pela equipe da Sarobe, com "
+                        "continuidade no acompanhamento da empresa. Isso não "
+                        "significa que todos os contatos serão com a mesma pessoa. "
+                        "O objetivo é considerar o contexto e o que já foi tratado "
+                        "para dar sequência à sua demanda."
+                    ),
+                },
+                {
+                    "question": "Qual é o prazo para resolver uma pendência contábil?",
+                    "answer": (
+                        "O prazo depende do tipo de pendência, dos documentos "
+                        "disponíveis e de eventuais respostas de órgãos públicos "
+                        "ou terceiros. A equipe avalia o caso com você para alinhar "
+                        "prioridades e próximos passos, sem prometer um prazo "
+                        "único para todas as situações."
+                    ),
+                },
+                {
+                    "question": "Como começo a troca para a Sarobe e quanto custa?",
+                    "answer": (
+                        "Entre em contato pelo WhatsApp e informe sua atividade, "
+                        "o regime tributário e as necessidades da empresa. A equipe "
+                        "avalia o cenário e apresenta uma proposta com escopo e "
+                        "valores. A organização da transição considera documentos, "
+                        "pendências e condições do contrato com o escritório atual."
+                    ),
+                },
+                {
+                    "question": "A Sarobe atende empresas de São José e da Grande Florianópolis?",
+                    "answer": (
+                        "Sim. A Sarobe Contabilidade está na Rua Victor Meirelles, "
+                        "07, no bairro Campinas, em São José, SC, e atende empresas "
+                        "da Grande Florianópolis. Para conversar sobre a troca de "
+                        "contador e o atendimento da sua empresa, entre em contato "
+                        "pelo WhatsApp (48) 3266-0069."
+                    ),
+                },
+            ],
+        }
+        context["lp_cta"] = {
+            "eyebrow": "Dê o próximo passo com clareza",
+            "title": "Seu CNPJ precisa de atenção. Você precisa de respostas.",
+            "description": (
+                "Conte o que não está funcionando na sua contabilidade online. "
+                "Converse com a equipe da Sarobe e conheça uma proposta com "
+                "atendimento humano, escopo definido e acompanhamento da sua "
+                "empresa em São José e na Grande Florianópolis."
+            ),
+            "benefits": [
+                {"icon": "shield", "label": "Custos e escopo alinhados"},
+                {"icon": "people", "label": "Conversa com a equipe"},
+                {"icon": "chart", "label": "Troca de contador planejada"},
+            ],
+            "image_path": "img/lp/cta-office.webp",
+            "primary_label": "Quero conhecer a proposta da Sarobe",
             "primary_url": context["lp_whatsapp_url"],
             "primary_external": True,
             "primary_icon": "whatsapp",
